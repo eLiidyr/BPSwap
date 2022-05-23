@@ -1,4 +1,4 @@
-/perfectbob
-/export
-/profiles/*.lua
+/*
+!/includes
+!/library
 !/profiles/Eliidyr_*.lua
