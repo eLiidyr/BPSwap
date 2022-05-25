@@ -10,55 +10,54 @@ function gear.new()
     -- CAPES.
     local capes = {
 
-        ['DT']   = { name="Intarabus's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','"Fast Cast"+10','Phys. dmg. taken-10%',}},
-        ['FC']   = { name="Intarabus's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','"Fast Cast"+10','Phys. dmg. taken-10%',}},
-        ['CHR']  = { name="Intarabus's Cape", augments={'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Fast Cast"+10','Phys. dmg. taken-10%',}},
-        ['CURE'] = { name="Intarabus's Cape", augments={'MND+20','Eva.+20 /Mag. Eva.+20','MND+10','Enmity-10','Phys. dmg. taken-10%',}},
+        ['DT']              = { name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+2','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+        ['DA - DEX']        = { name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+2','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+        ['ROLLS']           = { name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','DEX+2','"Dbl.Atk."+10','Phys. dmg. taken-10%',}},
+        ['SAVAGE BLADE']    = { name="Camulus's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
+        ['LEADEN SALUTE']   = { name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /Mag. Dmg.+20','AGI+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}},
+        ['RANGED']          = { name="Camulus's Mantle", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','AGI+1','"Store TP"+10',}},
 
     }
 
     -- [[ WEAPONS SWAPS ]]
     sets['Weapons'] = {
 
-        {name='Naegling/Blurred +1', set={main="Naegling",sub='Blurred Knife +1'}}
+        {name='None'},
+        {name='Test Sword', equip=false, set={main="Mutsunokami"}},
 
     }
     
     -- [[ IDLE SETS ]]
     sets["Idle"] = {
-        
+    
         -- MOVEMENT SPEED+.
-        {name="Movement Speed", set={main="Sakpata's Fists",
-        range="Animator P +1",
-        head="Mpaca's Cap",
-        body="Mpaca's Doublet",
-        hands="Mpaca's Gloves",
-        legs="Mpaca's Hose",
-        feet="Mpaca's Boots",
-        neck="Adad Amulet",
-        waist="Klouskap Sash",
-        left_ear="Kyrene's Earring",
-        right_ear="Tuisto Earring",
-        left_ring="Varar Ring +1",
-        right_ring="Varar Ring +1",
-        back="Visucius's Mantle",
+        {name="Movement Speed", set={head="Nyame Helm",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Malignance Tights",
+        feet="Nyame Sollerets",
+        neck="Warder's Charm",
+        waist="Carrier's Sash",
+        left_ear="Odr Earring",
+        right_ear="Telos Earring",
+        left_ring="Chirich Ring +1",
+        right_ring="Petrov Ring",
+        back=capes['DT'],
         }},
 
         -- DAMAGE TAKEN SET.
-        {name="Damage Taken", set={main="Sakpata's Fists",
-        range="Animator P +1",
-        head="Mpaca's Cap",
-        body="Mpaca's Doublet",
-        hands="Mpaca's Gloves",
-        legs="Mpaca's Hose",
-        feet="Mpaca's Boots",
-        neck="Adad Amulet",
-        waist="Klouskap Sash",
-        left_ear="Kyrene's Earring",
-        right_ear="Tuisto Earring",
-        left_ring="Varar Ring +1",
-        right_ring="Varar Ring +1",
-        back="Visucius's Mantle",
+        {name="Damage Taken", set={head="Nyame Helm",
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Malignance Tights",
+        feet="Nyame Sollerets",
+        neck="Warder's Charm",
+        waist="Carrier's Sash",
+        left_ear="Odr Earring",
+        right_ear="Telos Earring",
+        left_ring="Chirich Ring +1",
+        right_ring="Petrov Ring",
+        back=capes['DT'],
         }},
       
     }
@@ -67,69 +66,27 @@ function gear.new()
     sets["Engaged"] = {}    
     sets["Engaged"]["Attack"] = {			
     
-        -- Pet: Trash Build
-        {name="Pet - Trash", set={main="Sakpata's Fists",
-        range="Animator P +1",
-        head="Mpaca's Cap",
-        body="Mpaca's Doublet",
-        hands="Mpaca's Gloves",
-        legs="Mpaca's Hose",
-        feet="Mpaca's Boots",
-        neck="Adad Amulet",
-        waist="Klouskap Sash",
-        left_ear="Kyrene's Earring",
-        right_ear="Tuisto Earring",
-        left_ring="Varar Ring +1",
-        right_ring="Varar Ring +1",
-        back="Visucius's Mantle",
-        }},
-
-        -- Pet: Haste Build
-        {name="Pet - Haste", set={main="Sakpata's Fists",
-        range="Animator P +1",
-        head="Mpaca's Cap",
-        body="Mpaca's Doublet",
-        hands="Mpaca's Gloves",
-        legs="Mpaca's Hose",
-        feet="Mpaca's Boots",
-        neck="Adad Amulet",
-        waist="Klouskap Sash",
-        left_ear="Kyrene's Earring",
-        right_ear="Tuisto Earring",
-        left_ring="Varar Ring +1",
-        right_ring="Varar Ring +1",
-        back="Visucius's Mantle",            
-        }},
-
-        -- Pet: Haste Build
-        {name="Pet - STP", set={main="Sakpata's Fists",
-        range="Animator P +1",
-        head="Mpaca's Cap",
-        body="Mpaca's Doublet",
-        hands="Mpaca's Gloves",
-        legs="Mpaca's Hose",
-        feet="Mpaca's Boots",
-        neck="Adad Amulet",
-        waist="Klouskap Sash",
-        left_ear="Kyrene's Earring",
-        right_ear="Tuisto Earring",
-        left_ring="Varar Ring +1",
-        right_ring="Varar Ring +1",
-        back="Visucius's Mantle",
+        -- Trash Build
+        {name="Trash", set={head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+        body={ name="Adhemar Jacket +1", augments={'STR+12','DEX+12','Attack+20',}},
+        hands="Malignance Gloves",
+        legs="Malignance Tights",
+        feet={ name="Carmine Greaves +1", augments={'Accuracy+12','DEX+12','MND+20',}},
+        neck="Warder's Charm",
+        waist="Windbuffet Belt +1",
+        left_ear="Odr Earring",
+        right_ear="Telos Earring",
+        left_ring="Chirich Ring +1",
+        right_ring="Petrov Ring",
+        back=capes['DA - DEX'],
         }},
      
     }
     
     sets["Engaged"]["Accuracy"] = {
         
-        -- Pet: Trash Build
-        {name="Pet - Trash", set={}},
-
-        -- Pet: Haste Build
-        {name="Pet - Haste", set={}},
-
-        -- Pet: Haste Build
-        {name="Pet - STP", set={}},
+        -- Trash Build
+        {name="Trash", set={}},
      
     }
     
@@ -172,8 +129,69 @@ function gear.new()
     sets["WeaponSkill"] = {}    
     sets["WeaponSkill"]["Attack"] = {
         
-        -- Default WS Set.
-        ["Default"] = {},
+        ["Savage Blade"] = {
+
+            ["Default"] =
+            {
+                [0] =
+                {head={ name="Herculean Helm", augments={'Accuracy+23 Attack+23','Weapon skill damage +4%','AGI+11','Accuracy+1','Attack+15',}},
+                body="Laksa. Frac +2",
+                hands="Meg. Gloves +2",
+                legs={ name="Herculean Trousers", augments={'Attack+12','Weapon skill damage +4%','DEX+2','Accuracy+13',}},
+                feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},
+                neck={ name="Comm. Charm +2", augments={'Path: A',}},
+                waist="Eschan Stone",
+                left_ear="Brutal Earring",
+                right_ear="Ishvara Earring",
+                left_ring="Ilabrat Ring",
+                right_ring="Petrov Ring",
+                back=capes['SAVAGE BLADE']},
+            },
+
+        },
+        ["Leaden Salute"] = {
+
+            ["Default"] =
+            {
+                [0] =
+                {ammo="Bronze Bullet",
+                head="Pixie Hairpin +1",
+                body="Lanun Frac +3",
+                hands={ name="Carmine Fin. Ga. +1", augments={'Rng.Atk.+20','"Mag.Atk.Bns."+12','"Store TP"+6',}},
+                legs={ name="Herculean Trousers", augments={'Attack+12','Weapon skill damage +4%','DEX+2','Accuracy+13',}},
+                feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},
+                neck={ name="Comm. Charm +2", augments={'Path: A',}},
+                waist="Svelt. Gouriz +1",
+                left_ear="Ishvara Earring",
+                right_ear="Friomisi Earring",
+                left_ring="Archon Ring",
+                right_ring="Arvina Ringlet +1",
+                back=capes['LEADEN SALUTE']}
+
+            },
+
+        },
+        ["Wildfire"] = {
+
+            ["Default"] =
+            {
+                [0] =
+                {head={ name="Herculean Helm", augments={'Accuracy+23 Attack+23','Weapon skill damage +4%','AGI+11','Accuracy+1','Attack+15',}},
+                body="Lanun Frac +3",
+                hands={ name="Carmine Fin. Ga. +1", augments={'Rng.Atk.+20','"Mag.Atk.Bns."+12','"Store TP"+6',}},
+                legs={ name="Herculean Trousers", augments={'Attack+12','Weapon skill damage +4%','DEX+2','Accuracy+13',}},
+                feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},
+                neck={ name="Comm. Charm +2", augments={'Path: A',}},
+                waist="Svelt. Gouriz +1",
+                left_ear="Friomisi Earring",
+                right_ear="Ishvara Earring",
+                left_ring="Ilabrat Ring",
+                right_ring="Arvina Ringlet +1",
+                back=capes['LEADEN SALUTE']}
+
+            },
+
+        },
     
     }
         
@@ -195,7 +213,18 @@ function gear.new()
     sets["Ranged"]["Default"]["Attack"] = {
         
         -- Basic Ranged Shots.
-        {name="Trash", set={}},
+        {name="Trash", set={head="Oshosi Mask +1",
+        body="Meg. Cuirie +2",
+        hands="Meg. Gloves +2",
+        legs="Ikenga's Trousers",
+        feet="Osh. Leggings +1",
+        neck={ name="Comm. Charm +2", augments={'Path: A',}},
+        waist="K. Kachina Belt +1",
+        left_ear="Odr Earring",
+        right_ear="Telos Earring",
+        left_ring="Chirich Ring +1",
+        right_ring="Meghanada Ring",
+        }},
         
         -- Store-TP Shots.
         {name="Store-TP", set={}},
@@ -207,42 +236,8 @@ function gear.new()
         {name="Hybrid Shots", set={}},
         
     }
-
+    
     sets["Ranged"]["Default"]["Accuracy"] = {
-        
-        -- Basic Ranged Shots.
-        {name="Trash", set={}},
-        
-        -- Store-TP Shots.
-        {name="Store-TP", set={}},
-        
-        -- Reduced Enmity Build.
-        {name="Reduced Enmity", set={}},
-        
-        -- Hybrid Ranged Build.
-        {name="Hybrid Shots", set={}},
-        
-    }
-
-    -- Critical Shots. (AM3 - Arma)
-    sets["Ranged"]["Critical"]["Attack"] = {
-        
-        -- Basic Ranged Shots.
-        {name="Trash", set={}},
-        
-        -- Store-TP Shots.
-        {name="Store-TP", set={}},
-        
-        -- Reduced Enmity Build.
-        {name="Reduced Enmity", set={}},
-        
-        -- Hybrid Ranged Build.
-        {name="Hybrid Shots", set={}},
-        
-    }
-
-    -- Critical Shots. (AM3 - Arma)
-    sets["Ranged"]["Critical"]["Accuracy"] = {
         
         -- Basic Ranged Shots.
         {name="Trash", set={}},
@@ -324,163 +319,62 @@ function gear.new()
         
     }
 
+    -- (Armageddon) AM Critical Shots.
+    sets["Ranged"]["Critical"]["Attack"] = {
+        
+        -- Basic Ranged Shots.
+        {name="Trash", set={}},
+        
+        -- Store-TP Shots.
+        {name="Store-TP", set={}},
+        
+        -- Reduced Enmity Build.
+        {name="Reduced Enmity", set={}},
+        
+        -- Hybrid Ranged Build.
+        {name="Hybrid Shots", set={}},
+        
+    }
+
+    sets["Ranged"]["Critical"]["Accuracy"] = {
+        
+        -- Basic Ranged Shots.
+        {name="Trash", set={}},
+        
+        -- Store-TP Shots.
+        {name="Store-TP", set={}},
+        
+        -- Reduced Enmity Build.
+        {name="Reduced Enmity", set={}},
+        
+        -- Hybrid Ranged Build.
+        {name="Hybrid Shots", set={}},
+        
+    }
+
     -- [[ PRECAST SETS ]] 
     sets["Precast"] = {
 
-        ["Default"] = 
-        {main={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
-        head="Bunzi's Hat",
-        body="Inyanga Jubbah +2",
-        legs={ name="Kaykaus Tights +1", augments={'MP+80','"Cure" spellcasting time -7%','Enmity-6',}},
-        feet="Telchine Pigaches",
-        waist="Embla Sash",
-        back=capes['FC']},
-        
-        ["Divine Magic"] =
-        {main={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
-        range={ name="Linos", augments={'"Fast Cast"+5',}},
-        head="Bunzi's Hat",
-        body="Inyanga Jubbah +2",
-        legs={ name="Kaykaus Tights +1", augments={'MP+80','"Cure" spellcasting time -7%','Enmity-6',}},
-        waist="Witful Belt",
-        back=capes['FC']},
-        
-        ["Healing Magic"] =
-        {main={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
-        range={ name="Linos", augments={'"Fast Cast"+5',}},
-        head="Bunzi's Hat",
-        body="Inyanga Jubbah +2",
-        legs={ name="Kaykaus Tights +1", augments={'MP+80','"Cure" spellcasting time -7%','Enmity-6',}},
-        waist="Witful Belt",
-        back=capes['FC']},
-        
-        ["Enhancing Magic"] =
-        {main={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
-        range={ name="Linos", augments={'"Fast Cast"+5',}},
-        head="Bunzi's Hat",
-        body="Inyanga Jubbah +2",
-        legs={ name="Kaykaus Tights +1", augments={'MP+80','"Cure" spellcasting time -7%','Enmity-6',}},
-        waist="Witful Belt",
-        back=capes['FC']},
-        
-        ["Enfeebling Magic"] =
-        {main={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
-        range={ name="Linos", augments={'"Fast Cast"+5',}},
-        head="Bunzi's Hat",
-        body="Inyanga Jubbah +2",
-        legs={ name="Kaykaus Tights +1", augments={'MP+80','"Cure" spellcasting time -7%','Enmity-6',}},
-        waist="Witful Belt",
-        back=capes['FC']},
-        
-        ["Elemental Magic"] =
-        {main={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
-        range={ name="Linos", augments={'"Fast Cast"+5',}},
-        head="Bunzi's Hat",
-        body="Inyanga Jubbah +2",
-        legs={ name="Kaykaus Tights +1", augments={'MP+80','"Cure" spellcasting time -7%','Enmity-6',}},
-        waist="Witful Belt",
-        back=capes['FC']},
-        
-        ["Dark Magic"] =
-        {main={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
-        range={ name="Linos", augments={'"Fast Cast"+5',}},
-        head="Bunzi's Hat",
-        body="Inyanga Jubbah +2",
-        legs={ name="Kaykaus Tights +1", augments={'MP+80','"Cure" spellcasting time -7%','Enmity-6',}},
-        waist="Witful Belt",
-        back=capes['FC']},
-        
-        ["Summoning Magic"] =
-        {main={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
-        range={ name="Linos", augments={'"Fast Cast"+5',}},
-        head="Bunzi's Hat",
-        body="Inyanga Jubbah +2",
-        legs={ name="Kaykaus Tights +1", augments={'MP+80','"Cure" spellcasting time -7%','Enmity-6',}},
-        waist="Witful Belt",
-        back=capes['FC']},
-        
-        ["Blue Magic"] =
-        {main={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
-        range={ name="Linos", augments={'"Fast Cast"+5',}},
-        head="Bunzi's Hat",
-        body="Inyanga Jubbah +2",
-        legs={ name="Kaykaus Tights +1", augments={'MP+80','"Cure" spellcasting time -7%','Enmity-6',}},
-        waist="Witful Belt",
-        back=capes['FC']},
-        
-        ["Ninjutsu"] =
-        {main={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
-        range={ name="Linos", augments={'"Fast Cast"+5',}},
-        head="Bunzi's Hat",
-        body="Inyanga Jubbah +2",
-        legs={ name="Kaykaus Tights +1", augments={'MP+80','"Cure" spellcasting time -7%','Enmity-6',}},
-        waist="Witful Belt",
-        back=capes['FC']},
-        
-        ["Geomancy"] =
-        {main={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
-        range={ name="Linos", augments={'"Fast Cast"+5',}},
-        head="Bunzi's Hat",
-        body="Inyanga Jubbah +2",
-        legs={ name="Kaykaus Tights +1", augments={'MP+80','"Cure" spellcasting time -7%','Enmity-6',}},
-        waist="Witful Belt",
-        back=capes['FC']},
-
-        ["Singing"] = 
-        {main={ name="Kali", augments={'Mag. Acc.+15','String instrument skill +10','Wind instrument skill +10',}},
-        range={ name="Linos", augments={'"Fast Cast"+5',}},
-        head="Bunzi's Hat",
-        body="Inyanga Jubbah +2",
-        legs={ name="Kaykaus Tights +1", augments={'MP+80','"Cure" spellcasting time -7%','Enmity-6',}},
-        feet={ name="Telchine Pigaches", augments={'Song spellcasting time -6%',}},
-        waist="Embla Sash",
-        back=capes['FC']},
-
-        -- [[ AUTOMATON SETS ]] 
-        ["Automaton Provoke"] = 
+        ["Default"] =
         {},
 
-        ["Automaton Flashbulb"] = 
-        {},
+        ["Ranged"] =
+        {head="Nvrch. Tricorne +1",
+        body="Laksa. Frac +2",
+        hands={ name="Carmine Fin. Ga. +1", augments={'Rng.Atk.+20','"Mag.Atk.Bns."+12','"Store TP"+6',}},
+        legs="Osh. Trousers +1",
+        feet="Meg. Jam. +2",
+        neck={ name="Comm. Charm +2", augments={'Path: A',}}},
 
-        ["Automaton Shield Bash"] = 
-        {},
+        ["Ranged: Flurry"] =
+        {head="Nvrch. Tricorne +1",
+        neck="Bathy Choker +1",
+        body="Laksa. Frac +2",
+        hands={ name="Carmine Fin. Ga. +1", augments={'Rng.Atk.+20','"Mag.Atk.Bns."+12','"Store TP"+6',}},
+        legs="Osh. Trousers +1",
+        feet="Meg. Jam. +2",
+        neck="Bathy Choker +1",},
 
-        ["Automaton Slapstick"] =
-        {body="Nyame Mail"},
-
-        ["Automaton Knockout"] =
-        {body="Nyame Mail"},
-
-        ["Automaton Magic Mortar"] =
-        {body="Nyame Mail"},
-
-        ["Automaton Chimera Ripper"] =
-        {body="Nyame Mail"},
-
-        ["Automaton String Clipper"] =
-        {body="Nyame Mail"},
-
-        ["Automaton Cannibal Blade"] =
-        {body="Nyame Mail"},
-
-        ["Automaton Bone Crusher"] =
-        {body="Nyame Mail"},
-
-        ["Automaton String Shredder"] =
-        {body="Nyame Mail"},
-
-        ["Automaton Acruballista"] =
-        {body="Nyame Mail"},
-
-        ["Automaton Daze"] =
-        {body="Nyame Mail"},
-
-        ["Automaton Armor Piercer"] =
-        {body="Nyame Mail"},
-
-        ["Automaton Armor Shatterer"] =
-        {body="Nyame Mail"},
 
     }
     
@@ -490,78 +384,30 @@ function gear.new()
         -- Midcast: Attack Mode sets.
         ["Attack"] = {
 
-            ["Divine Magic"] = {},
-            ["Enfeebling Magic"] = {},
-            ["Elemental Magic"] = {},
-            ["Dark Magic"] = {},
-            ["Blue Magic"] = {},
-            ["Ninjutsu"] = {},
-
         },
 
         -- Midcast: Accuracy Mode sets.
         ["Accuracy"] = {
 
-            ["Divine Magic"] = {},
-            ["Enfeebling Magic"] = {},
-            ["Elemental Magic"] = {},
-            ["Dark Magic"] = {},
-            ["Blue Magic"] = {},
-            ["Ninjutsu"] = {},
 
         },
 
         -- Midcast Sets.
-        ["Cure"] =
-        {main="Chatoyant Staff",
-        sub="Curatio Grip",
-        range={ name="Linos", augments={'Mag. Evasion+8','"Cure" potency +3%','MND+4',}},
-        head={ name="Kaykaus Mitra +1", augments={'MP+80','"Cure" spellcasting time -7%','Enmity-6',}},
-        body="Bunzi's Robe",
-        hands="Inyan. Dastanas +2",
-        legs={ name="Vanya Slops", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}},
-        feet={ name="Vanya Clogs", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}},
-        waist="Bishop's Sash",
-        left_ear="Beatific Earring",
-        right_ear="Healing Earring",
-        left_ring="Menelaus's Ring",
-        right_ring="Sirona's Ring",
-        back=capes['CURE']},
-
-        ["Curaga"] =
-        {main="Chatoyant Staff",
-        sub="Curatio Grip",
-        range={ name="Linos", augments={'Mag. Evasion+8','"Cure" potency +3%','MND+4',}},
-        head={ name="Kaykaus Mitra +1", augments={'MP+80','"Cure" spellcasting time -7%','Enmity-6',}},
-        body="Bunzi's Robe",
-        hands={ name="Kaykaus Cuffs +1", augments={'MP+80','"Cure" spellcasting time -7%','Enmity-6',}},
-        legs={ name="Kaykaus Tights +1", augments={'MP+80','"Cure" spellcasting time -7%','Enmity-6',}},
-        feet={ name="Kaykaus Boots +1", augments={'MP+80','"Cure" spellcasting time -7%','Enmity-6',}},
-        waist="Bishop's Sash",
-        left_ear="Beatific Earring",
-        right_ear="Regal Earring",
-        left_ring="Menelaus's Ring",
-        right_ring="Sirona's Ring",
-        back=capes['CURE']},
+        ["CorsairRoll"] =
+        {range="Compensator",
+        head={ name="Lanun Tricorne +2", augments={'Enhances "Winning Streak" effect',}},
+        body="Nyame Mail",
+        hands="Nyame Gauntlets",
+        legs="Malignance Tights",
+        feet="Nyame Sollerets",
+        neck="Regal Necklace",
+        waist="Carrier's Sash",},
 
     }
 
-    -- [[ MIDCAST CLONES ]] 
-    sets["Midcast"]["Cure II"]              = sets["Midcast"]["Cure"]
-    sets["Midcast"]["Cure III"]             = sets["Midcast"]["Cure"]
-    sets["Midcast"]["Cure IV"]              = sets["Midcast"]["Cure"]
-
-    sets["Midcast"]["Curaga II"]            = sets["Midcast"]["Curaga"]
-    sets["Midcast"]["Curaga III"]           = sets["Midcast"]["Curaga"]
-
-
-    -- [[ COMBINED SETS ]] 
-    sets["Name"] = set_combine(sets["Name"],
-    {})
-
     -- [[ USER DEFINED FUNCTIONS ]] 
     user.settings = function(bp)
-        bp.settings['Auto Swaps'] = true
+        bp.settings["WS Options"] = {}
 
     end
 
@@ -569,7 +415,7 @@ function gear.new()
         local enabled = false
         
         if enabled and bp and spell then
-            
+
         end
         return enabled
 

@@ -66,7 +66,14 @@ function library.new()
                 end
             
             elseif spell.name == 'Ranged' then
-                equip(set_combine(sets['Ammo'], sets['Ranged'][settings['Ranged Types'][settings['Ranged Type']]][modes.combat][modes.ranged].set))
+                
+                if settings['Flurry'] and sets['Precast'][string.format('%s: Flurry', spell.name)] then
+                    equip(sets['Precast'][string.format('%s: Flurry', spell.name)])
+                    
+                else
+                    equip(sets['Precast'][spell.name])
+
+                end
             
             elseif spell.type == 'WeaponSkill' then
                 local offset = (spell.target.model_size + player.model_size)

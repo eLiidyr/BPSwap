@@ -51,6 +51,26 @@ function library.new()
             if user and user.Precast and user.Precast(bp, spell) then
                 return
             end
+
+            do -- Detect Ranged Type.
+                local ranged = player and player.equipment and player.equipment.range and player.equipment.range ~= 'empty' and player.equipment.range or false
+                local buffs = bp.res.buffs
+
+                if ranged and ranged == 'Armageddon' and (T(buffs):contains(270) or T(buffs):contains(271) or T(buffs):contains(272)) then
+                    bp.settings['Ranged Type'] = 2
+
+                elseif T(buffs):contains(433) then
+                    bp.settings['Ranged Type'] = 3
+                        
+                elseif T(buffs):contains(467) then
+                    bp.settings['Ranged Type'] = 4
+
+                else
+                    bp.settings['Ranged Type'] = 1
+
+                end
+    
+            end
             
             if abilities:contains(spell.type) then
 
@@ -68,9 +88,9 @@ function library.new()
             
             elseif spell.name == 'Ranged' then
 
-                if bp.settings['Flurry'] and sets['Precast'][string.format('%s %s', spell.name, bp.settings['Flurry'])] then
-                    equip(sets['Precast'][string.format('%s %s', spell.name, bp.settings['Flurry'])])
-
+                if settings['Flurry'] and sets['Precast'][string.format('%s: Flurry', spell.name)] then
+                    equip(sets['Precast'][string.format('%s: Flurry', spell.name)])
+                    
                 else
                     equip(sets['Precast'][spell.name])
 

@@ -102,9 +102,9 @@ function library.new()
             
             elseif spell.name == 'Ranged' then
                 
-                if bp.settings['Flurry'] and sets['Precast'][string.format('%s %s', spell.name, bp.settings['Flurry'])] then
-                    equip(sets['Precast'][string.format('%s %s', spell.name, bp.settings['Flurry'])])
-
+                if settings['Flurry'] and sets['Precast'][string.format('%s: Flurry', spell.name)] then
+                    equip(sets['Precast'][string.format('%s: Flurry', spell.name)])
+                    
                 else
                     equip(sets['Precast'][spell.name])
 
