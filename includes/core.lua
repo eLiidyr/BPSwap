@@ -128,6 +128,24 @@ function core.load()
         return false
 
     end
+
+    self.getAftermathLevel = function()
+
+        if buffactive["Aftermath: Lv.3"] then
+            return 3
+
+        elseif buffactive["Aftermath: Lv.2"] then
+            return 2
+
+        elseif buffactive["Aftermath: Lv.1"] then
+            return 1
+
+        else
+            return 0
+
+        end
+
+    end
     
     self.findItemByName = function(name, bag)
         local items = windower.ffxi.get_items(bag or 0)

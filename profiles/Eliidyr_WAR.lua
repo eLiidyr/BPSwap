@@ -66,39 +66,45 @@ function gear.new()
     sets["Engaged"] = {}    
     sets["Engaged"]["Attack"] = {			
     
-        -- Pet: Trash Build
-        {name="Chango - Trash", set={ammo="Coiste Bodhar",
-        head="Flam. Zucchetto +2",
-        body="Sakpata's Plate",
-        hands={ name="Tatena. Gote +1", augments={'Path: A',}},
-        legs={ name="Tatena. Haidate +1", augments={'Path: A',}},
-        feet={ name="Tatena. Sune. +1", augments={'Path: A',}},
-        neck={ name="War. Beads +2", augments={'Path: A',}},
-        waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-        left_ear="Schere Earring",
-        right_ear="Telos Earring",
-        left_ring="Chirich Ring +1",
-        right_ring="Niqmaddu Ring",
-        back=capes['DA - STR'],
+        -- TP: Chango Trash.
+        {name="Chango - Trash", set={
+            ammo="Coiste Bodhar",
+            head="Flam. Zucchetto +2",
+            body="Sakpata's Plate",
+            hands={ name="Tatena. Gote +1", augments={'Path: A',}},
+            legs={ name="Tatena. Haidate +1", augments={'Path: A',}},
+            feet={ name="Tatena. Sune. +1", augments={'Path: A',}},
+            neck={ name="War. Beads +2", augments={'Path: A',}},
+            waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+            left_ear="Schere Earring",
+            right_ear="Telos Earring",
+            left_ring="Chirich Ring +1",
+            right_ring="Niqmaddu Ring",
+            back=capes['DA - STR'],
+            },
+            [1] = {
+                head="Volte Tiara"
+            },
+        },
+
+        -- TP: Chango High.
+        {name="Chango - High", set={
+            ammo="Coiste Bodhar",
+            head="Flam. Zucchetto +2",
+            body="Sakpata's Plate",
+            hands="Sakpata's Gauntlets",
+            legs="Pumm. Cuisses +2",
+            feet="Pumm. Calligae +3",
+            neck={ name="War. Beads +2", augments={'Path: A',}},
+            waist="Ioskeha Belt +1",
+            left_ear="Schere Earring",
+            right_ear="Telos Earring",
+            left_ring="Chirich Ring +1",
+            right_ring="Niqmaddu Ring",
+            back=capes['DA - STR'],
         }},
 
-        -- Pet: Haste Build
-        {name="Chango - High", set={ammo="Coiste Bodhar",
-        head="Flam. Zucchetto +2",
-        body="Sakpata's Plate",
-        hands="Sakpata's Gauntlets",
-        legs="Pumm. Cuisses +2",
-        feet="Pumm. Calligae +3",
-        neck={ name="War. Beads +2", augments={'Path: A',}},
-        waist="Ioskeha Belt +1",
-        left_ear="Schere Earring",
-        right_ear="Telos Earring",
-        left_ring="Chirich Ring +1",
-        right_ring="Niqmaddu Ring",
-        back=capes['DA - STR'],
-        }},
-
-        -- Pet: Haste Build
+        -- TP: Fencer Trash.
         {name="Fencer - Trash", set={ammo="Coiste Bodhar",
         head="Sakpata's Helm",
         body="Sakpata's Plate",

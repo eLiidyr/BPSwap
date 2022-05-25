@@ -447,7 +447,15 @@ function library.new()
             end
             
             if player.status == 'Engaged' then
-                equip(sets['Engaged'][modes.combat][modes.engaged].set)
+                local aftermath = bp.core.getAftermathLevel()
+                
+                if sets['Engaged'][modes.combat][modes.engaged][aftermath] then
+                    equip(set_combine(sets['Engaged'][modes.combat][modes.engaged].set, sets['Engaged'][modes.combat][modes.engaged][aftermath]))
+
+                else
+                    equip(sets['Engaged'][modes.combat][modes.engaged].set)
+
+                end
             
             else 
                 equip(sets['Idle'][modes.idle].set)
