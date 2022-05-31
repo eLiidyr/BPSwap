@@ -122,7 +122,7 @@ function core.load()
 
     self.getWeaponSet = function()
 
-        if bp.settings and bp.sets and bp.settings['Weapon Mode'] and bp.sets['Weapons'][bp.settings['Weapon Mode']] then
+        if bp.settings and bp.sets and bp.settings['Weapon Mode'] and bp.sets['Weapons'] and bp.sets['Weapons'][bp.settings['Weapon Mode']] then
             return bp.sets['Weapons'][bp.settings['Weapon Mode']]
         end
         return false
