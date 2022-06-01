@@ -274,24 +274,24 @@ function library.new()
                     end
                     
                 else
-                    local buffedSet = bp.core.findMidcast(spell.name, modes.combat, sets['Midcast'])
+                    local buffed = bp.core.getBuffedMidcastSet(spell, sets, modes)
 
-                    if buffedSet then
+                    if buffed then
                         
                         if spell.targets:contains('Enemy') then
 
-                            if sets['Midcast'][modes.combat][buffedSet] then
-                                equip(sets['Midcast'][modes.combat][buffedSet])
+                            if sets['Midcast'][modes.combat] and sets['Midcast'][modes.combat][spell.name] and sets['Midcast'][modes.combat][spell.name].buffed and sets['Midcast'][modes.combat][spell.name].buffed[buffed] then
+                                equip(sets['Midcast'][modes.combat][spell.name], sets['Midcast'][modes.combat][spell.name].buffed[buffed])
 
-                            elseif sets['Midcast'][buffedSet] then
-                                equip(sets['Midcast'][buffedSet])
+                            elseif sets['Midcast'][spell.name] and sets['Midcast'][spell.name].buffed and sets['Midcast'][spell.name].buffed[buffed] then
+                                equip(sets['Midcast'][spell.name], sets['Midcast'][spell.name].buffed[buffed])
 
                             end
 
                         else
 
-                            if sets['Midcast'][buffedSet] then
-                                equip(sets['Midcast'][buffedSet])
+                            if sets['Midcast'][spell.name] and sets['Midcast'][spell.name].buffed and sets['Midcast'][spell.name].buffed[buffed] then
+                                equip(sets['Midcast'][spell.name], sets['Midcast'][spell.name].buffed[buffed])
                             end
 
                         end
@@ -382,16 +382,31 @@ function library.new()
 
             if player.status == 'Engaged' then
                 local aftermath = bp.core.getAftermathLevel()
+                local buffed = bp.core.getBuffedSet(sets, modes)
                 
                 if sets['Engaged'][modes.combat][modes.engaged][aftermath] then
-                    equip(set_combine(sets['Engaged'][modes.combat][modes.engaged].set, sets['Engaged'][modes.combat][modes.engaged][aftermath]))
+
+                    if buffed and sets['Engaged'][modes.combat][modes.engaged][buffed] then
+                        equip(set_combine(sets['Engaged'][modes.combat][modes.engaged].set, sets['Engaged'][modes.combat][modes.engaged][aftermath], sets['Engaged'][modes.combat][modes.engaged][buffed]))
+
+                    else
+                        equip(set_combine(sets['Engaged'][modes.combat][modes.engaged].set, sets['Engaged'][modes.combat][modes.engaged][aftermath]))
+
+                    end
 
                 else
-                    equip(sets['Engaged'][modes.combat][modes.engaged].set)
+
+                    if buffed and sets['Engaged'][modes.combat][modes.engaged][buffed] then
+                        equip(sets['Engaged'][modes.combat][modes.engaged].set, sets['Engaged'][modes.combat][modes.engaged][buffed])
+
+                    else
+                        equip(sets['Engaged'][modes.combat][modes.engaged].set)
+
+                    end
 
                 end
             
-            else 
+            else
                 equip(sets['Idle'][modes.idle].set)
             
             end
@@ -418,12 +433,27 @@ function library.new()
             
             if player.status == 'Engaged' then
                 local aftermath = bp.core.getAftermathLevel()
+                local buffed = bp.core.getBuffedSet(sets, modes)
                 
                 if sets['Engaged'][modes.combat][modes.engaged][aftermath] then
-                    equip(set_combine(sets['Engaged'][modes.combat][modes.engaged].set, sets['Engaged'][modes.combat][modes.engaged][aftermath]))
+
+                    if buffed and sets['Engaged'][modes.combat][modes.engaged][buffed] then
+                        equip(set_combine(sets['Engaged'][modes.combat][modes.engaged].set, sets['Engaged'][modes.combat][modes.engaged][aftermath], sets['Engaged'][modes.combat][modes.engaged][buffed]))
+
+                    else
+                        equip(set_combine(sets['Engaged'][modes.combat][modes.engaged].set, sets['Engaged'][modes.combat][modes.engaged][aftermath]))
+
+                    end
 
                 else
-                    equip(sets['Engaged'][modes.combat][modes.engaged].set)
+
+                    if buffed and sets['Engaged'][modes.combat][modes.engaged][buffed] then
+                        equip(sets['Engaged'][modes.combat][modes.engaged].set, sets['Engaged'][modes.combat][modes.engaged][buffed])
+
+                    else
+                        equip(sets['Engaged'][modes.combat][modes.engaged].set)
+
+                    end
 
                 end
             
@@ -560,11 +590,11 @@ function library.new()
 
             if command == 'dummy' then
                 settings['Dummy Song'] = settings['Dummy Songs'][settings['Dummy Song'] + 1] ~= nil and settings['Dummy Song'] + 1 or 1
-                windower.add_to_chat(bp.core.color, string.format('<< Current Dummy Song: %s >>', settings['Dummy Songs'][settings['Dummy Song']]))
+                windower.add_to_chat(1, string.format('%s %s %s', "<< Current Dummy Song:":color(bp.color), settings['Dummy Songs'][settings['Dummy Song']]:color(bp.color+3), ">>":color(bp.color)))
 
             elseif S{'horn','instrument','harp'}:contains(command:lower()) then
                 settings['Instrument'] = settings['Instruments'][settings['Instrument'] + 1] ~= nil and settings['Instrument'] + 1 or 1
-                windower.add_to_chat(bp.core.color, string.format('<< Current Dummy Instrument: %s >>', settings['Instruments'][settings['Instrument']]))
+                windower.add_to_chat(1, string.format('%s %s %s', "<< Current Dummy Instrument:":color(bp.color), settings['Instruments'][settings['Instrument']]:color(bp.color+3), ">>":color(bp.color)))
 
             end
 
