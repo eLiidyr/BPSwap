@@ -414,7 +414,7 @@ function library.new()
 
             if player.status == 'Engaged' then
                 local aftermath = bp.core.getAftermathLevel()
-                local buffed = bp.core.getBuffedSet(sets, modes)
+                local buffed = bp.core.getBuffedEngagedSet(sets, modes)
                 
                 if sets['Engaged'][modes.combat][modes.engaged][aftermath] then
 
@@ -465,7 +465,7 @@ function library.new()
             
             if player.status == 'Engaged' then
                 local aftermath = bp.core.getAftermathLevel()
-                local buffed = bp.core.getBuffedSet(sets, modes)
+                local buffed = bp.core.getBuffedEngagedSet(sets, modes)
                 
                 if sets['Engaged'][modes.combat][modes.engaged][aftermath] then
 
