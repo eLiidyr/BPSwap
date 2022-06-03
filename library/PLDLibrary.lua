@@ -92,21 +92,21 @@ function library.new()
                         local set = bp.core.buildWeaponskillSet(spell, sets, modes, settings['WS Options'])
 
                         if spell.element == world.weather_element and world.day_element ~= obi.opposing and world.weather_intensity == 2 then
-                        equip(set, {waist=obi and obi.name or ''}, {waist="Hachirin-no-Obi"}, weather)
+                            equip(set, {waist=obi and obi.name or ''}, {waist="Hachirin-no-Obi"}, weather)
 
-                    elseif spell.element == world.day_element and spell.element == world.weather_element then
-                        equip(set, {waist=obi and obi.name or ''}, {waist="Hachirin-no-Obi"}, weather)
+                        elseif spell.element == world.day_element and spell.element == world.weather_element then
+                            equip(set, {waist=obi and obi.name or ''}, {waist="Hachirin-no-Obi"}, weather)
 
-                    elseif spell.target.distance < (8 + spell.target.model_size) then
-                        equip(set, {waist=obi and obi.name or ''}, {waist="Orpheus's Sash"}, weather)
+                        elseif spell.target.distance < (8 + spell.target.model_size) then
+                            equip(set, {waist=obi and obi.name or ''}, {waist="Orpheus's Sash"}, weather)
 
-                    elseif spell.element == world.day_element or spell.element == world.weather_element then
-                        equip(set, {waist=obi and obi.name or ''}, {waist="Hachirin-no-Obi"}, weather)
+                        elseif spell.element == world.day_element or spell.element == world.weather_element then
+                            equip(set, {waist=obi and obi.name or ''}, {waist="Hachirin-no-Obi"}, weather)
 
-                    else
-                        equip(set)
+                        else
+                            equip(set)
 
-                    end
+                        end
 
                     else
                         equip(bp.core.buildWeaponskillSet(spell, sets, modes, settings['WS Options']))
@@ -251,7 +251,7 @@ function library.new()
                     local obi = bp.core.Obis[spell.element]
                     local distance = spell.target.distance
 
-                    if spell.element == world.weather_element and world.day_element ~= obi.opposing and world.weather_intensity == 2 then
+                    if obi and spell.element == world.weather_element and world.day_element ~= obi.opposing and world.weather_intensity == 2 then
                         equip(set, {waist=obi and obi.name or ''}, {waist="Hachirin-no-Obi"}, weather)
 
                     elseif spell.element == world.day_element and spell.element == world.weather_element then
