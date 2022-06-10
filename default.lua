@@ -1,6 +1,6 @@
 -- Written by: Eliidyr.
 -----------------------
--- Version: 1.20220525
+-- Version: 1.20220610
 require("strings")
 require("lists")
 require("tables")
@@ -82,39 +82,39 @@ function get_sets()
 end
 
 function precast(spell, act)
-    bp.library.precast(spell)    
+    bp.library.precast(spell, midaction())
 end
 
 function midcast(spell, act)
-    bp.library.midcast(spell)
+    bp.library.midcast(spell, midaction())
 end
 
 function aftercast(spell, act)
-    bp.library.aftercast(spell)    
+    bp.library.aftercast(spell, midaction())
 end
 
 function status_change(new, old)
-    bp.library.statusChange(new, old)    
+    bp.library.statusChange(new, old, midaction())
 end
 
 function buff_change(name, gain, details)
-    bp.library.buffChange(name, gain, details)
+    bp.library.buffChange(name, gain, details, midaction())
 end
 
 function pet_change(pet, gain)
-    bp.library.petChange(pet, gain)
+    bp.library.petChange(pet, gain, midaction())
 end
 
 function pet_midcast(spell)
-    bp.library.petMidcast(spell)    
+    bp.library.petMidcast(spell, midaction())
 end
 
 function pet_aftercast(spell)
-    bp.library.petAftercast(spell)    
+    bp.library.petAftercast(spell, midaction())
 end
 
 function pet_status_change(new, old)
-    bp.library.petStatus(new, old)    
+    bp.library.petStatus(new, old, midaction())
 end
 
 function self_command(command)

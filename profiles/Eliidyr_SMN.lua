@@ -591,11 +591,6 @@ function gear.new()
     sets["Midcast"]["Curaga II"]            = sets["Midcast"]["Curaga"]
     sets["Midcast"]["Curaga III"]           = sets["Midcast"]["Curaga"]
 
-
-    -- [[ COMBINED SETS ]] 
-    sets["Name"] = set_combine(sets["Name"],
-    {})
-
     -- [[ USER DEFINED FUNCTIONS ]] 
     user.settings = function(bp)
 

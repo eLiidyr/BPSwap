@@ -566,7 +566,7 @@ function core.load()
         
         if command then
             local modes = {weapon=bp.settings['Weapon Mode'], idle=bp.settings['Idle Mode'], engaged=bp.settings['Engaged Mode'], ranged=bp.settings['Ranged Mode'], nuke=bp.settings['Nuke Mode'], combat=bp.settings["Combat Modes"][bp.settings['Combat Mode']]}
-
+            
             if command:sub(1, 3) == 'pos' then
                 local commands = command:split(' ')
 
@@ -653,6 +653,23 @@ function core.load()
                     
                 end
                 windower.add_to_chat(1, string.format('%s %s %s', '<< All Gear Locked:':color(bp.color), tostring(bp.settings["Gear Lock"]):upper():color(bp.color+3), '>>':color(bp.color)))
+
+            else
+                local commands = T(command:split(' '))
+
+                if commands and #commands > 0 then
+                    local command = table.remove(commands, 1):lower()
+                    
+                    if command == '__idleset' and commands[1] then
+                        local set = tonumber(table.remove(commands, 1))
+
+                        if set ~= nil and bp.sets['Idle'][set] then
+                            equip(bp.sets['Idle'][set].set)
+                        end
+
+                    end
+
+                end
                 
             end
             self.updateDisplay()
@@ -663,7 +680,7 @@ function core.load()
 
     local pinger = 0
     windower.raw_register_event('prerender', function(id)
-
+        
         if (os.time()-pinger) > 1 then
 
             if bp and bp.player and bp.settings then
