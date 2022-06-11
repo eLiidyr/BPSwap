@@ -79,7 +79,7 @@ function library.new()
         
         if not midaction and sets then
             
-            if user and user.Precast and user.Precast(bp, spell) then
+            if user and user.Precast and user.Precast(bp, spell, midaction) then
                 return
             end
             
@@ -188,7 +188,7 @@ function library.new()
 
         if sets then
 
-            if user and user.Midcast(bp, spell) then
+            if user and user.Midcast(bp, spell, midaction) then
                 return
             end
             
@@ -410,7 +410,7 @@ function library.new()
 
         if sets then
 
-            if user and user.Aftercast and user.Aftercast(bp, spell) then
+            if user and user.Aftercast and user.Aftercast(bp, spell, midaction) then
                 return
             end
 
@@ -442,7 +442,7 @@ function library.new()
 
         if sets then
 
-            if user and user.StatusChange and user.statusChange(bp, new, old) then
+            if user and user.StatusChange and user.statusChange(bp, new, old, midaction) then
                 return
             end
             
@@ -493,76 +493,45 @@ function library.new()
 
         if sets and not midaction then
 
-            if user and user.buffChange and user.buffChange(bp, name, gain, details) then
+            if user and user.buffChange and user.buffChange(bp, name, gain, details, midaction) then
                 return
             end
 
             if gain then
-
-                if player.status == 'Engaged' then
-                    local aftermath = bp.core.getAftermathLevel()
-                    local buffed = bp.core.getBuffedEngagedSet(sets, modes)
-                    
-                    if sets['Engaged'][modes.combat][modes.engaged][aftermath] then
-    
-                        if buffed and sets['Engaged'][modes.combat][modes.engaged][buffed] then
-                            equip(set_combine(sets['Engaged'][modes.combat][modes.engaged].set, sets['Engaged'][modes.combat][modes.engaged][aftermath], sets['Engaged'][modes.combat][modes.engaged][buffed]))
-    
-                        else
-                            equip(set_combine(sets['Engaged'][modes.combat][modes.engaged].set, sets['Engaged'][modes.combat][modes.engaged][aftermath]))
-    
-                        end
-    
-                    else
-    
-                        if buffed and sets['Engaged'][modes.combat][modes.engaged][buffed] then
-                            equip(sets['Engaged'][modes.combat][modes.engaged].set, sets['Engaged'][modes.combat][modes.engaged][buffed])
-    
-                        else
-                            equip(sets['Engaged'][modes.combat][modes.engaged].set)
-    
-                        end
-    
-                    end
-                
-                else 
-                    equip(sets['Idle'][modes.idle].set)
-                
-                end
                 
             else
+                
+            end
 
-                if player.status == 'Engaged' then
-                    local aftermath = bp.core.getAftermathLevel()
-                    local buffed = bp.core.getBuffedEngagedSet(sets, modes)
-                    
-                    if sets['Engaged'][modes.combat][modes.engaged][aftermath] then
-    
-                        if buffed and sets['Engaged'][modes.combat][modes.engaged][buffed] then
-                            equip(set_combine(sets['Engaged'][modes.combat][modes.engaged].set, sets['Engaged'][modes.combat][modes.engaged][aftermath], sets['Engaged'][modes.combat][modes.engaged][buffed]))
-    
-                        else
-                            equip(set_combine(sets['Engaged'][modes.combat][modes.engaged].set, sets['Engaged'][modes.combat][modes.engaged][aftermath]))
-    
-                        end
-    
+            if player.status == 'Engaged' then
+                local aftermath = bp.core.getAftermathLevel()
+                local buffed = bp.core.getBuffedEngagedSet(sets, modes)
+                
+                if sets['Engaged'][modes.combat][modes.engaged][aftermath] then
+
+                    if buffed and sets['Engaged'][modes.combat][modes.engaged][buffed] then
+                        equip(set_combine(sets['Engaged'][modes.combat][modes.engaged].set, sets['Engaged'][modes.combat][modes.engaged][aftermath], sets['Engaged'][modes.combat][modes.engaged][buffed]))
+
                     else
-    
-                        if buffed and sets['Engaged'][modes.combat][modes.engaged][buffed] then
-                            equip(sets['Engaged'][modes.combat][modes.engaged].set, sets['Engaged'][modes.combat][modes.engaged][buffed])
-    
-                        else
-                            equip(sets['Engaged'][modes.combat][modes.engaged].set)
-    
-                        end
-    
+                        equip(set_combine(sets['Engaged'][modes.combat][modes.engaged].set, sets['Engaged'][modes.combat][modes.engaged][aftermath]))
+
                     end
-                
-                else 
-                    equip(sets['Idle'][modes.idle].set)
-                
+
+                else
+
+                    if buffed and sets['Engaged'][modes.combat][modes.engaged][buffed] then
+                        equip(sets['Engaged'][modes.combat][modes.engaged].set, sets['Engaged'][modes.combat][modes.engaged][buffed])
+
+                    else
+                        equip(sets['Engaged'][modes.combat][modes.engaged].set)
+
+                    end
+
                 end
-                
+            
+            else 
+                equip(sets['Idle'][modes.idle].set)
+            
             end
 
         end
