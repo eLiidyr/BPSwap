@@ -111,7 +111,7 @@ function gear.new()
             waist="Moonbow Belt +1",
             left_ear="Telos Earring",
             right_ear="Balder Earring +1",
-            left_ring="Ilabrat Ring",
+            left_ring="Defending Ring",
             right_ring="Niqmaddu Ring",
             back=capes['DA - DEX']},
             
@@ -507,11 +507,12 @@ function gear.new()
 
     -- [[ USER DEFINED FUNCTIONS ]] 
     user.settings = function(bp)
-        bp.settings['Auto Swaps'] = true
+        bp.settings["WS Options"] = {'Impetus','Footwork','Chaos Roll'}
+        bp.settings['Auto Swaps'] = false
 
     end
 
-    user.Precast = function(bp, spell)
+    user.Precast = function(bp, spell, midaction)
         local enabled = false
         
         if enabled and bp and spell then
@@ -521,7 +522,7 @@ function gear.new()
 
     end
 
-    user.Midcast = function(bp, spell)
+    user.Midcast = function(bp, spell, midaction)
         local enabled = false
 
         if enabled and bp and spell then
@@ -531,7 +532,7 @@ function gear.new()
 
     end
 
-    user.Aftercast = function(bp, spell)
+    user.Aftercast = function(bp, spell, midaction)
         local enabled = false
 
         if enabled and bp and spell then
@@ -541,7 +542,7 @@ function gear.new()
 
     end
 
-    user.statusChange = function(bp, new, old)
+    user.statusChange = function(bp, new, old, midaction)
         local enabled = false
 
         if enabled and bp and new and old then
@@ -551,7 +552,7 @@ function gear.new()
 
     end
 
-    user.buffChange = function(bp, name, gain, details)
+    user.buffChange = function(bp, name, gain, details, midaction)
         local enabled = false
         
         if enabled and bp and name then

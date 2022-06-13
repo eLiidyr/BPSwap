@@ -24,6 +24,7 @@ function library.new()
         ["Instrument"]      = 1,
         ["Song Count"]      = 0,
         ["Flurry"]          = false,
+        ["WS Options"]      = {},
         
     }
     
@@ -508,7 +509,7 @@ function library.new()
                 local buffed = bp.core.getBuffedEngagedSet(sets, modes)
                 
                 if sets['Engaged'][modes.combat][modes.engaged][aftermath] then
-
+                    
                     if buffed and sets['Engaged'][modes.combat][modes.engaged][buffed] then
                         equip(set_combine(sets['Engaged'][modes.combat][modes.engaged].set, sets['Engaged'][modes.combat][modes.engaged][aftermath], sets['Engaged'][modes.combat][modes.engaged][buffed]))
 

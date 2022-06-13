@@ -49,6 +49,7 @@ function library.new()
         ["Instrument"]      = 1,
         ["Song Count"]      = 0,
         ["Flurry"]          = false,
+        ["WS Options"]      = {},
         ['BloodPacts']      = pacts
         
     }

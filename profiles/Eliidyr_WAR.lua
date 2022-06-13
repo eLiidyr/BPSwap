@@ -41,8 +41,8 @@ function gear.new()
             right_ear="Thrud Earring",
             left_ring="Warden's Ring",
             right_ring="Defending Ring",
-            back=capes['DT'],
-        }},
+            back=capes['DT']},
+        },
 
         -- DAMAGE TAKEN SET.
         {name="Damage Taken", set={ammo="Staunch Tathlum +1",
@@ -57,8 +57,8 @@ function gear.new()
             right_ear="Thrud Earring",
             left_ring="Warden's Ring",
             right_ring="Niqmaddu Ring",
-            back=capes['DT'],
-        }},
+            back=capes['DT']},
+        },
       
     }
     
@@ -80,11 +80,7 @@ function gear.new()
             right_ear="Telos Earring",
             left_ring="Chirich Ring +1",
             right_ring="Niqmaddu Ring",
-            back=capes['DA - STR'],
-            },
-            [1] = {
-                head="Volte Tiara"
-            },
+            back=capes['DA - STR']},
         },
 
         -- TP: Chango High.
@@ -613,82 +609,25 @@ function gear.new()
         -- Midcast: Attack Mode sets.
         ["Attack"] = {
 
-            ["Divine Magic"] = {},
-            ["Enfeebling Magic"] = {},
-            ["Elemental Magic"] = {},
-            ["Dark Magic"] = {},
-            ["Blue Magic"] = {},
-            ["Ninjutsu"] = {},
-
         },
 
         -- Midcast: Accuracy Mode sets.
         ["Accuracy"] = {
 
-            ["Divine Magic"] = {},
-            ["Enfeebling Magic"] = {},
-            ["Elemental Magic"] = {},
-            ["Dark Magic"] = {},
-            ["Blue Magic"] = {},
-            ["Ninjutsu"] = {},
-
         },
 
         -- Midcast Sets.
-        ["Cure"] =
-        {main="Chatoyant Staff",
-        sub="Curatio Grip",
-        range={ name="Linos", augments={'Mag. Evasion+8','"Cure" potency +3%','MND+4',}},
-        head={ name="Kaykaus Mitra +1", augments={'MP+80','"Cure" spellcasting time -7%','Enmity-6',}},
-        body="Bunzi's Robe",
-        hands="Inyan. Dastanas +2",
-        legs={ name="Vanya Slops", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}},
-        feet={ name="Vanya Clogs", augments={'Healing magic skill +20','"Cure" spellcasting time -7%','Magic dmg. taken -3',}},
-        waist="Bishop's Sash",
-        left_ear="Beatific Earring",
-        right_ear="Healing Earring",
-        left_ring="Menelaus's Ring",
-        right_ring="Sirona's Ring",
-        back=capes['CURE']},
-
-        ["Curaga"] =
-        {main="Chatoyant Staff",
-        sub="Curatio Grip",
-        range={ name="Linos", augments={'Mag. Evasion+8','"Cure" potency +3%','MND+4',}},
-        head={ name="Kaykaus Mitra +1", augments={'MP+80','"Cure" spellcasting time -7%','Enmity-6',}},
-        body="Bunzi's Robe",
-        hands={ name="Kaykaus Cuffs +1", augments={'MP+80','"Cure" spellcasting time -7%','Enmity-6',}},
-        legs={ name="Kaykaus Tights +1", augments={'MP+80','"Cure" spellcasting time -7%','Enmity-6',}},
-        feet={ name="Kaykaus Boots +1", augments={'MP+80','"Cure" spellcasting time -7%','Enmity-6',}},
-        waist="Bishop's Sash",
-        left_ear="Beatific Earring",
-        right_ear="Regal Earring",
-        left_ring="Menelaus's Ring",
-        right_ring="Sirona's Ring",
-        back=capes['CURE']},
 
     }
-
-    -- [[ MIDCAST CLONES ]] 
-    sets["Midcast"]["Cure II"]              = sets["Midcast"]["Cure"]
-    sets["Midcast"]["Cure III"]             = sets["Midcast"]["Cure"]
-    sets["Midcast"]["Cure IV"]              = sets["Midcast"]["Cure"]
-
-    sets["Midcast"]["Curaga II"]            = sets["Midcast"]["Curaga"]
-    sets["Midcast"]["Curaga III"]           = sets["Midcast"]["Curaga"]
-
-
-    -- [[ COMBINED SETS ]] 
-    sets["Name"] = set_combine(sets["Name"],
-    {})
 
     -- [[ USER DEFINED FUNCTIONS ]] 
     user.settings = function(bp)
         bp.settings["WS Options"] = {'Hasso','Defender','Mighty Strikes','Brazen Rush','Chaos Roll'}
+        bp.settings['Auto Swaps'] = false
 
     end
 
-    user.Precast = function(bp, spell)
+    user.Precast = function(bp, spell, midaction)
         local enabled = false
         
         if enabled and bp and spell then
@@ -698,7 +637,7 @@ function gear.new()
 
     end
 
-    user.Midcast = function(bp, spell)
+    user.Midcast = function(bp, spell, midaction)
         local enabled = false
 
         if enabled and bp and spell then
@@ -708,7 +647,7 @@ function gear.new()
 
     end
 
-    user.Aftercast = function(bp, spell)
+    user.Aftercast = function(bp, spell, midaction)
         local enabled = false
 
         if enabled and bp and spell then
@@ -718,7 +657,7 @@ function gear.new()
 
     end
 
-    user.statusChange = function(bp, new, old)
+    user.statusChange = function(bp, new, old, midaction)
         local enabled = false
 
         if enabled and bp and new and old then
@@ -728,7 +667,7 @@ function gear.new()
 
     end
 
-    user.buffChange = function(bp, name, gain, details)
+    user.buffChange = function(bp, name, gain, details, midaction)
         local enabled = false
         
         if enabled and bp and name then
