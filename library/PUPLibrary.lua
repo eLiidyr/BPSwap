@@ -111,7 +111,7 @@ function library.new()
                     if bp.core.ElementalWeaponskills:contains(spell.name) then
                         local set = bp.core.buildWeaponskillSet(spell, sets, modes, settings['WS Options'])
 
-                        if spell.element == world.weather_element and world.day_element ~= obi.opposing and world.weather_intensity == 2 then
+                        if obi and spell.element == world.weather_element and world.day_element ~= obi.opposing and world.weather_intensity == 2 then
                             equip(set, {waist=obi and obi.name or ''}, {waist="Hachirin-no-Obi"}, weather)
 
                         elseif spell.element == world.day_element and spell.element == world.weather_element then
@@ -396,33 +396,70 @@ function library.new()
             end
 
             if player.status == 'Engaged' then
-                local aftermath = bp.core.getAftermathLevel()
-                local buffed = bp.core.getBuffedEngagedSet(sets, modes)
+                local aftermath     = bp.core.getAftermathLevel()
+                local buffed        = bp.core.getBuffedEngagedSet(sets, modes)
+                local weapon_set    = bp.core.getWeaponSet()
                 
                 if sets['Engaged'][modes.combat][modes.engaged][aftermath] then
 
                     if buffed and sets['Engaged'][modes.combat][modes.engaged][buffed] then
-                        equip(set_combine(sets['Engaged'][modes.combat][modes.engaged].set, sets['Engaged'][modes.combat][modes.engaged][aftermath], sets['Engaged'][modes.combat][modes.engaged][buffed]))
+
+                        if weapon_set.set then
+                            equip(set_combine(sets['Engaged'][modes.combat][modes.engaged].set, sets['Engaged'][modes.combat][modes.engaged][aftermath], sets['Engaged'][modes.combat][modes.engaged][buffed], weapon_set.set))
+
+                        else
+                            equip(set_combine(sets['Engaged'][modes.combat][modes.engaged].set, sets['Engaged'][modes.combat][modes.engaged][aftermath], sets['Engaged'][modes.combat][modes.engaged][buffed]))
+
+                        end
 
                     else
-                        equip(set_combine(sets['Engaged'][modes.combat][modes.engaged].set, sets['Engaged'][modes.combat][modes.engaged][aftermath]))
+
+                        if weapon_set.set then
+                            equip(set_combine(sets['Engaged'][modes.combat][modes.engaged].set, sets['Engaged'][modes.combat][modes.engaged][aftermath], weapon_set.set))
+                        
+                        else
+                            equip(set_combine(sets['Engaged'][modes.combat][modes.engaged].set, sets['Engaged'][modes.combat][modes.engaged][aftermath]))
+
+                        end
 
                     end
 
                 else
 
                     if buffed and sets['Engaged'][modes.combat][modes.engaged][buffed] then
-                        equip(sets['Engaged'][modes.combat][modes.engaged].set, sets['Engaged'][modes.combat][modes.engaged][buffed])
+
+                        if weapon_set.set then
+                            equip(sets['Engaged'][modes.combat][modes.engaged].set, sets['Engaged'][modes.combat][modes.engaged][buffed], weapon_set.set)
+
+                        else
+                            equip(sets['Engaged'][modes.combat][modes.engaged].set, sets['Engaged'][modes.combat][modes.engaged][buffed])
+
+                        end
 
                     else
-                        equip(sets['Engaged'][modes.combat][modes.engaged].set)
+
+                        if weapon_set.set then
+                            equip(sets['Engaged'][modes.combat][modes.engaged].set, weapon_set.set)
+
+                        else
+                            equip(sets['Engaged'][modes.combat][modes.engaged].set)
+
+                        end
 
                     end
 
                 end
             
             else
-                equip(sets['Idle'][modes.idle].set)
+                local weapon_set = bp.core.getWeaponSet()
+
+                if weapon_set.set then
+                    equip(sets['Idle'][modes.idle].set, weapon_set.set)
+
+                else
+                    equip(sets['Idle'][modes.idle].set)
+
+                end
             
             end
 
@@ -530,7 +567,7 @@ function library.new()
                 end
             
             else 
-                equip(sets['Idle'][modes.idle].set)
+                --equip(sets['Idle'][modes.idle].set)
             
             end
 

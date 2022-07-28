@@ -126,7 +126,7 @@ function library.new()
                     if bp.core.ElementalWeaponskills:contains(spell.name) then
                         local set = bp.core.buildWeaponskillSet(spell, sets, modes, settings['WS Options'])
 
-                        if spell.element == world.weather_element and world.day_element ~= obi.opposing and world.weather_intensity == 2 then
+                        if obi and spell.element == world.weather_element and world.day_element ~= obi.opposing and world.weather_intensity == 2 then
                             equip(set, {waist=obi and obi.name or ''}, {waist="Hachirin-no-Obi"}, weather)
 
                         elseif spell.element == world.day_element and spell.element == world.weather_element then
@@ -531,7 +531,7 @@ function library.new()
                 end
             
             else 
-                equip(sets['Idle'][modes.idle].set)
+                --equip(sets['Idle'][modes.idle].set)
             
             end
 

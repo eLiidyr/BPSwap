@@ -10,10 +10,8 @@ function gear.new()
     -- CAPES.
     local capes = {
 
-        ['DT']   = { name="Intarabus's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','"Fast Cast"+10','Phys. dmg. taken-10%',}},
-        ['FC']   = { name="Intarabus's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','"Fast Cast"+10','Phys. dmg. taken-10%',}},
-        ['CHR']  = { name="Intarabus's Cape", augments={'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Fast Cast"+10','Phys. dmg. taken-10%',}},
-        ['CURE'] = { name="Intarabus's Cape", augments={'MND+20','Eva.+20 /Mag. Eva.+20','MND+10','Enmity-10','Phys. dmg. taken-10%',}},
+        ['DW']   = { name="Sucellos's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+9','"Dual Wield"+10','Phys. dmg. taken-10%',}},
+        ['SANGUINE'] = { name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','MND+10','Weapon skill damage +10%',}},
 
     }
 
@@ -21,7 +19,6 @@ function gear.new()
     sets['Weapons'] = {
 
         {name='None'},
-        {name='Test Sword', equip=false, set={main="Mutsunokami"}},
 
     }
     
@@ -29,37 +26,37 @@ function gear.new()
     sets["Idle"] = {
         
         -- MOVEMENT SPEED+.
-        {name="Movement Speed", set={main="Sakpata's Fists",
-        range="Animator P +1",
-        head="Mpaca's Cap",
-        body="Mpaca's Doublet",
-        hands="Mpaca's Gloves",
-        legs="Mpaca's Hose",
-        feet="Mpaca's Boots",
-        neck="Adad Amulet",
-        waist="Klouskap Sash",
-        left_ear="Kyrene's Earring",
-        right_ear="Tuisto Earring",
-        left_ring="Varar Ring +1",
-        right_ring="Varar Ring +1",
-        back="Visucius's Mantle",
+        {name="Movement Speed", set={
+            ammo="Staunch Tathlum +1",
+            head="Bunzi's Hat",
+            body="Nyame Mail",
+            hands="Nyame Gauntlets",
+            legs="Bunzi's Pants",
+            feet="Bunzi's Sabots",
+            neck="Warder's Charm +1",
+            waist="Carrier's Sash",
+            left_ear="Eabani Earring",
+            right_ear="Calamitous Earring",
+            left_ring="Stikini Ring +1",
+            right_ring="Defending Ring",
+            back="Moonlight Cape",
         }},
 
         -- DAMAGE TAKEN SET.
-        {name="Damage Taken", set={main="Sakpata's Fists",
-        range="Animator P +1",
-        head="Mpaca's Cap",
-        body="Mpaca's Doublet",
-        hands="Mpaca's Gloves",
-        legs="Mpaca's Hose",
-        feet="Mpaca's Boots",
-        neck="Adad Amulet",
-        waist="Klouskap Sash",
-        left_ear="Kyrene's Earring",
-        right_ear="Tuisto Earring",
-        left_ring="Varar Ring +1",
-        right_ring="Varar Ring +1",
-        back="Visucius's Mantle",
+        {name="Damage Taken", set={
+            ammo="Staunch Tathlum +1",
+            head="Bunzi's Hat",
+            body="Nyame Mail",
+            hands="Nyame Gauntlets",
+            legs="Bunzi's Pants",
+            feet="Bunzi's Sabots",
+            neck="Warder's Charm +1",
+            waist="Carrier's Sash",
+            left_ear="Eabani Earring",
+            right_ear="Calamitous Earring",
+            left_ring="Stikini Ring +1",
+            right_ring="Defending Ring",
+            back="Moonlight Cape",
         }},
       
     }
@@ -68,55 +65,20 @@ function gear.new()
     sets["Engaged"] = {}    
     sets["Engaged"]["Attack"] = {			
     
-        -- Pet: Trash Build
-        {name="Pet - Trash", set={main="Sakpata's Fists",
-        range="Animator P +1",
-        head="Mpaca's Cap",
-        body="Mpaca's Doublet",
-        hands="Mpaca's Gloves",
-        legs="Mpaca's Hose",
-        feet="Mpaca's Boots",
-        neck="Adad Amulet",
-        waist="Klouskap Sash",
-        left_ear="Kyrene's Earring",
-        right_ear="Tuisto Earring",
-        left_ring="Varar Ring +1",
-        right_ring="Varar Ring +1",
-        back="Visucius's Mantle",
-        }},
-
-        -- Pet: Haste Build
-        {name="Pet - Haste", set={main="Sakpata's Fists",
-        range="Animator P +1",
-        head="Mpaca's Cap",
-        body="Mpaca's Doublet",
-        hands="Mpaca's Gloves",
-        legs="Mpaca's Hose",
-        feet="Mpaca's Boots",
-        neck="Adad Amulet",
-        waist="Klouskap Sash",
-        left_ear="Kyrene's Earring",
-        right_ear="Tuisto Earring",
-        left_ring="Varar Ring +1",
-        right_ring="Varar Ring +1",
-        back="Visucius's Mantle",            
-        }},
-
-        -- Pet: Haste Build
-        {name="Pet - STP", set={main="Sakpata's Fists",
-        range="Animator P +1",
-        head="Mpaca's Cap",
-        body="Mpaca's Doublet",
-        hands="Mpaca's Gloves",
-        legs="Mpaca's Hose",
-        feet="Mpaca's Boots",
-        neck="Adad Amulet",
-        waist="Klouskap Sash",
-        left_ear="Kyrene's Earring",
-        right_ear="Tuisto Earring",
-        left_ring="Varar Ring +1",
-        right_ring="Varar Ring +1",
-        back="Visucius's Mantle",
+        {name="Dual Wield - Normal", set={
+            ammo="Coiste Bodhar",
+            head="Malignance Chapeau",
+            body="Ayanmo Corazza +2",
+            hands="Aya. Manopolas +2",
+            legs="Malignance Tights",
+            feet="Malignance Boots",
+            neck="Anu Torque",
+            waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+            left_ear="Sherida Earring",
+            right_ear="Telos Earring",
+            left_ring="Petrov Ring",
+            right_ring="Chirich Ring +1",
+            back=capes['DW'],
         }},
      
     }
@@ -175,6 +137,36 @@ function gear.new()
         
         -- Default WS Set.
         ["Default"] = {},
+
+        ["Sanguine Blade"] =
+        {ammo="Ghastly Tathlum",
+        head="Pixie Hairpin +1",
+        body={ name="Amalric Doublet +1", augments={'MP+80','Mag. Acc.+20','"Mag.Atk.Bns."+20',}},
+        hands="Jhakri Cuffs +2",
+        legs={ name="Amalric Slops +1", augments={'MP+80','"Mag.Atk.Bns."+25','Enmity-6',}},
+        feet={ name="Amalric Nails +1", augments={'MP+80','Mag. Acc.+20','"Mag.Atk.Bns."+20',}},
+        neck="Dls. Torque +2",
+        waist="Eschan Stone",
+        left_ear="Friomisi Earring",
+        right_ear="Malignance Earring",
+        left_ring="Stikini Ring +1",
+        right_ring="Chirich Ring +1",
+        back=capes["SANGUINE"]},
+
+        ["Seraph Blade"] =
+        {ammo="Ghastly Tathlum",
+        head="Jhakri Coronal +2",
+        body={ name="Amalric Doublet +1", augments={'MP+80','Mag. Acc.+20','"Mag.Atk.Bns."+20',}},
+        hands="Jhakri Cuffs +2",
+        legs={ name="Amalric Slops +1", augments={'MP+80','"Mag.Atk.Bns."+25','Enmity-6',}},
+        feet={ name="Amalric Nails +1", augments={'MP+80','Mag. Acc.+20','"Mag.Atk.Bns."+20',}},
+        neck="Dls. Torque +2",
+        waist="Eschan Stone",
+        left_ear="Friomisi Earring",
+        right_ear="Malignance Earring",
+        left_ring="Stikini Ring +1",
+        right_ring="Chirich Ring +1",
+        back=capes["SANGUINE"]},
     
     }
         
@@ -444,24 +436,10 @@ function gear.new()
         -- Midcast: Attack Mode sets.
         ["Attack"] = {
 
-            ["Divine Magic"] = {},
-            ["Enfeebling Magic"] = {},
-            ["Elemental Magic"] = {},
-            ["Dark Magic"] = {},
-            ["Blue Magic"] = {},
-            ["Ninjutsu"] = {},
-
         },
 
         -- Midcast: Accuracy Mode sets.
         ["Accuracy"] = {
-
-            ["Divine Magic"] = {},
-            ["Enfeebling Magic"] = {},
-            ["Elemental Magic"] = {},
-            ["Dark Magic"] = {},
-            ["Blue Magic"] = {},
-            ["Ninjutsu"] = {},
 
         },
 

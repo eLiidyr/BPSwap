@@ -21,7 +21,9 @@ function gear.new()
     sets['Weapons'] = {
 
         {name='None'},
-        {name='Test Sword', equip=false, set={main="Mutsunokami"}},
+        {name='Spell Farming', equip=true, set={main="Heartbeater",sub=empty}},
+        {name='Melee', equip=true, set={main="Naegling",sub="Sakpata's Sword"}},
+        {name='Nukes', equip=true, set={main="Bunzi's Rod",sub="Sakpata's Sword"}},
 
     }
     
@@ -205,6 +207,21 @@ function gear.new()
         
         -- Default WS Set.
         ["Default"] = {},
+
+        ["Sanguine Blade"] =
+        {ammo="Ghastly Tathlum",
+        head="Jhakri Coronal +1",
+        body={ name="Amalric Doublet +1", augments={'MP+80','Mag. Acc.+20','"Mag.Atk.Bns."+20',}},
+        hands={ name="Amalric Gages +1", augments={'INT+12','Mag. Acc.+20','"Mag.Atk.Bns."+20',}},
+        legs={ name="Amalric Slops +1", augments={'MP+80','"Mag.Atk.Bns."+25','Enmity-6',}},
+        feet={ name="Amalric Nails +1", augments={'MP+80','Mag. Acc.+20','"Mag.Atk.Bns."+20',}},
+        neck="Erra Pendant",
+        waist="Eschan Stone",
+        left_ear="Friomisi Earring",
+        right_ear="Ishvara Earring",
+        left_ring="Stikini Ring +1",
+        right_ring="Defending Ring",
+        back="Cornflower Cape",}
     
     }
         
