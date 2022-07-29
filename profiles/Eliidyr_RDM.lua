@@ -19,6 +19,8 @@ function gear.new()
     sets['Weapons'] = {
 
         {name='None'},
+        {name='Dual Wield - Normal', equip=true, set={main="Crocea Mors",sub="Daybreak"}},
+        {name='Dual Wield - Savage', equip=true, set={main="Naegling",sub="Gleti's Knife"}},
 
     }
     
@@ -136,9 +138,7 @@ function gear.new()
     sets["WeaponSkill"]["Attack"] = {
         
         -- Default WS Set.
-        ["Default"] = {},
-
-        ["Sanguine Blade"] =
+        ["Default"] =
         {ammo="Ghastly Tathlum",
         head="Pixie Hairpin +1",
         body={ name="Amalric Doublet +1", augments={'MP+80','Mag. Acc.+20','"Mag.Atk.Bns."+20',}},
@@ -154,19 +154,21 @@ function gear.new()
         back=capes["SANGUINE"]},
 
         ["Seraph Blade"] =
-        {ammo="Ghastly Tathlum",
-        head="Jhakri Coronal +2",
-        body={ name="Amalric Doublet +1", augments={'MP+80','Mag. Acc.+20','"Mag.Atk.Bns."+20',}},
-        hands="Jhakri Cuffs +2",
-        legs={ name="Amalric Slops +1", augments={'MP+80','"Mag.Atk.Bns."+25','Enmity-6',}},
-        feet={ name="Amalric Nails +1", augments={'MP+80','Mag. Acc.+20','"Mag.Atk.Bns."+20',}},
-        neck="Dls. Torque +2",
-        waist="Eschan Stone",
-        left_ear="Friomisi Earring",
-        right_ear="Malignance Earring",
-        left_ring="Stikini Ring +1",
-        right_ring="Chirich Ring +1",
-        back=capes["SANGUINE"]},
+        {
+            ammo="Ghastly Tathlum",
+            head="Jhakri Coronal +2",
+            body={ name="Amalric Doublet +1", augments={'MP+80','Mag. Acc.+20','"Mag.Atk.Bns."+20',}},
+            hands="Jhakri Cuffs +2",
+            legs={ name="Amalric Slops +1", augments={'MP+80','"Mag.Atk.Bns."+25','Enmity-6',}},
+            feet={ name="Amalric Nails +1", augments={'MP+80','Mag. Acc.+20','"Mag.Atk.Bns."+20',}},
+            neck="Dls. Torque +2",
+            waist="Eschan Stone",
+            left_ear="Friomisi Earring",
+            right_ear="Malignance Earring",
+            left_ring="Stikini Ring +1",
+            right_ring="Chirich Ring +1",
+            back=capes["SANGUINE"],            
+        },
     
     }
         
@@ -486,13 +488,11 @@ function gear.new()
     sets["Midcast"]["Curaga II"]            = sets["Midcast"]["Curaga"]
     sets["Midcast"]["Curaga III"]           = sets["Midcast"]["Curaga"]
 
-
-    -- [[ COMBINED SETS ]] 
-    sets["Name"] = set_combine(sets["Name"],
-    {})
-
     -- [[ USER DEFINED FUNCTIONS ]] 
     user.settings = function(bp)
+        bp.settings["WS Options"] = {}
+        bp.settings['Auto Swaps'] = false
+
     end
 
     user.Precast = function(bp, spell)

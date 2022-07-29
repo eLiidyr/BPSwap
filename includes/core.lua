@@ -427,7 +427,7 @@ function core.load()
         if spell and sets and modes then
             local list = T(sets['WeaponSkill'][modes.combat][spell.name]) or false
 
-            if list:length() > 0 and options then
+            if list:length() > 0 and options and #options > 0 then
                 local active = S(options):filter(function(key) return buffactive[key:lower()] and key end)
                 local inactive = S(options) - S(active)
                 local size = 0
