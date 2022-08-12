@@ -385,7 +385,7 @@ function library.new()
 
                     if buffed and sets['Engaged'][modes.combat][modes.engaged][buffed] then
 
-                        if weapon_set.set then
+                        if weapon_set and weapon_set.set then
                             equip(set_combine(sets['Engaged'][modes.combat][modes.engaged].set, sets['Engaged'][modes.combat][modes.engaged][aftermath], sets['Engaged'][modes.combat][modes.engaged][buffed], weapon_set.set))
 
                         else
@@ -395,7 +395,7 @@ function library.new()
 
                     else
 
-                        if weapon_set.set then
+                        if weapon_set and weapon_set.set then
                             equip(set_combine(sets['Engaged'][modes.combat][modes.engaged].set, sets['Engaged'][modes.combat][modes.engaged][aftermath], weapon_set.set))
                         
                         else
@@ -409,7 +409,7 @@ function library.new()
 
                     if buffed and sets['Engaged'][modes.combat][modes.engaged][buffed] then
 
-                        if weapon_set.set then
+                        if weapon_set and weapon_set.set then
                             equip(sets['Engaged'][modes.combat][modes.engaged].set, sets['Engaged'][modes.combat][modes.engaged][buffed], weapon_set.set)
 
                         else
@@ -419,7 +419,7 @@ function library.new()
 
                     else
 
-                        if weapon_set.set then
+                        if weapon_set and weapon_set.set then
                             equip(sets['Engaged'][modes.combat][modes.engaged].set, weapon_set.set)
 
                         else
@@ -434,7 +434,7 @@ function library.new()
             else
                 local weapon_set = bp.core.getWeaponSet()
 
-                if weapon_set.set then
+                if weapon_set and weapon_set.set then
                     equip(sets['Idle'][modes.idle].set, weapon_set.set)
 
                 else

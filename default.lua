@@ -1,6 +1,6 @@
 -- Written by: Eliidyr.
 -----------------------
--- Version: 1.20220728
+-- Version: 1.20220812
 require("strings")
 require("lists")
 require("tables")

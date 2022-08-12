@@ -21,7 +21,10 @@ function gear.new()
     sets['Weapons'] = {
 
         {name='None'},
-        {name='Test Sword', equip=false, set={main="Mutsunokami"}},
+        {name='Chango', equip=true, set={main="Chango",sub="Utu Grip"}},
+        {name='Nagling', equip=true, set={main="Naegling",sub="Blurred SHield +1"}},
+        {name='Polearm', equip=true, set={main="Shining One",sub="Utu Grip"}},
+        {name='Hand-2-Hand', equip=true, set={main="Karambit"}},
 
     }
     
@@ -306,6 +309,44 @@ function gear.new()
                 left_ring="Niqmaddu Ring",
                 right_ring="Petrov Ring",
                 back=capes['SAVAGE BLADE']},
+            },
+
+        },
+        ["Raging Fists"] = {
+
+            ["Default"] =
+            {
+                [0] =
+                {ammo="Yetshila +1",
+                head="Flam. Zucchetto +2",
+                body="Sakpata's Plate",
+                hands="Sakpata's Gauntlets",
+                legs="Sakpata's Cuisses",
+                feet="Sakpata's Leggings",
+                neck={ name="War. Beads +2", augments={'Path: A',}},
+                waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+                left_ear="Schere Earring",
+                right_ear="Brutal Earring",
+                left_ring="Flamma Ring",
+                right_ring="Niqmaddu Ring",
+                back=capes['DA - STR']},
+            },
+            ["Berserk Warcry Chaos Roll"] =
+            {
+                [0] =
+                {ammo="Yetshila +1",
+                head="Flam. Zucchetto +2",
+                body="Sakpata's Plate",
+                hands="Sakpata's Gauntlets",
+                legs="Sakpata's Cuisses",
+                feet="Sakpata's Leggings",
+                neck={ name="War. Beads +2", augments={'Path: A',}},
+                waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+                left_ear="Schere Earring",
+                right_ear="Brutal Earring",
+                left_ring="Flamma Ring",
+                right_ring="Niqmaddu Ring",
+                back=capes['DA - STR']},
             },
 
         },
