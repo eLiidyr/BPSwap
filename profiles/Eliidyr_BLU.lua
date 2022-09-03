@@ -30,7 +30,6 @@ function gear.new()
     -- [[ IDLE SETS ]]
     sets["Idle"] = {
         
-        -- MOVEMENT SPEED+.
         {name="Damage Taken", set={
             ammo="Staunch Tathlum +1",
             head="Nyame Helm",
@@ -46,19 +45,34 @@ function gear.new()
             back="Moonlight Cape",
         }},
 
-        -- DAMAGE TAKEN SET.
-        {name="Damage Taken", set={
+        {name="Movement Speed", set={
             ammo="Staunch Tathlum +1",
             head="Nyame Helm",
             body="Gleti's Cuirass",
             hands="Nyame Gauntlets",
-            legs="Nyame Flanchard",
+            legs="Carmine Cuisses +1",
             feet="Nyame Sollerets",
             neck="Warder's Charm +1",
             waist="Carrier's Sash",
             left_ear="Eabani Earring",
             left_ring="Defending Ring",
             right_ring="Warden's Ring",
+            back="Moonlight Cape",
+        }},
+
+        {name="Idle Refresh", set={
+            ammo="Staunch Tathlum +1",
+            head={ name="Nyame Helm", augments={'Path: B',}},
+            body="Jhakri Robe +2",
+            hands="Malignance Gloves",
+            legs="Carmine Cuisses +1",
+            feet="Nyame Sollerets",
+            neck="Warder's Charm +1",
+            waist="Fucho-no-Obi",
+            left_ear="Eabani Earring",
+            right_ear="Calamitous Earring",
+            left_ring="Stikini Ring +1",
+            right_ring="Defending Ring",
             back="Moonlight Cape",
         }},
       
@@ -206,7 +220,20 @@ function gear.new()
     sets["WeaponSkill"]["Attack"] = {
         
         -- Default WS Set.
-        ["Default"] = {},
+        ["Default"] = 
+        {ammo="Coiste Bodhar",
+        head="Nyame Helm",
+        body={ name="Nyame Mail", augments={'Path: B',}},
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        neck="Warder's Charm +1",
+        waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+        left_ear="Ishvara Earring",
+        right_ear="Brutal Earring",
+        left_ring="Petrov Ring",
+        right_ring="Ilabrat Ring",
+        back="Cornflower Cape",},
 
         ["Sanguine Blade"] =
         {ammo="Ghastly Tathlum",
@@ -228,7 +255,20 @@ function gear.new()
     sets["WeaponSkill"]["Accuracy"] = {
         
         -- Default WS Set.
-        ["Default"] = {},
+        ["Default"] = 
+        {ammo="Coiste Bodhar",
+        head="Nyame Helm",
+        body={ name="Nyame Mail", augments={'Path: B',}},
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        neck="Warder's Charm +1",
+        waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+        left_ear="Ishvara Earring",
+        right_ear="Brutal Earring",
+        left_ring="Petrov Ring",
+        right_ring="Ilabrat Ring",
+        back="Cornflower Cape",},
     
     }
     
@@ -524,11 +564,17 @@ function gear.new()
         },
 
         -- Midcast Sets.
-        ["Cure"] =
-        {},
-
-        ["Curaga"] =
-        {},
+        ["Absolute Terror"] =
+        {ammo="Hydrocera",
+        head="Nyame Helm",
+        body={ name="Nyame Mail", augments={'Path: B',}},
+        hands="Nyame Gauntlets",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        neck="Erra Pendant",
+        waist="Eschan Stone",
+        left_ring="Stikini Ring +1",
+        back="Cornflower Cape",},
 
     }
 

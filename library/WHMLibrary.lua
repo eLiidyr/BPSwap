@@ -56,6 +56,10 @@ function library.new()
             if user and user.Precast and user.Precast(bp, spell, midaction) then
                 return
             end
+
+            if spell.action_type == "Item" then
+                return
+            end
             
             if abilities:contains(spell.type) then
 

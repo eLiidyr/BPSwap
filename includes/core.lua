@@ -140,10 +140,8 @@ function core.load()
         elseif buffactive["Aftermath: Lv.1"] then
             return 1
 
-        else
-            return 0
-
         end
+        return 0
 
     end
     
@@ -423,6 +421,7 @@ function core.load()
     end
 
     self.buildWeaponskillSet = function(spell, sets, modes, options)
+        table.insert(options, "Default")
 
         if spell and sets and modes then
             local list = T(sets['WeaponSkill'][modes.combat][spell.name]) or false
@@ -507,6 +506,16 @@ function core.load()
 
                     end
                     return set
+
+                else
+
+                    if sets['WeaponSkill'][modes.combat][spell.name] then
+                        return sets['WeaponSkill'][modes.combat][spell.name]
+        
+                    elseif sets['WeaponSkill'][modes.combat]['Default'] then
+                        return sets['WeaponSkill'][modes.combat]['Default']
+
+                    end
 
                 end
 

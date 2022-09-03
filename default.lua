@@ -29,6 +29,7 @@ function get_sets()
         bp.sets, bp.user = bp.loader.getProfile(bp.player)
 
         if bp.sets and bp.user then
+            sets = bp.sets
 
             function file_unload()
                 bp.keybinds.unbind()

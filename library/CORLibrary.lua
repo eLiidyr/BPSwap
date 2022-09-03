@@ -52,6 +52,10 @@ function library.new()
                 return
             end
 
+            if spell.action_type == "Item" then
+                return
+            end
+
             do -- Detect Ranged Type.
                 local ranged = player and player.equipment and player.equipment.range and player.equipment.range ~= 'empty' and player.equipment.range or false
                 local buffs = bp.res.buffs
@@ -583,9 +587,6 @@ function library.new()
                     end
 
                 end
-            
-            else 
-                --equip(sets['Idle'][modes.idle].set)
             
             end
 

@@ -37,7 +37,7 @@ function library.new()
     end
 
     self.precast = function(spell, midaction)
-        
+
         if not bp then
             return
         end
@@ -50,6 +50,10 @@ function library.new()
         if not midaction and sets then
             
             if user and user.Precast and user.Precast(bp, spell, midaction) then
+                return
+            end
+
+            if spell.action_type == "Item" then
                 return
             end
             
@@ -546,9 +550,6 @@ function library.new()
                     end
 
                 end
-            
-            else 
-                --equip(sets['Idle'][modes.idle].set)
             
             end
 

@@ -312,7 +312,7 @@ function gear.new()
         ["Howling Fists"] =
         {ammo="Knobkierrie",
         head="Mpaca's Cap",
-        body="Ken. Samue +1",
+        body="Nyame Mail",
         hands={ name="Tatena. Gote +1", augments={'Path: A',}},
         legs="Mpaca's Hose",
         feet={ name="Herculean Boots", augments={'Accuracy+4 Attack+4','STR+12','Quadruple Attack +2',}},
