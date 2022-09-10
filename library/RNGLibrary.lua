@@ -550,7 +550,7 @@ function library.new()
                 local buffed = bp.core.getBuffedEngagedSet(sets, modes)
                 
                 if sets['Engaged'][modes.combat][modes.engaged][aftermath] then
-                    
+
                     if buffed and sets['Engaged'][modes.combat][modes.engaged][buffed] then
                         equip(set_combine(sets['Engaged'][modes.combat][modes.engaged].set, sets['Engaged'][modes.combat][modes.engaged][aftermath], sets['Engaged'][modes.combat][modes.engaged][buffed]))
 
@@ -563,10 +563,6 @@ function library.new()
 
                     if buffed and sets['Engaged'][modes.combat][modes.engaged][buffed] then
                         equip(sets['Engaged'][modes.combat][modes.engaged].set, sets['Engaged'][modes.combat][modes.engaged][buffed])
-
-                    else
-                        equip(sets['Engaged'][modes.combat][modes.engaged].set)
-
                     end
 
                 end

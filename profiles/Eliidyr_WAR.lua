@@ -120,7 +120,7 @@ function gear.new()
             back=capes['DA - STR'],
         }},
 
-        {name="Agoge Fencer [103% DA]", set={
+        {name="Agoge Fencer [100% DA]", set={
             ammo={ name="Coiste Bodhar", augments={'Path: A',}},
             head="Sakpata's Helm",
             body="Sakpata's Plate",
@@ -296,7 +296,7 @@ function gear.new()
                 right_ring="Niqmaddu Ring",
                 back=capes['UPHEAVAL']},
             },
-            ["Berserk Warcry Chaos Roll"] =
+            ["Berserk Chaos Roll Minuet"] =
             {
                 [0] =
                 {ammo="Knobkierrie",
@@ -786,7 +786,7 @@ function gear.new()
 
     -- [[ USER DEFINED FUNCTIONS ]] 
     user.settings = function(bp)
-        bp.settings["WS Options"] = {'Hasso','Berserk','Defender','Mighty Strikes','Brazen Rush','Chaos Roll'}
+        bp.settings["WS Options"] = {'Hasso','Berserk','Defender','Mighty Strikes','Brazen Rush','Chaos Roll','Minuet'}
         bp.settings['Auto Swaps'] = false
 
     end

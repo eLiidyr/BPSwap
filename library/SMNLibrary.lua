@@ -526,10 +526,6 @@ function library.new()
 
                     if buffed and sets['Engaged'][modes.combat][modes.engaged][buffed] then
                         equip(sets['Engaged'][modes.combat][modes.engaged].set, sets['Engaged'][modes.combat][modes.engaged][buffed])
-
-                    else
-                        equip(sets['Engaged'][modes.combat][modes.engaged].set)
-
                     end
 
                 end

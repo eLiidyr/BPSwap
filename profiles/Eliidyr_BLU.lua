@@ -84,7 +84,7 @@ function gear.new()
     
         -- Trash Build
         {name="Trash - TP", set={
-            ammo="Coiste Bodhar",
+            ammo={ name="Coiste Bodhar", augments={'Path: A',}},
             head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
             body={ name="Adhemar Jacket +1", augments={'STR+12','DEX+12','Attack+20',}},
             hands={ name="Adhemar Wrist. +1", augments={'STR+12','DEX+12','Attack+20',}},
@@ -96,7 +96,7 @@ function gear.new()
             right_ear="Suppanomimi",
             left_ring="Petrov Ring",
             right_ring="Chirich Ring +1",
-            back="Moonlight Cape",
+            back={ name="Rosmerta's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10',}},
         }},
 
         -- Hybrid Build
@@ -234,6 +234,21 @@ function gear.new()
         left_ring="Petrov Ring",
         right_ring="Ilabrat Ring",
         back="Cornflower Cape",},
+
+        ["Savage Blade"] =
+        {ammo={ name="Coiste Bodhar", augments={'Path: A',}},
+        head={ name="Nyame Helm", augments={'Path: B',}},
+        body={ name="Nyame Mail", augments={'Path: B',}},
+        hands="Jhakri Cuffs +2",
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        neck="Warder's Charm +1",
+        waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+        left_ear="Ishvara Earring",
+        right_ear="Odr Earring",
+        left_ring="Ilabrat Ring",
+        right_ring="Chirich Ring +1",
+        back={ name="Rosmerta's Cape", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},},
 
         ["Sanguine Blade"] =
         {ammo="Ghastly Tathlum",
