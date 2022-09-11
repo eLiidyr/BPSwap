@@ -358,7 +358,6 @@ function core.load()
                         return set
                         
                     end
-                    return false
 
                 elseif sets['Midcast'][spell.name] and sets['Midcast'][spell.name].buffed then
                     local buffs = T(sets['Midcast'][spell.name].buffed):keyset():filter(function(key)
@@ -410,11 +409,11 @@ function core.load()
                         return set
                         
                     end
-                    return false
 
                 end
 
             end
+            return {}
 
         end
 
@@ -477,55 +476,12 @@ function core.load()
 
                         end
 
-                    elseif sets['WeaponSkill'][modes.combat][spell.name]['Default'] then
-                        local options = sets['WeaponSkill'][modes.combat][spell.name]['Default']
-                        local highest = 0
-                        local set = options[0]
-
-                        for tp, update in pairs(options) do
-                                                            
-                            if player.tp >= tp and tp >= highest then
-                                set, highest = update, tp
-                            end
-
-                        end
-                        return set
-
-                    end
-
-                elseif sets['WeaponSkill'][modes.combat][spell.name]['Default'] then
-                    local options = sets['WeaponSkill'][modes.combat][spell.name]['Default']
-                    local highest = 0
-                    local set = options[0]
-
-                    for tp, update in pairs(options) do
-                                                        
-                        if player.tp >= tp and tp >= highest then
-                            set, highest = update, tp
-                        end
-
-                    end
-                    return set
-
-                else
-
-                    if sets['WeaponSkill'][modes.combat][spell.name] then
-                        return sets['WeaponSkill'][modes.combat][spell.name]
-        
-                    elseif sets['WeaponSkill'][modes.combat]['Default'] then
-                        return sets['WeaponSkill'][modes.combat]['Default']
-
                     end
 
                 end
 
-            elseif sets['WeaponSkill'][modes.combat][spell.name] then
-                return sets['WeaponSkill'][modes.combat][spell.name]
-
-            elseif sets['WeaponSkill'][modes.combat]['Default'] then
-                return sets['WeaponSkill'][modes.combat]['Default']
-
-            end            
+            end
+            return {}
 
         end
 

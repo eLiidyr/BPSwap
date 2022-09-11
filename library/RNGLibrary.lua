@@ -114,27 +114,23 @@ function library.new()
                     local distance = spell.target.distance
 
                     if bp.core.ElementalWeaponskills:contains(spell.name) then
-                        local set = bp.core.buildWeaponskillSet(spell, sets, modes, settings['WS Options'])
 
                         if obi and spell.element == world.weather_element and world.day_element ~= obi.opposing and world.weather_intensity == 2 then
-                            equip(set, {waist=obi and obi.name or ''}, {waist="Hachirin-no-Obi"}, weather)
+                            equip(set_combine(sets['WeaponSkill'][modes.combat]['Default'], {waist=obi and obi.name or ''}, {waist="Hachirin-no-Obi"}, weather, bp.core.buildWeaponskillSet(spell, sets, modes, settings['WS Options'])))
 
                         elseif spell.element == world.day_element and spell.element == world.weather_element then
-                            equip(set, {waist=obi and obi.name or ''}, {waist="Hachirin-no-Obi"}, weather)
+                            equip(set_combine(sets['WeaponSkill'][modes.combat]['Default'], {waist=obi and obi.name or ''}, {waist="Hachirin-no-Obi"}, weather, bp.core.buildWeaponskillSet(spell, sets, modes, settings['WS Options'])))
 
                         elseif spell.target.distance < (8 + spell.target.model_size) then
-                            equip(set, {waist=obi and obi.name or ''}, {waist="Orpheus's Sash"}, weather)
+                            equip(set_combine(sets['WeaponSkill'][modes.combat]['Default'], {waist=obi and obi.name or ''}, {waist="Orpheus's Sash"}, weather, bp.core.buildWeaponskillSet(spell, sets, modes, settings['WS Options'])))
 
                         elseif spell.element == world.day_element or spell.element == world.weather_element then
-                            equip(set, {waist=obi and obi.name or ''}, {waist="Hachirin-no-Obi"}, weather)
-
-                        else
-                            equip(set)
+                            equip(set_combine(sets['WeaponSkill'][modes.combat]['Default'], {waist=obi and obi.name or ''}, {waist="Hachirin-no-Obi"}, weather, bp.core.buildWeaponskillSet(spell, sets, modes, settings['WS Options'])))
 
                         end
 
                     else
-                        equip(bp.core.buildWeaponskillSet(spell, sets, modes, settings['WS Options']))
+                        equip(set_combine(sets['WeaponSkill'][modes.combat]['Default'], sets['WeaponSkill'][modes.combat][spell.name], bp.core.buildWeaponskillSet(spell, sets, modes, settings['WS Options'])))
 
                     end
 
