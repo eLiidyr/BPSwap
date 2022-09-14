@@ -136,6 +136,22 @@ function gear.new()
             back=capes['DA - STR'],
         }},
 
+        {name="Boii Fencer [103% DA]", set={
+            ammo={ name="Coiste Bodhar", augments={'Path: A',}},
+            head="Flam. Zucchetto +2",
+            body={ name="Sakpata's Plate", augments={'Path: A',}},
+            hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},
+            legs="Boii Cuisses +2",
+            feet="Flam. Gambieras +2",
+            neck={ name="War. Beads +2", augments={'Path: A',}},
+            waist="Ioskeha Belt +1",
+            left_ear={ name="Schere Earring", augments={'Path: A',}},
+            right_ear="Brutal Earring",
+            left_ring="Flamma Ring",
+            right_ring="Niqmaddu Ring",
+            back={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','"Dbl.Atk."+10','Damage taken-5%',}},
+        }},        
+
         {name="Fencer [STP]", set={
             ammo="Coiste Bodhar",
             head="Sakpata's Helm",
