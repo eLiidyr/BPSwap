@@ -68,7 +68,7 @@ function gear.new()
     -- [[ ENGAGED SETS ]] 
     sets["Engaged"] = {}    
     sets["Engaged"]["Attack"] = {			
-    
+
         {name="Balls to the Wall", set={
             ammo="Coiste Bodhar",
             head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},

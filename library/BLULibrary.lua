@@ -1,6 +1,31 @@
 local library = {}
 function library.new()
     local self = {}
+
+    -- Summoner Pacts.
+    local types = {'Physical','Magical','Hybrid','Ward','Debuff'}
+    local pacts = {
+
+        ['BloodPactRage'] = {
+
+            S{'Punch','Rock Throw','Barracuda Dive','Claw','Welt','Axe Kick','Shock Strike','Camisado','Regal Scratch','Poison Nails','Moonlit Charge','Rock buster','Roundhouse','Tail Whip','Double Punch','Megalith Throw','Double Slap','Eclipse Bite','Mountain buster','Spinning Dive','Predator Claws','Rush','Chaotic Strike','Volt Strike','Hysteric Assault','Crag Throw','Blindside','Regal Gash'},
+            S{'Inferno','Earthen Fury','Tidal Wave','Aerial Blast','Clarsach Call','Diamond Dust','Judgement Bolt','Searing Light','Howling Moon','Ruinous Omen','Fire II','Stone II','Water II','Aero II','Blizzard II','Thunder II','Thunderspark','Meteorite','Fire IV','Stone IV','Water IV','Aero IV','Blizzard IV','Thunder IV','Sonic Buffet','Nether Blast','Zantetsuken','Meteor Strike','Geocrush','Grand Fall','Wind Blade','Tornado II','Heavenly Strike','Thunderstorm','Level ? Holy','Holy Mist','Lunar Bay','Night Terror','Conflag Strike','Impact'},
+            S{'Flaming Crush','Burning Strike'},
+            S{},
+            S{},
+
+        },
+        ['BloodPactWard'] = {
+
+            S{},
+            S{},
+            S{},
+            S{'Altana\'s Favor','Healing Ruby','Raise II','Shining Ruby','Aerial Armor','Frost Armor','Reraise II','Katabatic Blades','Whispering Wind','Crimson Howl','Lightning Armor','Chinook','Ecliptic Growl','Glittering Ruby','Earthen Ward','Spring Water','Hastega','Noctoshield','Ecliptic Howl','Dream Shroud','Healing Ruby II','Perfect Defense','Chronoshift','Earthen Armor','Fleet Wind','Inferno Howl','Wind’s Blessing','Soothing Ruby','Heavenward Howl','Pacifying Ruby','Hastega II','Soothing Current','Crystal Blessing'},
+            S{'Lunatic Voice','Somnolence','Lunar Cry','Mewing Lullaby','Nightmare','Rolling Thunder','Lunar Roar','Slowga','Ultimate Terror','Sleepga','Bitter Elegy','Eerie Eye','Deconstruction','Tidal Roar','Diamond Storm','Shock Squall','Pavor Nocturnus'},
+
+        }
+
+    }
     
     -- Private Variables.
     local bp       = {}
@@ -43,6 +68,7 @@ function library.new()
 
         local modes = {idle=settings['Idle Mode'], engaged=settings['Engaged Mode'], ranged=settings['Ranged Mode'], nuke=settings['Nuke Mode'], combat=bp.core.getCombatMode(), weapon=settings['Weapon Mode']}
         local abilities = S{'JobAbility','CorsairRoll','CorsairShot','Samba','Waltz','Jig','Scholar','Step','Flourish1','Flourish2','Flourish3','Effusion','Rune','Ward'}
+        local pacts = S{'BloodPactRage','BloodPactWard'}
         local sets = bp.sets
         local user = bp.user
         
@@ -151,6 +177,7 @@ function library.new()
         end
 
         local modes = {idle=settings['Idle Mode'], engaged=settings['Engaged Mode'], ranged=settings['Ranged Mode'], nuke=settings['Nuke Mode'], combat=bp.core.getCombatMode(), weapon=settings['Weapon Mode']}
+        local pacts = S{'BloodPactRage','BloodPactWard'}
         local sets = bp.sets
         local user = bp.user
 
@@ -163,6 +190,30 @@ function library.new()
             if spell.name == 'Ranged' then
                 equip(set_combine(sets['Ammo'], sets['Ranged'][settings['Ranged Types'][settings['Ranged Type']]][modes.combat][modes.ranged].set))
 
+            elseif pacts:contains(spell.type) then
+    
+                if settings['BloodPacts'][spell.type] then
+                    local pact = settings['BloodPacts'][spell.type]
+
+                    if pact[1]:contains(spell.name) then
+                        equip(set_combine(sets['Midcast']['Physical'], sets['Midcast'][spell.name], sets['Midcast'][modes.combat]['Physical'], sets['Midcast'][modes.combat][spell.name]))
+
+                    elseif pact[2]:contains(spell.name) then
+                        equip(set_combine(sets['Midcast']['Magical'], sets['Midcast'][spell.name], sets['Midcast'][modes.combat]['Magical'], sets['Midcast'][modes.combat][spell.name]))
+
+                    elseif pact[3]:contains(spell.name) then
+                        equip(set_combine(sets['Midcast']['Hybrid'], sets['Midcast'][spell.name], sets['Midcast'][modes.combat]['Hybrid'], sets['Midcast'][modes.combat][spell.name]))
+
+                    elseif pact[4]:contains(spell.name) then
+                        equip(set_combine(sets['Midcast']['Ward'], sets['Midcast'][spell.name], sets['Midcast'][modes.combat]['Ward'], sets['Midcast'][modes.combat][spell.name]))
+
+                    elseif pact[5]:contains(spell.name) then
+                        equip(set_combine(sets['Midcast']['Debuff'], sets['Midcast'][spell.name], sets['Midcast'][modes.combat]['Debuff'], sets['Midcast'][modes.combat][spell.name]))
+
+                    end
+
+                end
+
             else
                 
                 if S{'Singing','Stringed Instrument','Wind Instrument'}:contains(spell.skill) and bp.player.main_job == 'BRD' then
@@ -171,63 +222,16 @@ function library.new()
                         equip(set_combine(sets['Idle'][modes.idle], {range=settings['Instruments'][settings['Instrument']]}))
 
                     elseif spell.name == "Honor March" and bp.core.hasAeonic() then
-
-                        if sets['Midcast'][modes.combat][spell.skill] then
-
-                            if sets['Midcast'][modes.combat][spell.name] then
-                                equip(set_combine(sets['Midcast'][modes.combat][spell.skill], sets['Midcast'][modes.combat][spell.name], {range="Marsyas"}))
-    
-                            else
-                                equip(set_combine(sets['Midcast'][modes.combat][spell.skill], {range="Marsyas"}))
-    
-                            end
-    
-                        elseif sets['Midcast'][spell.skill] then
-    
-                            if sets['Midcast'][spell.name] then
-                                equip(set_combine(sets['Midcast'][spell.skill], sets['Midcast'][spell.name], {range="Marsyas"}))
-    
-                            else
-                                equip(set_combine(sets['Midcast'][spell.skill], {range="Marsyas"}))
-    
-                            end
-    
-                        elseif sets['Midcast'][modes.combat][spell.name] then
-                            equip(sets['Midcast'][modes.combat][spell.name], {range="Marsyas"})
-    
-                        elseif sets['Midcast'][spell.name] then
-                            equip(sets['Midcast'][spell.name], {range="Marsyas"})
-    
-                        end
+                        equip(set_combine(sets['Midcast'][spell.name], {range="Marsyas"}))
 
                     else
-                        
-                        if sets['Midcast'][modes.combat][spell.skill] then
-                            
-                            if sets['Midcast'][modes.combat][spell.name] then
-                                equip(set_combine(sets['Midcast'][modes.combat][spell.skill], sets['Midcast'][modes.combat][spell.name]))
-    
-                            else
-                                equip(set_combine(sets['Midcast'][modes.combat][spell.skill]))
-    
-                            end
-    
-                        elseif sets['Midcast'][spell.skill] then
-                            
-                            if sets['Midcast'][spell.name] then
-                                equip(set_combine(sets['Midcast'][spell.skill], sets['Midcast'][spell.name]))
-    
-                            else
-                                equip(set_combine(sets['Midcast'][spell.skill]))
-    
-                            end
-    
-                        elseif sets['Midcast'][modes.combat][spell.name] then
-                            equip(sets['Midcast'][modes.combat][spell.name])
-    
-                        elseif sets['Midcast'][spell.name] then
-                            equip(sets['Midcast'][spell.name])
-    
+
+                        if sets['Midcast'] and sets['Midcast'][modes.combat] and sets['Midcast'] and sets['Midcast'][modes.combat][spell.name] then
+                            equip(set_combine(sets['Midcast'][spell.skill], sets['Midcast'][modes.combat][spell.name]))
+
+                        else
+                            equip(set_combine(sets['Midcast'][spell.skill], sets['Midcast'][spell.name]))
+
                         end
 
                     end
@@ -235,16 +239,10 @@ function library.new()
                 elseif spell.skill == 'Geomancy' then
 
                     if string.find(spell.name:lower(), 'indi') then
-                        
-                        if sets['Midcast']['Indicolure'] then
-                            equip(sets['Midcast']['Indicolure'])
-                        end
+                        equip(sets['Midcast']['Indicolure'])
 
                     elseif string.find(spell.name:lower(), 'geo') then
-                        
-                        if sets['Midcast']['Geocolure'] then
-                            equip(sets['Midcast']['Geocolure'])
-                        end
+                        equip(sets['Midcast']['Geocolure'])
 
                     end
 
@@ -273,84 +271,19 @@ function library.new()
                     
                 else
                     local buffed = bp.core.getBuffedMidcastSet(spell, sets, modes)
-
-                    if buffed then
                         
-                        if spell.targets:contains('Enemy') then
+                    if spell.targets:contains('Enemy') then
 
-                            if sets['Midcast'][modes.combat] and sets['Midcast'][modes.combat][spell.name] and sets['Midcast'][modes.combat][spell.name].buffed and sets['Midcast'][modes.combat][spell.name].buffed[buffed] then
-                                equip(sets['Midcast'][modes.combat][spell.name], sets['Midcast'][modes.combat][spell.name].buffed[buffed])
-
-                            elseif sets['Midcast'][spell.name] and sets['Midcast'][spell.name].buffed and sets['Midcast'][spell.name].buffed[buffed] then
-                                equip(sets['Midcast'][spell.name], sets['Midcast'][spell.name].buffed[buffed])
-
-                            end
+                        if sets['Midcast'][modes.combat][spell.name] then
+                            equip(set_combine(sets['Midcast'][spell.skill], sets['Midcast'][spell.name], sets['Midcast'][modes.combat][spell.name], sets['Midcast'][modes.combat][spell.name] and sets['Midcast'][modes.combat][spell.name][buffed]))
 
                         else
-
-                            if sets['Midcast'][spell.name] and sets['Midcast'][spell.name].buffed and sets['Midcast'][spell.name].buffed[buffed] then
-                                equip(sets['Midcast'][spell.name], sets['Midcast'][spell.name].buffed[buffed])
-                            end
+                            equip(set_combine(sets['Midcast'][spell.skill], sets['Midcast'][spell.name], sets['Midcast'][spell.name] and sets['Midcast'][spell.name][buffed]))
 
                         end
 
                     else
-
-                        if spell.targets:contains('Enemy') then
-
-                            if sets['Midcast'][modes.combat][spell.skill] then
-
-                                if sets['Midcast'][modes.combat][spell.name] then
-                                    equip(set_combine(sets['Midcast'][modes.combat][spell.skill], sets['Midcast'][modes.combat][spell.name]))
-
-                                else
-                                    equip(set_combine(sets['Midcast'][modes.combat][spell.skill]))
-
-                                end
-
-                            elseif sets['Midcast'][modes.combat][spell.name] then
-
-                                if sets['Midcast'][spell.skill] then
-                                    equip(set_combine(sets['Midcast'][spell.skill], sets['Midcast'][modes.combat][spell.name]))
-
-                                else
-                                    equip(sets['Midcast'][modes.combat][spell.name])
-
-                                end
-
-                            elseif sets['Midcast'][spell.skill] then
-
-                                if sets['Midcast'][spell.name] then
-                                    equip(set_combine(sets['Midcast'][spell.skill], sets['Midcast'][spell.name]))
-
-                                else
-                                    equip(set_combine(sets['Midcast'][spell.skill]))
-
-                                end
-
-                            elseif sets['Midcast'][spell.name] then
-                                equip(sets['Midcast'][spell.name])
-
-                            end
-
-                        else
-
-                            if sets['Midcast'][spell.skill] then
-
-                                if sets['Midcast'][spell.name] then
-                                    equip(set_combine(sets['Midcast'][spell.skill], sets['Midcast'][spell.name]))
-
-                                else
-                                    equip(set_combine(sets['Midcast'][spell.skill]))
-
-                                end
-
-                            elseif sets['Midcast'][spell.name] then
-                                equip(sets['Midcast'][spell.name])
-
-                            end
-
-                        end
+                        equip(set_combine(sets['Midcast'][spell.skill], sets['Midcast'][spell.name], sets['Midcast'][spell.name] and sets['Midcast'][spell.name][buffed]))
 
                     end
 
@@ -369,6 +302,7 @@ function library.new()
         end
 
         local modes = {idle=settings['Idle Mode'], engaged=settings['Engaged Mode'], ranged=settings['Ranged Mode'], nuke=settings['Nuke Mode'], combat=bp.core.getCombatMode(), weapon=settings['Weapon Mode']}
+        local pacts = S{'BloodPactRage','BloodPactWard'}
         local sets = bp.sets
         local user = bp.user
 
@@ -378,72 +312,25 @@ function library.new()
                 return
             end
 
-            if player.status == 'Engaged' then
-                local aftermath     = bp.core.getAftermathLevel()
-                local buffed        = bp.core.getBuffedEngagedSet(sets, modes)
-                local weapon_set    = bp.core.getWeaponSet()
+            if not pacts:contains(spell.type) then
+
+                if player.status == 'Engaged' then
+                    local aftermath     = bp.core.getAftermathLevel()
+                    local buffed        = bp.core.getBuffedEngagedSet(sets, modes)
+                    local weapon_set    = bp.core.getWeaponSet()
+    
+                    if sets['Engaged'] and sets['Engaged'][modes.combat] and sets['Engaged'][modes.combat][modes.engaged] then
+                        equip(set_combine(sets['Engaged'][modes.combat][modes.engaged].set, sets['Engaged'][modes.combat][modes.engaged][aftermath], sets['Engaged'][modes.combat][modes.engaged][buffed], weapon_set.set))
+                    end
                 
-                if sets['Engaged'][modes.combat][modes.engaged][aftermath] then
-
-                    if buffed and sets['Engaged'][modes.combat][modes.engaged][buffed] then
-
-                        if weapon_set and weapon_set.set then
-                            equip(set_combine(sets['Engaged'][modes.combat][modes.engaged].set, sets['Engaged'][modes.combat][modes.engaged][aftermath], sets['Engaged'][modes.combat][modes.engaged][buffed], weapon_set.set))
-
-                        else
-                            equip(set_combine(sets['Engaged'][modes.combat][modes.engaged].set, sets['Engaged'][modes.combat][modes.engaged][aftermath], sets['Engaged'][modes.combat][modes.engaged][buffed]))
-
-                        end
-
-                    else
-
-                        if weapon_set and weapon_set.set then
-                            equip(set_combine(sets['Engaged'][modes.combat][modes.engaged].set, sets['Engaged'][modes.combat][modes.engaged][aftermath], weapon_set.set))
-                        
-                        else
-                            equip(set_combine(sets['Engaged'][modes.combat][modes.engaged].set, sets['Engaged'][modes.combat][modes.engaged][aftermath]))
-
-                        end
-
-                    end
-
                 else
-
-                    if buffed and sets['Engaged'][modes.combat][modes.engaged][buffed] then
-
-                        if weapon_set and weapon_set.set then
-                            equip(sets['Engaged'][modes.combat][modes.engaged].set, sets['Engaged'][modes.combat][modes.engaged][buffed], weapon_set.set)
-
-                        else
-                            equip(sets['Engaged'][modes.combat][modes.engaged].set, sets['Engaged'][modes.combat][modes.engaged][buffed])
-
-                        end
-
-                    else
-
-                        if weapon_set and weapon_set.set then
-                            equip(sets['Engaged'][modes.combat][modes.engaged].set, weapon_set.set)
-
-                        else
-                            equip(sets['Engaged'][modes.combat][modes.engaged].set)
-
-                        end
-
+    
+                    if sets['Idle'] and sets['Idle'][modes.idle] and sets['Idle'][modes.idle] then
+                        equip(sets['Idle'][modes.idle].set, bp.core.getWeaponSet().set)
                     end
-
+                
                 end
-            
-            else
-                local weapon_set = bp.core.getWeaponSet()
 
-                if weapon_set and weapon_set.set then
-                    equip(sets['Idle'][modes.idle].set, weapon_set.set)
-
-                else
-                    equip(sets['Idle'][modes.idle].set)
-
-                end
-            
             end
 
         end
@@ -457,6 +344,7 @@ function library.new()
         end
 
         local modes = {idle=settings['Idle Mode'], engaged=settings['Engaged Mode'], ranged=settings['Ranged Mode'], nuke=settings['Nuke Mode'], combat=bp.core.getCombatMode(), weapon=settings['Weapon Mode']}
+        local pacts = S{'BloodPactRage','BloodPactWard'}
         local sets = bp.sets
         local user = bp.user
 
@@ -470,26 +358,8 @@ function library.new()
                 local aftermath = bp.core.getAftermathLevel()
                 local buffed = bp.core.getBuffedEngagedSet(sets, modes)
                 
-                if sets['Engaged'][modes.combat][modes.engaged][aftermath] then
-
-                    if buffed and sets['Engaged'][modes.combat][modes.engaged][buffed] then
-                        equip(set_combine(sets['Engaged'][modes.combat][modes.engaged].set, sets['Engaged'][modes.combat][modes.engaged][aftermath], sets['Engaged'][modes.combat][modes.engaged][buffed]))
-
-                    else
-                        equip(set_combine(sets['Engaged'][modes.combat][modes.engaged].set, sets['Engaged'][modes.combat][modes.engaged][aftermath]))
-
-                    end
-
-                else
-
-                    if buffed and sets['Engaged'][modes.combat][modes.engaged][buffed] then
-                        equip(sets['Engaged'][modes.combat][modes.engaged].set, sets['Engaged'][modes.combat][modes.engaged][buffed])
-
-                    else
-                        equip(sets['Engaged'][modes.combat][modes.engaged].set)
-
-                    end
-
+                if sets['Engaged'] and sets['Engaged'][modes.combat] and sets['Engaged'][modes.combat][modes.engaged] then
+                    equip(set_combine(sets['Engaged'][modes.combat][modes.engaged].set, sets['Engaged'][modes.combat][modes.engaged][aftermath], sets['Engaged'][modes.combat][modes.engaged][buffed]))
                 end
             
             else 
@@ -508,6 +378,7 @@ function library.new()
         end
 
         local modes = {idle=settings['Idle Mode'], engaged=settings['Engaged Mode'], ranged=settings['Ranged Mode'], nuke=settings['Nuke Mode'], combat=bp.core.getCombatMode(), weapon=settings['Weapon Mode']}
+        local pacts = S{'BloodPactRage','BloodPactWard'}
         local sets = bp.sets
         local user = bp.user
 
@@ -527,22 +398,8 @@ function library.new()
                 local aftermath = bp.core.getAftermathLevel()
                 local buffed = bp.core.getBuffedEngagedSet(sets, modes)
                 
-                if sets['Engaged'][modes.combat][modes.engaged][aftermath] then
-
-                    if buffed and sets['Engaged'][modes.combat][modes.engaged][buffed] then
-                        equip(set_combine(sets['Engaged'][modes.combat][modes.engaged].set, sets['Engaged'][modes.combat][modes.engaged][aftermath], sets['Engaged'][modes.combat][modes.engaged][buffed]))
-
-                    else
-                        equip(set_combine(sets['Engaged'][modes.combat][modes.engaged].set, sets['Engaged'][modes.combat][modes.engaged][aftermath]))
-
-                    end
-
-                else
-
-                    if buffed and sets['Engaged'][modes.combat][modes.engaged][buffed] then
-                        equip(sets['Engaged'][modes.combat][modes.engaged].set, sets['Engaged'][modes.combat][modes.engaged][buffed])
-                    end
-
+                if sets['Engaged'] and sets['Engaged'][modes.combat] and sets['Engaged'][modes.combat][modes.engaged] then
+                    equip(set_combine(sets['Engaged'][modes.combat][modes.engaged].set, sets['Engaged'][modes.combat][modes.engaged][aftermath], sets['Engaged'][modes.combat][modes.engaged][buffed]))
                 end
             
             end
@@ -558,6 +415,7 @@ function library.new()
         end
 
         local modes = {idle=settings['Idle Mode'], engaged=settings['Engaged Mode'], ranged=settings['Ranged Mode'], nuke=settings['Nuke Mode'], combat=bp.core.getCombatMode(), weapon=settings['Weapon Mode']}
+        local pacts = S{'BloodPactRage','BloodPactWard'}
         local sets = bp.sets
         local user = bp.user
 
@@ -578,6 +436,7 @@ function library.new()
         end
 
         local modes = {idle=settings['Idle Mode'], engaged=settings['Engaged Mode'], ranged=settings['Ranged Mode'], nuke=settings['Nuke Mode'], combat=bp.core.getCombatMode(), weapon=settings['Weapon Mode']}
+        local pacts = S{'BloodPactRage','BloodPactWard'}
         local sets = bp.sets
         local user = bp.user
 
@@ -598,6 +457,7 @@ function library.new()
         end
 
         local modes = {idle=settings['Idle Mode'], engaged=settings['Engaged Mode'], ranged=settings['Ranged Mode'], nuke=settings['Nuke Mode'], combat=bp.core.getCombatMode(), weapon=settings['Weapon Mode']}
+        local pacts = S{'BloodPactRage','BloodPactWard'}
         local sets = bp.sets
         local user = bp.user
 
@@ -626,6 +486,7 @@ function library.new()
         end
 
         local modes = {idle=settings['Idle Mode'], engaged=settings['Engaged Mode'], ranged=settings['Ranged Mode'], nuke=settings['Nuke Mode'], combat=bp.core.getCombatMode(), weapon=settings['Weapon Mode']}
+        local pacts = S{'BloodPactRage','BloodPactWard'}
         local sets = bp.sets
         local user = bp.user
 
@@ -646,6 +507,7 @@ function library.new()
         end
 
         local modes = {idle=settings['Idle Mode'], engaged=settings['Engaged Mode'], ranged=settings['Ranged Mode'], nuke=settings['Nuke Mode'], combat=bp.core.getCombatMode(), weapon=settings['Weapon Mode']}
+        local pacts = S{'BloodPactRage','BloodPactWard'}
         local sets = bp.sets
         local user = bp.user
 

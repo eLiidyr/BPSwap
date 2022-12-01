@@ -21,47 +21,45 @@ function gear.new()
     sets['Weapons'] = {
 
         {name='None'},
-        {name='Scythe',     equip=true,     set={main="Chango",sub="Utu Grip"}},
-        {name='Clubbin',    equip=true,     set={main="Loxotic Mace +1",sub="Blurred Shield +1"}},
+        {name='Apoc',       equip=true,     set={main="Chango",sub="Utu Grip"}},
+        {name='Club',       equip=true,     set={main="Loxotic Mace +1",sub="Blurred Shield +1"}},
 
     }
     
     -- [[ IDLE SETS ]]
     sets["Idle"] = {
         
-        -- MOVEMENT SPEED+.
         {name="Movement Speed", set={
             ammo="Staunch Tathlum +1",
-            head="Sakpata's Helm",
-            body="Sakpata's Plate",
-            hands="Sakpata's Gauntlets",
-            legs="Sakpata's Cuisses",
-            feet="Hermes's Sandals",
+            head={ name="Sakpata's Helm", augments={'Path: A',}},
+            body={ name="Sakpata's Plate", augments={'Path: A',}},
+            hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},
+            legs="Carmine Cuisses +1",
+            feet={ name="Sakpata's Leggings", augments={'Path: A',}},
             neck="Warder's Charm +1",
             waist="Carrier's Sash",
-            left_ear="Eabani Earring",
-            right_ear="Thrud Earring",
-            left_ring="Warden's Ring",
-            right_ring="Defending Ring",
-            back=capes['DT']},
-        },
+            left_ear="Odnowa Earring +1",
+            right_ear="Eabani Earring",
+            left_ring="Moonlight Ring",
+            right_ring="Stikini Ring +1",
+            back="Moonlight Cape",
+        }},
 
-        -- DAMAGE TAKEN SET.
         {name="Damage Taken", set={
             ammo="Staunch Tathlum +1",
-            head="Sakpata's Helm",
-            body="Sakpata's Plate",
-            hands="Sakpata's Gauntlets",
-            legs="Sakpata's Cuisses",
-            feet="Sakpata's Leggings",
+            head={ name="Sakpata's Helm", augments={'Path: A',}},
+            body={ name="Sakpata's Plate", augments={'Path: A',}},
+            hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},
+            legs={ name="Sakpata's Cuisses", augments={'Path: A',}},
+            feet={ name="Sakpata's Leggings", augments={'Path: A',}},
             neck="Warder's Charm +1",
             waist="Carrier's Sash",
-            left_ear="Eabani Earring",
-            right_ear="Thrud Earring",
-            left_ring="Warden's Ring",
-            right_ring="Niqmaddu Ring",
-            back=capes['DT']},
-        },
+            left_ear="Odnowa Earring +1",
+            right_ear="Eabani Earring",
+            left_ring="Moonlight Ring",
+            right_ring="Stikini Ring +1",
+            back="Moonlight Cape",
+        }},
       
     }
     
@@ -69,49 +67,80 @@ function gear.new()
     sets["Engaged"] = {}    
     sets["Engaged"]["Attack"] = {			
     
-        {name="Chango - Trash", set={
-            ammo="Coiste Bodhar",
+        {name="Apocalypse [4-Hit]", set={
+            ammo={ name="Coiste Bodhar", augments={'Path: A',}},
             head="Flam. Zucchetto +2",
-            body="Sakpata's Plate",
-            hands={ name="Tatena. Gote +1", augments={'Path: A',}},
-            legs={ name="Tatena. Haidate +1", augments={'Path: A',}},
-            feet={ name="Tatena. Sune. +1", augments={'Path: A',}},
-            neck={ name="War. Beads +2", augments={'Path: A',}},
-            waist="Ioskeha Belt +1",
-            left_ear="Schere Earring",
-            right_ear="Brutal Earring",
-            left_ring="Flamma Ring",
-            right_ring="Niqmaddu Ring",
-            back=capes['DA - STR']},
-        },
-
-        {name="Chango - High", set={
-            ammo="Coiste Bodhar",
-            head="Sakpata's Helm",
-            body="Sakpata's Plate",
-            hands="Sakpata's Gauntlets",
-            legs="Sakpata's Cuisses",
-            feet="Sakpata's Leggings",
-            neck={ name="War. Beads +2", augments={'Path: A',}},
+            body="Hjarrandi Breast.",
+            hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},
+            legs={ name="Sakpata's Cuisses", augments={'Path: A',}},
+            feet="Flam. Gambieras +2",
+            neck={ name="Vim Torque +1", augments={'Path: A',}},
             waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-            left_ear="Schere Earring",
-            right_ear="Telos Earring",
+            left_ear="Telos Earring",
+            right_ear="Brutal Earring",
             left_ring="Chirich Ring +1",
-            right_ring="Niqmaddu Ring",
-            back=capes['DA - STR'],
+            right_ring="Moonlight Ring",
+            back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10',}},
+
+            [1] = { -- Aftermath 1
+                ammo={ name="Coiste Bodhar", augments={'Path: A',}},
+                head="Flam. Zucchetto +2",
+                body={ name="Valorous Mail", augments={'Accuracy+23 Attack+23','"Store TP"+6','Attack+8',}},
+                hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},
+                legs={ name="Sakpata's Cuisses", augments={'Path: A',}},
+                feet="Flam. Gambieras +2",
+                neck={ name="Vim Torque +1", augments={'Path: A',}},
+                waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+                left_ear="Telos Earring",
+                right_ear="Brutal Earring",
+                left_ring="Chirich Ring +1",
+                right_ring="Moonlight Ring",
+                back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10',}},
+            },
+            [2] = { -- Aftermath 2
+                ammo={ name="Coiste Bodhar", augments={'Path: A',}},
+                head="Flam. Zucchetto +2",
+                body={ name="Valorous Mail", augments={'Accuracy+23 Attack+23','"Store TP"+6','Attack+8',}},
+                hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},
+                legs={ name="Sakpata's Cuisses", augments={'Path: A',}},
+                feet="Flam. Gambieras +2",
+                neck={ name="Vim Torque +1", augments={'Path: A',}},
+                waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+                left_ear="Telos Earring",
+                right_ear="Brutal Earring",
+                left_ring="Chirich Ring +1",
+                right_ring="Moonlight Ring",
+                back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10',}},
+            },
+            [3] = { -- Aftermath 3
+                ammo={ name="Coiste Bodhar", augments={'Path: A',}},
+                head="Flam. Zucchetto +2",
+                body={ name="Valorous Mail", augments={'Accuracy+23 Attack+23','"Store TP"+6','Attack+8',}},
+                hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},
+                legs={ name="Sakpata's Cuisses", augments={'Path: A',}},
+                feet="Flam. Gambieras +2",
+                neck={ name="Vim Torque +1", augments={'Path: A',}},
+                waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+                left_ear="Telos Earring",
+                right_ear="Brutal Earring",
+                left_ring="Chirich Ring +1",
+                right_ring="Moonlight Ring",
+                back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10',}},
+            },
+
         }},
 
         {name="Fencer [MA]", set={
-            ammo={ name="Coiste Bodhar", augments={'Path: A',}},
-            head="Sakpata's Helm",
+            ammo="Coiste Bodhar",
+            head="Flam. Zucchetto +2",
             body="Sakpata's Plate",
             hands="Sakpata's Gauntlets",
-            legs="Pumm. Cuisses +2",
+            legs="Sakpata's Cuisses",
             feet="Flam. Gambieras +2",
-            neck={ name="War. Beads +2", augments={'Path: A',}},
-            waist="Ioskeha Belt +1",
-            left_ear={ name="Schere Earring", augments={'Path: A',}},
-            right_ear="Brutal Earring",
+            neck="Vim Torque +1",
+            waist="Sailfi Belt +1",
+            left_ear="Brutal Earring",
+            right_ear="Telos Earring",
             left_ring="Chirich Ring +1",
             right_ring="Niqmaddu Ring",
             back=capes['DA - STR'],
@@ -122,11 +151,11 @@ function gear.new()
             head="Sakpata's Helm",
             body="Sakpata's Plate",
             hands="Sakpata's Gauntlets",
-            legs="Pumm. Cuisses +2",
-            feet="Pumm. Calligae +3",
-            neck={ name="War. Beads +2", augments={'Path: A',}},
+            legs="Sakpata's Cuisses",
+            feet="Flam. Gambieras +2",
+            neck="Vim Torque +1",
             waist="Ioskeha Belt +1",
-            left_ear="Schere Earring",
+            left_ear="Brutal Earring",
             right_ear="Telos Earring",
             left_ring="Chirich Ring +1",
             right_ring="Niqmaddu Ring",
@@ -137,72 +166,66 @@ function gear.new()
     
     sets["Engaged"]["Accuracy"] = {
         
-        -- TP: Chango Trash.
-        {name="Chango - Trash", set={
-            ammo="Coiste Bodhar",
+        {name="Apocalypse [4-Hit]", set={
+            ammo={ name="Coiste Bodhar", augments={'Path: A',}},
             head="Flam. Zucchetto +2",
-            body="Sakpata's Plate",
-            hands={ name="Tatena. Gote +1", augments={'Path: A',}},
-            legs={ name="Tatena. Haidate +1", augments={'Path: A',}},
-            feet={ name="Tatena. Sune. +1", augments={'Path: A',}},
-            neck={ name="War. Beads +2", augments={'Path: A',}},
-            waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-            left_ear="Schere Earring",
-            right_ear="Telos Earring",
-            left_ring="Chirich Ring +1",
-            right_ring="Niqmaddu Ring",
-            back=capes['DA - STR']},
-        },
-
-        -- TP: Chango Hybrid.
-        {name="Chango - High", set={
-            ammo="Coiste Bodhar",
-            head="Sakpata's Helm",
-            body="Sakpata's Plate",
-            hands="Sakpata's Gauntlets",
-            legs="Sakpata's Cuisses",
-            feet="Sakpata's Leggings",
-            neck={ name="War. Beads +2", augments={'Path: A',}},
-            waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-            left_ear="Schere Earring",
-            right_ear="Telos Earring",
-            left_ring="Chirich Ring +1",
-            right_ring="Niqmaddu Ring",
-            back=capes['DA - STR'],
-        }},
-
-        -- TP: Fencer Trash.
-        {name="Fencer [MA]", set={
-            ammo="Coiste Bodhar",
-            head="Flam. Zucchetto +2",
-            body="Sakpata's Plate",
-            hands="Sakpata's Gauntlets",
-            legs="Pumm. Cuisses +2",
+            body={ name="Valorous Mail", augments={'Accuracy+23 Attack+23','"Store TP"+6','Attack+8',}},
+            hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},
+            legs={ name="Sakpata's Cuisses", augments={'Path: A',}},
             feet="Flam. Gambieras +2",
-            neck={ name="War. Beads +2", augments={'Path: A',}},
-            waist="Sailfi Belt +1",
-            left_ear="Schere Earring",
-            right_ear="Telos Earring",
-            left_ring="Flamma Ring",
-            right_ring="Niqmaddu Ring",
-            back=capes['DA - STR'],
-        }},
-
-        -- TP: Fencer Hybrid.
-        {name="Fencer [STP]", set={
-            ammo="Coiste Bodhar",
-            head="Sakpata's Helm",
-            body="Sakpata's Plate",
-            hands="Sakpata's Gauntlets",
-            legs="Pumm. Cuisses +2",
-            feet="Pumm. Calligae +3",
-            neck={ name="War. Beads +2", augments={'Path: A',}},
-            waist="Ioskeha Belt +1",
-            left_ear="Schere Earring",
-            right_ear="Telos Earring",
+            neck={ name="Vim Torque +1", augments={'Path: A',}},
+            waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+            left_ear="Telos Earring",
+            right_ear="Brutal Earring",
             left_ring="Chirich Ring +1",
-            right_ring="Niqmaddu Ring",
-            back=capes['DA - STR'],
+            right_ring="Moonlight Ring",
+            back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10',}},
+
+            [1] = { -- Aftermath 1
+                ammo={ name="Coiste Bodhar", augments={'Path: A',}},
+                head="Flam. Zucchetto +2",
+                body={ name="Valorous Mail", augments={'Accuracy+23 Attack+23','"Store TP"+6','Attack+8',}},
+                hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},
+                legs={ name="Sakpata's Cuisses", augments={'Path: A',}},
+                feet="Flam. Gambieras +2",
+                neck={ name="Vim Torque +1", augments={'Path: A',}},
+                waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+                left_ear="Telos Earring",
+                right_ear="Brutal Earring",
+                left_ring="Chirich Ring +1",
+                right_ring="Moonlight Ring",
+                back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10',}},
+            },
+            [2] = { -- Aftermath 2
+                ammo={ name="Coiste Bodhar", augments={'Path: A',}},
+                head="Flam. Zucchetto +2",
+                body={ name="Valorous Mail", augments={'Accuracy+23 Attack+23','"Store TP"+6','Attack+8',}},
+                hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},
+                legs={ name="Sakpata's Cuisses", augments={'Path: A',}},
+                feet="Flam. Gambieras +2",
+                neck={ name="Vim Torque +1", augments={'Path: A',}},
+                waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+                left_ear="Telos Earring",
+                right_ear="Brutal Earring",
+                left_ring="Chirich Ring +1",
+                right_ring="Moonlight Ring",
+                back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10',}},
+            },
+            [3] = { -- Aftermath 3
+                ammo={ name="Coiste Bodhar", augments={'Path: A',}},
+                head="Flam. Zucchetto +2",
+                body={ name="Valorous Mail", augments={'Accuracy+23 Attack+23','"Store TP"+6','Attack+8',}},
+                hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},
+                legs={ name="Sakpata's Cuisses", augments={'Path: A',}},
+                feet="Flam. Gambieras +2",
+                neck={ name="Vim Torque +1", augments={'Path: A',}},
+                waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+                left_ear="Telos Earring",
+                right_ear="Brutal Earring",
+                left_ring="Chirich Ring +1",
+                right_ring="Moonlight Ring",
+                back={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10',}},
+            },
         }},
      
     }
@@ -248,76 +271,55 @@ function gear.new()
         
         -- Default WS Set.
         ["Default"] =
-        {ammo="Yetshila +1",
-        head="Flam. Zucchetto +2",
-        body="Sakpata's Plate",
-        hands="Sakpata's Gauntlets",
-        legs="Sakpata's Cuisses",
-        feet="Sakpata's Leggings",
-        neck={ name="War. Beads +2", augments={'Path: A',}},
+        {ammo="Knobkierrie",
+        head={ name="Nyame Helm", augments={'Path: B',}},
+        body={ name="Nyame Mail", augments={'Path: B',}},
+        hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+        legs="Nyame Flanchard",
+        feet="Nyame Sollerets",
+        neck={ name="Vim Torque +1", augments={'Path: A',}},
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-        left_ear="Schere Earring",
-        right_ear="Brutal Earring",
-        left_ring="Flamma Ring",
-        right_ring="Niqmaddu Ring",
-        back=capes['SAVAGE BLADE']},
+        left_ear="Ishvara Earring",
+        right_ear="Thrud Earring",
+        left_ring="Niqmaddu Ring",
+        right_ring="Petrov Ring",
+        back={ name="Ankou's Mantle", augments={'VIT+20','Accuracy+20 Attack+20','VIT+3','Weapon skill damage +10%',}},},
 
-        ["Upheaval"] = {
+        ["Catastrophe"] = {
 
             ["Default"] =
             {
                 [0] =
                 {ammo="Knobkierrie",
-                head="Agoge mask +3",
-                body="Nyame Mail",
-                hands={ name="Odyssean Gauntlets", augments={'Crit. hit damage +4%','Weapon skill damage +3%','Phalanx +2','Mag. Acc.+5 "Mag.Atk.Bns."+5',}},
-                legs={ name="Odyssean Cuisses", augments={'Accuracy+19 Attack+19','Weapon skill damage +3%','STR+11','Attack+12',}},
-                feet="Sulev. Leggings +2",
-                neck={ name="War. Beads +2", augments={'Path: A',}},
+                head={ name="Nyame Helm", augments={'Path: B',}},
+                body={ name="Nyame Mail", augments={'Path: B',}},
+                hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+                legs="Nyame Flanchard",
+                feet="Nyame Sollerets",
+                neck={ name="Vim Torque +1", augments={'Path: A',}},
                 waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-                left_ear="Thrud Earring",
-                right_ear="Ishvara Earring",
-                left_ring="Petrov Ring",
-                right_ring="Niqmaddu Ring",
-                back=capes['UPHEAVAL']},
+                left_ear="Ishvara Earring",
+                right_ear="Thrud Earring",
+                left_ring="Niqmaddu Ring",
+                right_ring="Petrov Ring",
+                back={ name="Ankou's Mantle", augments={'VIT+20','Accuracy+20 Attack+20','VIT+3','Weapon skill damage +10%',}},},
             },
             ["Berserk Warcry Chaos Roll"] =
             {
                 [0] =
                 {ammo="Knobkierrie",
-                head="Agoge mask +3",
-                body="Sakpata's Plate",
-                hands="Sakpata's Gauntlets",
-                legs="Sakpata's Cuisses",
-                feet="Sakpata's Leggings",
-                neck={ name="War. Beads +2", augments={'Path: A',}},
+                head={ name="Nyame Helm", augments={'Path: B',}},
+                body={ name="Nyame Mail", augments={'Path: B',}},
+                hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+                legs="Nyame Flanchard",
+                feet="Nyame Sollerets",
+                neck={ name="Vim Torque +1", augments={'Path: A',}},
                 waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-                left_ear="Thrud Earring",
-                right_ear="Ishvara Earring",
-                left_ring="Petrov Ring",
-                right_ring="Niqmaddu Ring",
-                back=capes['UPHEAVAL']},
-            },
-
-        },
-        ["Impulse Drive"] = {
-
-            ["Default"] =
-            {
-                [0] =
-                {ammo="Yetshila +1",
-                head="Agoge mask +3",
-                body="Nyame Mail",
-                hands="Sakpata's Gauntlets",
-                legs="Sakpata's Cuisses",
-                feet="Sakpata's Leggings",
-                neck={ name="War. Beads +2", augments={'Path: A',}},
-                waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-                left_ear="Thrud Earring",
-                right_ear="Ishvara Earring",
-                left_ring="Petrov Ring",
-                right_ring="Niqmaddu Ring",
-                back=capes['SAVAGE BLADE']},
+                left_ear="Ishvara Earring",
+                right_ear="Thrud Earring",
+                left_ring="Niqmaddu Ring",
+                right_ring="Petrov Ring",
+                back={ name="Ankou's Mantle", augments={'VIT+20','Accuracy+20 Attack+20','VIT+3','Weapon skill damage +10%',}},},
             },
 
         },
@@ -329,9 +331,9 @@ function gear.new()
                 {ammo="Knobkierrie",
                 head="Agoge mask +3",
                 body="Nyame Mail",
-                hands="Sakpata's Gauntlets",
-                legs="Sakpata's Cuisses",
-                feet="Sakpata's Leggings",
+                hands="Nyame Gauntlets",
+                legs="Boii Cuisses +2",
+                feet="Nyame Leggings",
                 neck={ name="War. Beads +2", augments={'Path: A',}},
                 waist={ name="Sailfi Belt +1", augments={'Path: A',}},
                 left_ear="Thrud Earring",
@@ -339,6 +341,23 @@ function gear.new()
                 left_ring="Petrov Ring",
                 right_ring="Niqmaddu Ring",
                 back=capes['SAVAGE BLADE']},
+            },
+            ["Berserk Warcry Chaos Roll"] =
+            {
+                [0] =
+                {ammo="Knobkierrie",
+                head="Agoge mask +3",
+                body="Sakpata's Plate",
+                hands="Sakpata's Gauntlets",
+                legs="Boii Cuisses +2",
+                feet="Sakpata's Leggings",
+                neck={ name="War. Beads +2", augments={'Path: A',}},
+                waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+                left_ear="Thrud Earring",
+                right_ear="Ishvara Earring",
+                left_ring="Petrov Ring",
+                right_ring="Niqmaddu Ring",
+                back=capes['DA - STR']},
             },
 
         },
@@ -380,159 +399,41 @@ function gear.new()
             },
 
         },
-        ["Cloudsplitter"] = {
+        ["Cross Reaper"] = {
 
             ["Default"] =
             {
                 [0] =
                 {ammo="Knobkierrie",
-                head={ name="Agoge Mask +3", augments={'Enhances "Savagery" effect',}},
-                body="Nyame Mail",
-                hands={ name="Odyssean Gauntlets", augments={'Crit. hit damage +4%','Weapon skill damage +3%','Phalanx +2','Mag. Acc.+5 "Mag.Atk.Bns."+5',}},
-                legs={ name="Odyssean Cuisses", augments={'Accuracy+19 Attack+19','Weapon skill damage +3%','STR+11','Attack+12',}},
+                head={ name="Nyame Helm", augments={'Path: B',}},
+                body={ name="Nyame Mail", augments={'Path: B',}},
+                hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+                legs={ name="Sakpata's Cuisses", augments={'Path: A',}},
                 feet="Sulev. Leggings +2",
-                neck={ name="War. Beads +2", augments={'Path: A',}},
-                waist="Eschan Stone",
+                neck="Abyssal Beads +2",
+                waist={ name="Sailfi Belt +1", augments={'Path: A',}},
                 left_ear="Ishvara Earring",
                 right_ear="Thrud Earring",
                 left_ring="Niqmaddu Ring",
-                right_ring="Petrov Ring",
-                back=capes['SAVAGE BLADE']},
+                right_ring="Moonlight Ring",
+                back={ name="Ankou's Mantle", augments={'VIT+20','Accuracy+20 Attack+20','VIT+3','Weapon skill damage +10%',}},},
             },
             ["Berserk Warcry Chaos Roll"] =
             {
                 [0] =
                 {ammo="Knobkierrie",
-                head={ name="Agoge Mask +3", augments={'Enhances "Savagery" effect',}},
-                body="Nyame Mail",
-                hands={ name="Odyssean Gauntlets", augments={'Crit. hit damage +4%','Weapon skill damage +3%','Phalanx +2','Mag. Acc.+5 "Mag.Atk.Bns."+5',}},
-                legs={ name="Odyssean Cuisses", augments={'Accuracy+19 Attack+19','Weapon skill damage +3%','STR+11','Attack+12',}},
+                head={ name="Nyame Helm", augments={'Path: B',}},
+                body={ name="Nyame Mail", augments={'Path: B',}},
+                hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+                legs={ name="Sakpata's Cuisses", augments={'Path: A',}},
                 feet="Sulev. Leggings +2",
-                neck={ name="War. Beads +2", augments={'Path: A',}},
-                waist="Eschan Stone",
+                neck="Abyssal Beads +2",
+                waist={ name="Sailfi Belt +1", augments={'Path: A',}},
                 left_ear="Ishvara Earring",
                 right_ear="Thrud Earring",
                 left_ring="Niqmaddu Ring",
-                right_ring="Petrov Ring",
-                back=capes['SAVAGE BLADE']},
-            },
-
-        },
-        ["Raging Fists"] = {
-
-            ["Default"] =
-            {
-                [0] =
-                {ammo="Yetshila +1",
-                head="Flam. Zucchetto +2",
-                body="Sakpata's Plate",
-                hands="Sakpata's Gauntlets",
-                legs="Sakpata's Cuisses",
-                feet="Sakpata's Leggings",
-                neck={ name="War. Beads +2", augments={'Path: A',}},
-                waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-                left_ear="Schere Earring",
-                right_ear="Brutal Earring",
-                left_ring="Flamma Ring",
-                right_ring="Niqmaddu Ring",
-                back=capes['DA - STR']},
-            },
-            ["Berserk Warcry Chaos Roll"] =
-            {
-                [0] =
-                {ammo="Yetshila +1",
-                head="Flam. Zucchetto +2",
-                body="Sakpata's Plate",
-                hands="Sakpata's Gauntlets",
-                legs="Sakpata's Cuisses",
-                feet="Sakpata's Leggings",
-                neck={ name="War. Beads +2", augments={'Path: A',}},
-                waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-                left_ear="Schere Earring",
-                right_ear="Brutal Earring",
-                left_ring="Flamma Ring",
-                right_ring="Niqmaddu Ring",
-                back=capes['DA - STR']},
-            },
-
-        },
-        ["True Strike"] = {
-
-            ["Default"] =
-            {
-                [0] =
-                {ammo="Yetshila +1",
-                head="Flam. Zucchetto +2",
-                body="Sakpata's Plate",
-                hands="Sakpata's Gauntlets",
-                legs="Sakpata's Cuisses",
-                feet="Sakpata's Leggings",
-                neck={ name="War. Beads +2", augments={'Path: A',}},
-                waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-                left_ear="Schere Earring",
-                right_ear="Brutal Earring",
-                left_ring="Flamma Ring",
-                right_ring="Niqmaddu Ring",
-                back=capes['SAVAGE BLADE']},
-            },
-
-        },
-        ["Judgment"] = {
-
-            ["Default"] =
-            {
-                [0] =
-                {ammo="Knobkierrie",
-                head={ name="Agoge Mask +3", augments={'Enhances "Savagery" effect',}},
-                body="Nyame Mail",
-                hands="Sakpata's Gauntlets",
-                legs="Sakpata's Cuisses",
-                feet="Sulev. Leggings +2",
-                neck={ name="War. Beads +2", augments={'Path: A',}},
-                waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-                left_ear="Ishvara Earring",
-                right_ear="Thrud Earring",
-                left_ring="Petrov Ring",
-                right_ring="Niqmaddu Ring",
-                back=capes['SAVAGE BLADE']},
-            },
-            ["Berserk Warcry Chaos Roll Minuet"] =
-            {
-                [0] =
-                {ammo="Knobkierrie",
-                head={ name="Agoge Mask +3", augments={'Enhances "Savagery" effect',}},
-                body="Nyame Mail",
-                hands="Sakpata's Gauntlets",
-                legs="Sakpata's Cuisses",
-                feet="Sulev. Leggings +2",
-                neck={ name="War. Beads +2", augments={'Path: A',}},
-                waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-                left_ear="Ishvara Earring",
-                right_ear="Thrud Earring",
-                left_ring="Petrov Ring",
-                right_ring="Niqmaddu Ring",
-                back=capes['SAVAGE BLADE']},
-            },
-
-        },
-        ["Fell Cleave"] = {
-
-            ["Default"] =
-            {
-                [0] =
-                {ammo="Knobkierrie",
-                head={ name="Agoge Mask +3", augments={'Enhances "Savagery" effect',}},
-                body="Sakpata's Plate",
-                hands="Sakpata's Gauntlets",
-                legs="Sakpata's Cuisses",
-                feet="Sakpata's Leggings",
-                neck={ name="War. Beads +2", augments={'Path: A',}},
-                waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-                left_ear="Schere Earring",
-                right_ear="Thrud Earring",
-                left_ring="Petrov Ring",
-                right_ring="Niqmaddu Ring",
-                back=capes['SAVAGE BLADE']},
+                right_ring="Moonlight Ring",
+                back={ name="Ankou's Mantle", augments={'VIT+20','Accuracy+20 Attack+20','VIT+3','Weapon skill damage +10%',}},},
             },
 
         },
@@ -543,37 +444,6 @@ function gear.new()
         
         ["Default"] =
         {},
-
-        -- Upheaval.
-        ["Upheaval"] = {
-
-            ["Default"] =
-            {
-                {tp=0, set={}},
-            },
-            ["Mighty Strikes"] =
-            {
-                {tp=0, set={}},
-            },
-            ["Brazen Rush"] =
-            {
-                {tp=0, set={}},
-            },
-            ["Mighty Strikes Brazen Rush"] =
-            {
-                {tp=0, set={}},
-            },
-            ["Hasso"] =
-            {
-                {tp=0, set={}},
-            },
-
-            ["Hasso Defender"] =
-            {
-                {tp=0, set={}},
-            },
-
-        },
     
     }
     

@@ -7,16 +7,6 @@ function gear.new()
     local x = 1300
     local y = 0
 
-    -- CAPES.
-    local capes = {
-
-        ['DT']   = { name="Intarabus's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','"Fast Cast"+10','Phys. dmg. taken-10%',}},
-        ['FC']   = { name="Intarabus's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','"Fast Cast"+10','Phys. dmg. taken-10%',}},
-        ['CHR']  = { name="Intarabus's Cape", augments={'CHR+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Fast Cast"+10','Phys. dmg. taken-10%',}},
-        ['CURE'] = { name="Intarabus's Cape", augments={'MND+20','Eva.+20 /Mag. Eva.+20','MND+10','Enmity-10','Phys. dmg. taken-10%',}},
-
-    }
-
     -- [[ WEAPONS SWAPS ]]
     sets['Weapons'] = {
 
@@ -32,31 +22,33 @@ function gear.new()
         
         {name="Damage Taken", set={
             ammo="Staunch Tathlum +1",
-            head="Nyame Helm",
-            body="Gleti's Cuirass",
-            hands="Nyame Gauntlets",
-            legs="Nyame Flanchard",
-            feet="Nyame Sollerets",
+            head="Malignance Chapeau",
+            body={ name="Nyame Mail", augments={'Path: B',}},
+            hands="Malignance Gloves",
+            legs="Malignance Tights",
+            feet="Malignance Boots",
             neck="Warder's Charm +1",
-            waist="Carrier's Sash",
+            waist="Fucho-no-Obi",
             left_ear="Eabani Earring",
-            left_ring="Defending Ring",
-            right_ring="Warden's Ring",
+            right_ear="Balder Earring +1",
+            left_ring={name="Stikini Ring +1", priority=1},
+            right_ring={name="Stikini Ring +1", priority=2},
             back="Moonlight Cape",
         }},
 
         {name="Movement Speed", set={
             ammo="Staunch Tathlum +1",
-            head="Nyame Helm",
-            body="Gleti's Cuirass",
-            hands="Nyame Gauntlets",
+            head="Malignance Chapeau",
+            body={ name="Nyame Mail", augments={'Path: B',}},
+            hands="Malignance Gloves",
             legs="Carmine Cuisses +1",
-            feet="Nyame Sollerets",
+            feet="Malignance Boots",
             neck="Warder's Charm +1",
-            waist="Carrier's Sash",
+            waist="Fucho-no-Obi",
             left_ear="Eabani Earring",
-            left_ring="Defending Ring",
-            right_ring="Warden's Ring",
+            right_ear="Balder Earring +1",
+            left_ring="Stikini Ring +1",
+            right_ring="Defending Ring",
             back="Moonlight Cape",
         }},
 
@@ -163,17 +155,18 @@ function gear.new()
 
         -- Free Nuke Build.
         {name="Free Nuke", set={
-            ammo="Ombre Tathlum +1",
-            head="Nyame Helm",
+            ammo="Ghastly Tathlum",
+            head="Jhakri Coronal +2",
             body={ name="Amalric Doublet +1", augments={'MP+80','Mag. Acc.+20','"Mag.Atk.Bns."+20',}},
             hands={ name="Amalric Gages +1", augments={'INT+12','Mag. Acc.+20','"Mag.Atk.Bns."+20',}},
             legs={ name="Amalric Slops +1", augments={'MP+80','"Mag.Atk.Bns."+25','Enmity-6',}},
             feet={ name="Amalric Nails +1", augments={'MP+80','Mag. Acc.+20','"Mag.Atk.Bns."+20',}},
-            neck="Warder's Charm +1",
-            waist="Witful Belt",
+            neck="Mirage Stole +2",
+            waist="Eschan Stone",
             left_ear="Friomisi Earring",
-            right_ear="Calamitous Earring",
-            back="Cornflower Cape",
+            left_ring="Shiva Ring +1",
+            right_ring="Stikini Ring +1",
+            back={ name="Rosmerta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+10',}},
         }},
         
         -- Magic Burst Build.
@@ -191,17 +184,18 @@ function gear.new()
 
         -- Free Nuke Build.
         {name="Free Nuke", set={
-            ammo="Ombre Tathlum +1",
-            head="Nyame Helm",
+            ammo="Ghastly Tathlum",
+            head="Jhakri Coronal +2",
             body={ name="Amalric Doublet +1", augments={'MP+80','Mag. Acc.+20','"Mag.Atk.Bns."+20',}},
             hands={ name="Amalric Gages +1", augments={'INT+12','Mag. Acc.+20','"Mag.Atk.Bns."+20',}},
             legs={ name="Amalric Slops +1", augments={'MP+80','"Mag.Atk.Bns."+25','Enmity-6',}},
             feet={ name="Amalric Nails +1", augments={'MP+80','Mag. Acc.+20','"Mag.Atk.Bns."+20',}},
-            neck="Warder's Charm +1",
-            waist="Witful Belt",
+            neck="Mirage Stole +2",
+            waist="Eschan Stone",
             left_ear="Friomisi Earring",
-            right_ear="Calamitous Earring",
-            back="Cornflower Cape",
+            left_ring="Shiva Ring +1",
+            right_ring="Stikini Ring +1",
+            back={ name="Rosmerta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+10',}},
         }},
         
         -- Magic Burst Build.
@@ -296,258 +290,55 @@ function gear.new()
 
     -- Default Shots.
     sets["Ranged"]["Default"]["Attack"] = {
-        
-        -- Basic Ranged Shots.
         {name="Trash", set={}},
-        
-        -- Store-TP Shots.
-        {name="Store-TP", set={}},
-        
-        -- Reduced Enmity Build.
-        {name="Reduced Enmity", set={}},
-        
-        -- Hybrid Ranged Build.
-        {name="Hybrid Shots", set={}},
-        
     }
     
     sets["Ranged"]["Default"]["Accuracy"] = {
-        
-        -- Basic Ranged Shots.
         {name="Trash", set={}},
-        
-        -- Store-TP Shots.
-        {name="Store-TP", set={}},
-        
-        -- Reduced Enmity Build.
-        {name="Reduced Enmity", set={}},
-        
-        -- Hybrid Ranged Build.
-        {name="Hybrid Shots", set={}},
-        
     }
 
     -- Critical Shots.
     sets["Ranged"]["Critical"]["Attack"] = {
-        
-        -- Basic Ranged Shots.
         {name="Trash", set={}},
-        
-        -- Store-TP Shots.
-        {name="Store-TP", set={}},
-        
-        -- Reduced Enmity Build.
-        {name="Reduced Enmity", set={}},
-        
-        -- Hybrid Ranged Build.
-        {name="Hybrid Shots", set={}},
-        
     }
 
     sets["Ranged"]["Critical"]["Accuracy"] = {
-        
-        -- Basic Ranged Shots.
         {name="Trash", set={}},
-        
-        -- Store-TP Shots.
-        {name="Store-TP", set={}},
-        
-        -- Reduced Enmity Build.
-        {name="Reduced Enmity", set={}},
-        
-        -- Hybrid Ranged Build.
-        {name="Hybrid Shots", set={}},
-        
     }
 
     -- Double Shot.
     sets["Ranged"]["Double Shot"]["Attack"] = {
-        
-        -- Basic Ranged Shots.
         {name="Trash", set={}},
-        
-        -- Store-TP Shots.
-        {name="Store-TP", set={}},
-        
-        -- Reduced Enmity Build.
-        {name="Reduced Enmity", set={}},
-        
-        -- Hybrid Ranged Build.
-        {name="Hybrid Shots", set={}},
-        
     }
 
     sets["Ranged"]["Double Shot"]["Accuracy"] = {
-        
-        -- Basic Ranged Shots.
         {name="Trash", set={}},
-        
-        -- Store-TP Shots.
-        {name="Store-TP", set={}},
-        
-        -- Reduced Enmity Build.
-        {name="Reduced Enmity", set={}},
-        
-        -- Hybrid Ranged Build.
-        {name="Hybrid Shots", set={}},
-        
     }
 
     -- Triple Shot.
     sets["Ranged"]["Triple Shot"]["Attack"] = {
-        
-        -- Basic Ranged Shots.
         {name="Trash", set={}},
-        
-        -- Store-TP Shots.
-        {name="Store-TP", set={}},
-        
-        -- Reduced Enmity Build.
-        {name="Reduced Enmity", set={}},
-        
-        -- Hybrid Ranged Build.
-        {name="Hybrid Shots", set={}},
-        
     }
 
     sets["Ranged"]["Triple Shot"]["Accuracy"] = {
-        
-        -- Basic Ranged Shots.
         {name="Trash", set={}},
-        
-        -- Store-TP Shots.
-        {name="Store-TP", set={}},
-        
-        -- Reduced Enmity Build.
-        {name="Reduced Enmity", set={}},
-        
-        -- Hybrid Ranged Build.
-        {name="Hybrid Shots", set={}},
-        
     }
 
     -- [[ PRECAST SETS ]] 
     sets["Precast"] = {
 
         ["Default"] = 
-        {ammo="Sapience Orb",
-        head="Herculean Helm",
+        {ammo="Ombre Tathlum +1",
+        head={ name="Carmine Mask +1", augments={'Accuracy+20','Mag. Acc.+12','"Fast Cast"+4',}},
         body="Dread Jupon",
         hands={ name="Leyline Gloves", augments={'Accuracy+9','Mag. Acc.+5','"Mag.Atk.Bns."+6','"Fast Cast"+1',}},
-        legs="Psycloth Lappas",
+        legs="Aya. Cosciales +2",
         feet={ name="Amalric Nails +1", augments={'MP+80','Mag. Acc.+20','"Mag.Atk.Bns."+20',}},
         waist="Witful Belt",
-        back="Cornflower Cape",},
-        
-        ["Divine Magic"] =
-        {ammo="Sapience Orb",
-        head="Herculean Helm",
-        body="Dread Jupon",
-        hands={ name="Leyline Gloves", augments={'Accuracy+9','Mag. Acc.+5','"Mag.Atk.Bns."+6','"Fast Cast"+1',}},
-        legs="Psycloth Lappas",
-        feet={ name="Amalric Nails +1", augments={'MP+80','Mag. Acc.+20','"Mag.Atk.Bns."+20',}},
-        waist="Witful Belt",
-        back="Cornflower Cape",},
-        
-        ["Healing Magic"] =
-        {ammo="Sapience Orb",
-        head="Herculean Helm",
-        body="Dread Jupon",
-        hands={ name="Leyline Gloves", augments={'Accuracy+9','Mag. Acc.+5','"Mag.Atk.Bns."+6','"Fast Cast"+1',}},
-        legs="Psycloth Lappas",
-        feet={ name="Amalric Nails +1", augments={'MP+80','Mag. Acc.+20','"Mag.Atk.Bns."+20',}},
-        waist="Witful Belt",
-        back="Cornflower Cape",},
-        
-        ["Enhancing Magic"] =
-        {ammo="Sapience Orb",
-        head="Herculean Helm",
-        body="Dread Jupon",
-        hands={ name="Leyline Gloves", augments={'Accuracy+9','Mag. Acc.+5','"Mag.Atk.Bns."+6','"Fast Cast"+1',}},
-        legs="Psycloth Lappas",
-        feet={ name="Amalric Nails +1", augments={'MP+80','Mag. Acc.+20','"Mag.Atk.Bns."+20',}},
-        waist="Witful Belt",
-        back="Cornflower Cape",},
-        
-        ["Enfeebling Magic"] =
-        {ammo="Sapience Orb",
-        head="Herculean Helm",
-        body="Dread Jupon",
-        hands={ name="Leyline Gloves", augments={'Accuracy+9','Mag. Acc.+5','"Mag.Atk.Bns."+6','"Fast Cast"+1',}},
-        legs="Psycloth Lappas",
-        feet={ name="Amalric Nails +1", augments={'MP+80','Mag. Acc.+20','"Mag.Atk.Bns."+20',}},
-        waist="Witful Belt",
-        back="Cornflower Cape",},
-        
-        ["Elemental Magic"] =
-        {ammo="Sapience Orb",
-        head="Herculean Helm",
-        body="Dread Jupon",
-        hands={ name="Leyline Gloves", augments={'Accuracy+9','Mag. Acc.+5','"Mag.Atk.Bns."+6','"Fast Cast"+1',}},
-        legs="Psycloth Lappas",
-        feet={ name="Amalric Nails +1", augments={'MP+80','Mag. Acc.+20','"Mag.Atk.Bns."+20',}},
-        waist="Witful Belt",
-        back="Cornflower Cape",},
-        
-        ["Dark Magic"] =
-        {ammo="Sapience Orb",
-        head="Herculean Helm",
-        body="Dread Jupon",
-        hands={ name="Leyline Gloves", augments={'Accuracy+9','Mag. Acc.+5','"Mag.Atk.Bns."+6','"Fast Cast"+1',}},
-        legs="Psycloth Lappas",
-        feet={ name="Amalric Nails +1", augments={'MP+80','Mag. Acc.+20','"Mag.Atk.Bns."+20',}},
-        waist="Witful Belt",
-        back="Cornflower Cape",},
-        
-        ["Summoning Magic"] =
-        {ammo="Sapience Orb",
-        head="Herculean Helm",
-        body="Dread Jupon",
-        hands={ name="Leyline Gloves", augments={'Accuracy+9','Mag. Acc.+5','"Mag.Atk.Bns."+6','"Fast Cast"+1',}},
-        legs="Psycloth Lappas",
-        feet={ name="Amalric Nails +1", augments={'MP+80','Mag. Acc.+20','"Mag.Atk.Bns."+20',}},
-        waist="Witful Belt",
-        back="Cornflower Cape",},
-        
-        ["Blue Magic"] =
-        {ammo="Sapience Orb",
-        head="Herculean Helm",
-        body="Dread Jupon",
-        hands={ name="Leyline Gloves", augments={'Accuracy+9','Mag. Acc.+5','"Mag.Atk.Bns."+6','"Fast Cast"+1',}},
-        legs="Psycloth Lappas",
-        feet={ name="Amalric Nails +1", augments={'MP+80','Mag. Acc.+20','"Mag.Atk.Bns."+20',}},
-        waist="Witful Belt",
-        back="Cornflower Cape",},
-        
-        ["Ninjutsu"] =
-        {ammo="Sapience Orb",
-        head="Herculean Helm",
-        body="Dread Jupon",
-        hands={ name="Leyline Gloves", augments={'Accuracy+9','Mag. Acc.+5','"Mag.Atk.Bns."+6','"Fast Cast"+1',}},
-        legs="Psycloth Lappas",
-        feet={ name="Amalric Nails +1", augments={'MP+80','Mag. Acc.+20','"Mag.Atk.Bns."+20',}},
-        waist="Witful Belt",
-        back="Cornflower Cape",},
-        
-        ["Geomancy"] =
-        {ammo="Sapience Orb",
-        head="Herculean Helm",
-        body="Dread Jupon",
-        hands={ name="Leyline Gloves", augments={'Accuracy+9','Mag. Acc.+5','"Mag.Atk.Bns."+6','"Fast Cast"+1',}},
-        legs="Psycloth Lappas",
-        feet={ name="Amalric Nails +1", augments={'MP+80','Mag. Acc.+20','"Mag.Atk.Bns."+20',}},
-        waist="Witful Belt",
-        back="Cornflower Cape",},
-
-        ["Singing"] = 
-        {ammo="Sapience Orb",
-        head="Herculean Helm",
-        body="Dread Jupon",
-        hands={ name="Leyline Gloves", augments={'Accuracy+9','Mag. Acc.+5','"Mag.Atk.Bns."+6','"Fast Cast"+1',}},
-        legs="Psycloth Lappas",
-        feet={ name="Amalric Nails +1", augments={'MP+80','Mag. Acc.+20','"Mag.Atk.Bns."+20',}},
-        waist="Witful Belt",
-        back="Cornflower Cape",},
+        left_ear="Loquac. Earring",
+        left_ring="Prolix Ring",
+        right_ring="Naji's Loop",
+        back={ name="Rosmerta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+10',}},},
 
     }
     
@@ -557,39 +348,39 @@ function gear.new()
         -- Midcast: Attack Mode sets.
         ["Attack"] = {
 
-            ["Divine Magic"] = {},
-            ["Enfeebling Magic"] = {},
-            ["Elemental Magic"] = {},
-            ["Dark Magic"] = {},
-            ["Blue Magic"] = {},
-            ["Ninjutsu"] = {},
-
         },
 
         -- Midcast: Accuracy Mode sets.
         ["Accuracy"] = {
 
-            ["Divine Magic"] = {},
-            ["Enfeebling Magic"] = {},
-            ["Elemental Magic"] = {},
-            ["Dark Magic"] = {},
-            ["Blue Magic"] = {},
-            ["Ninjutsu"] = {},
-
         },
 
         -- Midcast Sets.
         ["Absolute Terror"] =
-        {ammo="Hydrocera",
-        head="Nyame Helm",
+        {ammo="Ombre Tathlum +1",
+        head="Malignance Chapeau",
         body={ name="Nyame Mail", augments={'Path: B',}},
-        hands="Nyame Gauntlets",
-        legs="Nyame Flanchard",
-        feet="Nyame Sollerets",
-        neck="Erra Pendant",
+        hands="Malignance Gloves",
+        legs="Malignance Tights",
+        feet="Malignance Boots",
+        neck="Mirage Stole +2",
         waist="Eschan Stone",
         left_ring="Stikini Ring +1",
-        back="Cornflower Cape",},
+        right_ring="Defending Ring",
+        back={ name="Rosmerta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+10',}},},
+
+        ["Cruel Joke"] =
+        {ammo="Ombre Tathlum +1",
+        head="Malignance Chapeau",
+        body={ name="Nyame Mail", augments={'Path: B',}},
+        hands="Malignance Gloves",
+        legs="Malignance Tights",
+        feet="Malignance Boots",
+        neck="Mirage Stole +2",
+        waist="Eschan Stone",
+        left_ring="Stikini Ring +1",
+        right_ring="Defending Ring",
+        back={ name="Rosmerta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','"Mag.Atk.Bns."+10',}},},
 
     }
 

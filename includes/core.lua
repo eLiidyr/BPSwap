@@ -75,7 +75,7 @@ function core.load()
         if bp.settings and bp.sets and bp.settings['Idle Mode'] and bp.sets['Idle'][bp.settings['Idle Mode']] then
             return bp.sets['Idle'][bp.settings['Idle Mode']].name
         end
-        return false
+        return {}
 
     end
 
@@ -84,7 +84,7 @@ function core.load()
         if bp.settings and bp.sets and bp.sets['Engaged'][self.getCombatMode()] and bp.sets['Engaged'][self.getCombatMode()][bp.settings['Engaged Mode']] then
             return bp.sets['Engaged'][self.getCombatMode()][bp.settings['Engaged Mode']].name
         end
-        return false
+        return {}
 
     end
 
@@ -93,7 +93,7 @@ function core.load()
         if bp.settings and bp.sets and bp.sets['Midnuke'][self.getCombatMode()] and bp.sets['Midnuke'][self.getCombatMode()][bp.settings['Nuke Mode']] then
             return bp.sets['Midnuke'][self.getCombatMode()][bp.settings['Nuke Mode']].name
         end
-        return false
+        return {}
 
     end
 
@@ -107,7 +107,7 @@ function core.load()
             end
 
         end
-        return false
+        return {}
 
     end
 
@@ -116,7 +116,7 @@ function core.load()
         if bp.settings and bp.sets and bp.settings['Combat Modes'] and bp.settings['Combat Modes'][bp.settings['Combat Mode']] then
             return bp.settings['Combat Modes'][bp.settings['Combat Mode']]
         end
-        return false
+        return {}
 
     end
 
@@ -125,7 +125,7 @@ function core.load()
         if bp.settings and bp.sets and bp.settings['Weapon Mode'] and bp.sets['Weapons'] and bp.sets['Weapons'][bp.settings['Weapon Mode']] then
             return bp.sets['Weapons'][bp.settings['Weapon Mode']]
         end
-        return false
+        return {}
 
     end
 
@@ -302,120 +302,116 @@ function core.load()
 
     end
 
-    self.getBuffedMidcastSet = function(spell, sets, modes)
+    self.getBuffedMidcastSet =  function(spell, sets, modes)
         
         if spell and sets and modes then
-        
-            if sets['Midcast'] then
 
-                if sets['Midcast'][modes.combat] and sets['Midcast'][modes.combat][spell.name] and sets['Midcast'][modes.combat][spell.name].buffed then
-                    local buffs = T(sets['Midcast'][modes.combat][spell.name].buffed):keyset():filter(function(key)
-                        local split = tostring(key) ~= nil and tostring(key):split(":") or false
+            if sets['Midcast'] and sets['Midcast'][modes.combat] and sets['Midcast'][modes.combat][spell.name] and sets['Midcast'][modes.combat][spell.name] then
+                local buffs = T(sets['Midcast'][modes.combat][spell.name]):keyset():filter(function(key)
+                    local split = tostring(key) ~= nil and tostring(key):split(":") or false
 
-                        if split then
+                    if split then
 
-                            for b in T(bp.player.buffs):it() do
+                        for b in T(bp.player.buffs):it() do
 
-                                if bp.res.buffs[b] and key:find(bp.res.buffs[b].en) then
-                                    local active = true
+                            if bp.res.buffs[b] and key:find(bp.res.buffs[b].en) then
+                                local active = true
 
-                                    for s in S(split):it() do
+                                for s in S(split):it() do
 
-                                        if not buffactive[s:lower()] then
-                                            active = false
-                                        end
-
+                                    if not buffactive[s:lower()] then
+                                        active = false
                                     end
 
-                                    if active then
-                                        return key
-                                    end
+                                end
 
+                                if active then
+                                    return key
                                 end
 
                             end
 
                         end
 
-                    end)
-
-                    if buffs:length() > 0 then
-                        local splits = {set=false, b=false}
-                        local set = false
-                        
-                        for b in T(buffs):it() do
-                            splits.b = #b:split(":")
-
-                            if not set then
-                                splits.set, set = splits.b, b
-
-                            elseif set and splits.b > splits.set then
-                                splits.set, set = splits.b, b
-
-                            end
-
-                        end
-                        return set
-                        
                     end
+                
+                end)
 
-                elseif sets['Midcast'][spell.name] and sets['Midcast'][spell.name].buffed then
-                    local buffs = T(sets['Midcast'][spell.name].buffed):keyset():filter(function(key)
-                        local split = tostring(key) ~= nil and tostring(key):split(":") or false
+                if buffs:length() > 0 then
+                    local splits = {set=false, b=false}
+                    local set = false
+                    
+                    for b in T(buffs):it() do
+                        splits.b = #b:split(":")
 
-                        if split then
-                        
-                            for b in T(bp.player.buffs):it() do
+                        if not set then
+                            splits.set, set = splits.b, b
 
-                                if bp.res.buffs[b] and key:find(bp.res.buffs[b].en) then
-                                    local active = true
-
-                                    for s in S(split):it() do
-
-                                        if not buffactive[s:lower()] then
-                                            active = false
-                                        end
-
-                                    end
-
-                                    if active then
-                                        return key
-                                    end
-
-                                end
-
-                            end
+                        elseif set and splits.b > splits.set then
+                            splits.set, set = splits.b, b
 
                         end
 
-                    end)
-
-                    if buffs:length() > 0 then
-                        local splits = {set=false, b=false}
-                        local set = false
-                        
-                        for b in T(buffs):it() do
-                            splits.b = #b:split(":")
-
-                            if not set then
-                                splits.set, set = splits.b, b
-
-                            elseif set and splits.b > splits.set then
-                                splits.set, set = splits.b, b
-
-                            end
-
-                        end
-                        return set
-                        
                     end
-
+                    return set
+                    
                 end
 
+            elseif sets['Midcast'] and sets['Midcast'][spell.name] then
+                local buffs = T(sets['Midcast'][spell.name]):keyset():filter(function(key)
+                    local split = tostring(key) ~= nil and tostring(key):split(":") or false
+
+                    if split then
+
+                        for b in T(bp.player.buffs):it() do
+
+                            if bp.res.buffs[b] and key:find(bp.res.buffs[b].en) then
+                                local active = true
+
+                                for s in S(split):it() do
+
+                                    if not buffactive[s:lower()] then
+                                        active = false
+                                    end
+
+                                end
+
+                                if active then
+                                    return key
+                                end
+
+                            end
+
+                        end
+
+                    end
+                
+                end)
+
+                if buffs:length() > 0 then
+                    local splits = {set=false, b=false}
+                    local set = false
+                    
+                    for b in T(buffs):it() do
+                        splits.b = #b:split(":")
+
+                        if not set then
+                            splits.set, set = splits.b, b
+
+                        elseif set and splits.b > splits.set then
+                            splits.set, set = splits.b, b
+
+                        end
+
+                    end
+                    return set
+                    
+                end
+                
             end
-            return {}
 
         end
+        return {}
 
     end
 
@@ -475,6 +471,9 @@ function core.load()
                             return set
 
                         end
+
+                    elseif sets['WeaponSkill'][modes.combat][spell.name]['Default'] and sets['WeaponSkill'][modes.combat][spell.name]['Default'][0] then
+                        return sets['WeaponSkill'][modes.combat][spell.name]['Default'][0]
 
                     end
 

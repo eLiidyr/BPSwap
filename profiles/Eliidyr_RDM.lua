@@ -70,7 +70,7 @@ function gear.new()
         {name="Dual Wield - Normal", set={
             ammo="Coiste Bodhar",
             head="Malignance Chapeau",
-            body="Ayanmo Corazza +2",
+            body="Malignance Tabard",
             hands="Aya. Manopolas +2",
             legs="Malignance Tights",
             feet="Malignance Boots",

@@ -120,28 +120,12 @@ function gear.new()
             back=capes['DA - STR'],
         }},
 
-        {name="Agoge Fencer [100% DA]", set={
-            ammo={ name="Coiste Bodhar", augments={'Path: A',}},
-            head="Sakpata's Helm",
-            body="Sakpata's Plate",
-            hands="Sakpata's Gauntlets",
-            legs={ name="Agoge Cuisses +3", augments={'Enhances "Warrior\'s Charge" effect',}},
-            feet="Pumm. Calligae +3",
-            neck={ name="Vim Torque +1", augments={'Path: A',}},
-            waist="Ioskeha Belt +1",
-            left_ear={ name="Schere Earring", augments={'Path: A',}},
-            right_ear="Brutal Earring",
-            left_ring="Chirich Ring +1",
-            right_ring="Niqmaddu Ring",
-            back=capes['DA - STR'],
-        }},
-
-        {name="Boii Fencer [103% DA]", set={
+        {name="Agoge Fencer [MA]", set={
             ammo={ name="Coiste Bodhar", augments={'Path: A',}},
             head="Flam. Zucchetto +2",
             body={ name="Sakpata's Plate", augments={'Path: A',}},
             hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},
-            legs="Boii Cuisses +2",
+            legs={ name="Agoge Cuisses +3", augments={'Enhances "Warrior\'s Charge" effect',}},
             feet="Flam. Gambieras +2",
             neck={ name="War. Beads +2", augments={'Path: A',}},
             waist="Ioskeha Belt +1",
@@ -279,17 +263,17 @@ function gear.new()
         
         -- Default WS Set.
         ["Default"] =
-        {ammo="Yetshila +1",
-        head="Flam. Zucchetto +2",
-        body="Sakpata's Plate",
+        {ammo="Knobkierrie",
+        head={ name="Agoge Mask +3", augments={'Enhances "Savagery" effect',}},
+        body="Nyame Mail",
         hands="Sakpata's Gauntlets",
         legs="Sakpata's Cuisses",
-        feet="Sakpata's Leggings",
+        feet="Sulev. Leggings +2",
         neck={ name="War. Beads +2", augments={'Path: A',}},
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
-        left_ear="Schere Earring",
-        right_ear="Brutal Earring",
-        left_ring="Flamma Ring",
+        left_ear="Ishvara Earring",
+        right_ear="Thrud Earring",
+        left_ring="Petrov Ring",
         right_ring="Niqmaddu Ring",
         back=capes['SAVAGE BLADE']},
 

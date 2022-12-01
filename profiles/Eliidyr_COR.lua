@@ -31,33 +31,35 @@ function gear.new()
     sets["Idle"] = {
     
         -- MOVEMENT SPEED+.
-        {name="Movement Speed", set={head="Nyame Helm",
-        body="Nyame Mail",
-        hands="Nyame Gauntlets",
-        legs="Malignance Tights",
-        feet="Nyame Sollerets",
-        neck="Warder's Charm",
-        waist="Carrier's Sash",
-        left_ear="Odr Earring",
-        right_ear="Telos Earring",
-        left_ring="Chirich Ring +1",
-        right_ring="Petrov Ring",
-        back=capes['DT'],
+        {name="Movement Speed", set={
+            head="Nyame Helm",
+            body="Nyame Mail",
+            hands="Nyame Gauntlets",
+            legs="Malignance Tights",
+            feet="Nyame Sollerets",
+            neck="Warder's Charm",
+            waist="Carrier's Sash",
+            left_ear="Odr Earring",
+            right_ear="Telos Earring",
+            left_ring="Chirich Ring +1",
+            right_ring="Petrov Ring",
+            back=capes['DT'],
         }},
 
         -- DAMAGE TAKEN SET.
-        {name="Damage Taken", set={head="Nyame Helm",
-        body="Nyame Mail",
-        hands="Nyame Gauntlets",
-        legs="Malignance Tights",
-        feet="Nyame Sollerets",
-        neck="Warder's Charm",
-        waist="Carrier's Sash",
-        left_ear="Odr Earring",
-        right_ear="Telos Earring",
-        left_ring="Chirich Ring +1",
-        right_ring="Petrov Ring",
-        back=capes['DT'],
+        {name="Damage Taken", set={
+            head="Nyame Helm",
+            body="Nyame Mail",
+            hands="Nyame Gauntlets",
+            legs="Malignance Tights",
+            feet="Nyame Sollerets",
+            neck="Warder's Charm",
+            waist="Carrier's Sash",
+            left_ear="Odr Earring",
+            right_ear="Telos Earring",
+            left_ring="Chirich Ring +1",
+            right_ring="Petrov Ring",
+            back=capes['DT'],
         }},
       
     }
@@ -66,19 +68,19 @@ function gear.new()
     sets["Engaged"] = {}    
     sets["Engaged"]["Attack"] = {			
     
-        -- Trash Build
-        {name="Trash", set={head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
-        body={ name="Adhemar Jacket +1", augments={'STR+12','DEX+12','Attack+20',}},
-        hands="Malignance Gloves",
-        legs="Malignance Tights",
-        feet={ name="Carmine Greaves +1", augments={'Accuracy+12','DEX+12','MND+20',}},
-        neck="Warder's Charm",
-        waist="Windbuffet Belt +1",
-        left_ear="Odr Earring",
-        right_ear="Telos Earring",
-        left_ring="Chirich Ring +1",
-        right_ring="Petrov Ring",
-        back=capes['DA - DEX'],
+        {name="Trash", set={
+            head={ name="Adhemar Bonnet +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+            body={ name="Adhemar Jacket +1", augments={'STR+12','DEX+12','Attack+20',}},
+            hands="Malignance Gloves",
+            legs="Malignance Tights",
+            feet={ name="Carmine Greaves +1", augments={'Accuracy+12','DEX+12','MND+20',}},
+            neck="Warder's Charm",
+            waist="Windbuffet Belt +1",
+            left_ear="Odr Earring",
+            right_ear="Telos Earring",
+            left_ring="Chirich Ring +1",
+            right_ring="Petrov Ring",
+            back=capes['DA - DEX'],
         }},
      
     }
