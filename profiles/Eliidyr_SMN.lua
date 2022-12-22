@@ -20,7 +20,7 @@ function gear.new()
 
         {name='None'},
         {name='Nirvana', equip=false, set={main="Nirvana",sub="Elan Strap +1"}},
-        {name='Grido',   equip=false, set={main={ name="Gridarvor", augments={'Pet: Accuracy+70','Pet: Attack+70','Pet: "Dbl. Atk."+15',}},sub="Elan Strap +1"}},
+        {name='Grida',   equip=false, set={main={ name="Gridarvor", augments={'Pet: Accuracy+70','Pet: Attack+70','Pet: "Dbl. Atk."+15',}},sub="Elan Strap +1"}},
 
     }
     
@@ -222,7 +222,8 @@ function gear.new()
         ["Attack"] = {
 
             ["Physical"] =
-            {ammo="Sancus Sachet +1",
+            {main={ name="Gridarvor", augments={'Pet: Accuracy+70','Pet: Attack+70','Pet: "Dbl. Atk."+15',}},
+            ammo="Sancus Sachet +1",
             head={ name="Helios Band", augments={'Pet: Attack+30 Pet: Rng.Atk.+30','Pet: "Dbl. Atk."+8','Blood Pact Dmg.+7',}},
             body="Con. Doublet +3",
             hands={ name="Merlinic Dastanas", augments={'Pet: Attack+19 Pet: Rng.Atk.+19','Blood Pact Dmg.+9','Pet: STR+3','Pet: "Mag.Atk.Bns."+7',}},

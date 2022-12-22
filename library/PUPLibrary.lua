@@ -550,16 +550,12 @@ function library.new()
 
             elseif command == 'aftercast_trigger' then
 
-                if not midaction() then
-
-                    if bp.player and bp.player.status == 1 then
-                        equip(sets['Engaged'][modes.combat][modes.engaged].set)
-                        
-                    else 
-                        equip(sets['Idle'][modes.idle].set)
-                        
-                    end
-
+                if bp.player and bp.player.status == 1 then
+                    equip(sets['Engaged'][modes.combat][modes.engaged].set)
+                    
+                else 
+                    equip(sets['Idle'][modes.idle].set)
+                    
                 end
 
             elseif S{'swaps','pet','auto'}:contains(command) then

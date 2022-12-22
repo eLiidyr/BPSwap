@@ -541,6 +541,7 @@ function library.new()
                 windower.add_to_chat(1, string.format('%s %s %s', '<< Impact Mode:':color(bp.color), tostring(settings['Impact']):upper():color(bp.color+3), '>>':color(bp.color)))
 
             elseif command == 'equip_physical' then
+                windower.add_to_chat(1, string.format('%s', '<< SMN PHYSICAL SET EQUIPPED >>':color(bp.color)))
                 equip(sets['Midcast'][modes.combat]['Physical'])
 
             elseif command == 'equip_magical' then

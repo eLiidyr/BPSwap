@@ -217,7 +217,7 @@ function gear.new()
         waist={ name="Sailfi Belt +1", augments={'Path: A',}},
         right_ear="Kasuga Earring +1",
         right_ear="Thrud Earring",
-        left_ring="Ilabrat Ring",
+        left_ring="Epaminondas's Ring",
         right_ring="Niqmaddu Ring",
         back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},},
 
@@ -236,7 +236,7 @@ function gear.new()
                 waist={ name="Sailfi Belt +1", augments={'Path: A',}},
                 right_ear="Kasuga Earring +1",
                 right_ear="Thrud Earring",
-                left_ring="Ilabrat Ring",
+                left_ring="Epaminondas's Ring",
                 right_ring="Niqmaddu Ring",
                 back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},},
             },
@@ -258,7 +258,7 @@ function gear.new()
                 waist={ name="Sailfi Belt +1", augments={'Path: A',}},
                 right_ear="Kasuga Earring +1",
                 right_ear="Thrud Earring",
-                left_ring="Ilabrat Ring",
+                left_ring="Epaminondas's Ring",
                 right_ring="Niqmaddu Ring",
                 back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},},
             },
@@ -280,7 +280,7 @@ function gear.new()
                 waist={ name="Sailfi Belt +1", augments={'Path: A',}},
                 right_ear="Kasuga Earring +1",
                 right_ear="Thrud Earring",
-                left_ring="Ilabrat Ring",
+                left_ring="Epaminondas's Ring",
                 right_ring="Niqmaddu Ring",
                 back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},},
             },
@@ -302,7 +302,95 @@ function gear.new()
                 waist={ name="Sailfi Belt +1", augments={'Path: A',}},
                 right_ear="Kasuga Earring +1",
                 right_ear="Thrud Earring",
-                left_ring="Ilabrat Ring",
+                left_ring="Epaminondas's Ring",
+                right_ring="Niqmaddu Ring",
+                back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},},
+            },
+
+        },
+
+        ["Tachi: Kagero"] = {
+
+            ["Default"] =
+            {
+                [0] =
+                {ammo="Knobkierrie",
+                head="Mpaca's Cap",
+                body={ name="Nyame Mail", augments={'Path: B',}},
+                hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+                legs="Wakido Haidate +2",
+                feet={ name="Valorous Greaves", augments={'Accuracy+2 Attack+2','Weapon skill damage +4%','STR+6',}},
+                neck="Sam. Nodowa +1",
+                waist="Orpheus's Sash",
+                left_ear="Friomisi Earring",
+                right_ear="Thrud Earring",
+                left_ring="Epaminondas's Ring",
+                right_ring="Niqmaddu Ring",
+                back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},},
+            },
+
+        },
+
+        ["Tachi: Koki"] = {
+
+            ["Default"] =
+            {
+                [0] =
+                {ammo="Knobkierrie",
+                head="Mpaca's Cap",
+                body={ name="Nyame Mail", augments={'Path: B',}},
+                hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+                legs="Wakido Haidate +2",
+                feet={ name="Valorous Greaves", augments={'Accuracy+2 Attack+2','Weapon skill damage +4%','STR+6',}},
+                neck="Sam. Nodowa +1",
+                waist="Orpheus's Sash",
+                left_ear="Friomisi Earring",
+                right_ear="Thrud Earring",
+                left_ring="Epaminondas's Ring",
+                right_ring="Niqmaddu Ring",
+                back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},},
+            },
+
+        },
+
+        ["Tachi: Goten"] = {
+
+            ["Default"] =
+            {
+                [0] =
+                {ammo="Knobkierrie",
+                head="Mpaca's Cap",
+                body={ name="Nyame Mail", augments={'Path: B',}},
+                hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+                legs="Wakido Haidate +2",
+                feet={ name="Valorous Greaves", augments={'Accuracy+2 Attack+2','Weapon skill damage +4%','STR+6',}},
+                neck="Sam. Nodowa +1",
+                waist="Orpheus's Sash",
+                left_ear="Friomisi Earring",
+                right_ear="Thrud Earring",
+                left_ring="Epaminondas's Ring",
+                right_ring="Niqmaddu Ring",
+                back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},},
+            },
+
+        },
+
+        ["Tachi: Jinpu"] = {
+
+            ["Default"] =
+            {
+                [0] =
+                {ammo="Knobkierrie",
+                head="Mpaca's Cap",
+                body={ name="Nyame Mail", augments={'Path: B',}},
+                hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+                legs="Wakido Haidate +2",
+                feet={ name="Valorous Greaves", augments={'Accuracy+2 Attack+2','Weapon skill damage +4%','STR+6',}},
+                neck="Sam. Nodowa +1",
+                waist="Orpheus's Sash",
+                left_ear="Friomisi Earring",
+                right_ear="Thrud Earring",
+                left_ring="Epaminondas's Ring",
                 right_ring="Niqmaddu Ring",
                 back={ name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%',}},},
             },
