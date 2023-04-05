@@ -426,56 +426,53 @@ function core.load()
                 local inactive = S(options) - S(active)
                 local size = 0
 
-                if active:length() > 0 then
-                    local valid = list:keyset():filter(function(key)
+                local valid = list:keyset():filter(function(key)
 
-                        for a in active:it() do
+                    for a in active:it() do
 
-                            if key:match(a) and #key > size then
-                                local pass = true
+                        if key:match(a) and #key > size then
+                            local pass = true
 
-                                for b in inactive:it() do
+                            for b in inactive:it() do
 
-                                    if key:match(b) then
-                                        pass = false
-                                    end
-
-                                end
-
-                                if pass then
-                                    size = #key
-                                    return key
+                                if key:match(b) then
+                                    pass = false
                                 end
 
                             end
 
-                        end
-
-                    end)
-                    
-                    if valid:length() > 0 then
-                        local valid = T(valid)
-
-                        if sets['WeaponSkill'][modes.combat][spell.name][valid[1]] then
-                            local options = sets['WeaponSkill'][modes.combat][spell.name][valid[1]]
-                            local highest = 0
-                            local set = options[0]
-
-                            for tp, update in pairs(options) do
-                                                                
-                                if player.tp >= tp and tp >= highest then
-                                    set, highest = update, tp
-                                end
-
+                            if pass then
+                                size = #key
+                                return key
                             end
-                            return set
 
                         end
-
-                    elseif sets['WeaponSkill'][modes.combat][spell.name]['Default'] and sets['WeaponSkill'][modes.combat][spell.name]['Default'][0] then
-                        return sets['WeaponSkill'][modes.combat][spell.name]['Default'][0]
 
                     end
+
+                end)
+                
+                if valid:length() > 0 then
+                    local valid = T(valid)
+
+                    if sets['WeaponSkill'][modes.combat][spell.name][valid[1]] then
+                        local options = sets['WeaponSkill'][modes.combat][spell.name][valid[1]]
+                        local highest = 0
+                        local set = options[0]
+
+                        for tp, update in pairs(options) do
+                                                            
+                            if player.tp >= tp and tp >= highest then
+                                set, highest = update, tp
+                            end
+
+                        end
+                        return set
+
+                    end
+
+                elseif sets['WeaponSkill'][modes.combat][spell.name]['Default'] and sets['WeaponSkill'][modes.combat][spell.name]['Default'][0] then
+                    return sets['WeaponSkill'][modes.combat][spell.name]['Default'][0]
 
                 end
 
