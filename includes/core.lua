@@ -5,7 +5,7 @@ function core.load()
     local self = {}
 
     -- Private Variables.
-    local layout    = {pos={x=200, y=200}, colors={text={alpha=255, r=245, g=200, b=20}, bg={alpha=200, r=0, g=0, b=0}, stroke={alpha=255, r=0, g=0, b=0}}, font={name='Lucida Console', size=8}, padding=2, stroke_width=1, draggable=false}
+    local layout    = {pos={x=200, y=200}, colors={text={alpha=255, r=245, g=200, b=20}, bg={alpha=175, r=0, g=0, b=0}, stroke={alpha=255, r=0, g=0, b=0}}, font={name='Lucida Console', size=10}, padding=2, stroke_width=1, draggable=false}
     local display   = texts.new('', {flags={draggable=false}})
     local important = string.format('%s,%s,%s', 25, 165, 200)
     local debug     = true
