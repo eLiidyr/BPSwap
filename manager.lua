@@ -34,6 +34,7 @@ function pm:load()
         self.__CONST.OBIS           = {['Fire']={name='Rarin Obi',opposing='Water'},['Ice']={name='Hyorin Obi',opposing='Fire'},['Wind']={name='Furin Obi',opposing='Ice'},['Earth']={name='Dorin Obi',opposing='Wind'},['Lightning']={name='Rairin Obi',opposing='Earth'},['Water']={name='Suirin Obi',opposing='Lightning'},['Light']={name='Korin Obi',opposing='Dark'},['Dark']={name='Anrin Obi', opposing='Light'}}
         self.__CONST.NAKED          = {main=empty,sub=empty,range=empty,ammo=empty,head=empty,neck=empty,ear1=empty,ear2=empty,body=empty,hands=empty,ring1=empty,ring2=empty,back=empty,waist=empty,legs=empty,feet=empty}
         self.__CONST.DUMMIES        = {'Paeon','Operetta','Mambo'}
+        self.__CONST.RANGED         = "Default"
         self.__CONST.GEO            = "Geocolure"
         self.__CONST.INDI           = "Indicolure"
         self.__CONST.PHYSICAL       = "Physical Pacts"
@@ -622,7 +623,7 @@ function pm:load()
         
         elseif spell.type == 'WeaponSkill' then
 
-            if player.tp >= 1000 then
+            --if player.tp >= 1000 then
 
                 if self.__CONST.ELEMENTALWS:contains(spell.name) then
                     local obi = self.__CONST.OBIS[spell.element] or {name=''}
@@ -650,7 +651,7 @@ function pm:load()
 
                 end
 
-            end
+            --end
 
         else
 

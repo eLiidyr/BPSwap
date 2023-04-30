@@ -1,4 +1,7 @@
 /*
 !manager.lua
-!/includes
-!/library
+profiles/*
+!profiles/
+profiles/templates/*
+!profiles/templates/
+!profiles/templates/*
