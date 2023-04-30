@@ -100,6 +100,9 @@ function self_command(command)
 
             end
 
+        elseif command == '__profile' then
+            manager.setProfile(commands)
+
         end
         manager.updateDisplay()
 

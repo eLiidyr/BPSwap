@@ -34,6 +34,7 @@ function pm:load()
         self.__CONST.RANGES         = T{[0]=0,[2]=3.40,[3]=4.47,[4]=5.76,[5]=6.89,[6]=7.80,[7]=8.40,[8]=10.40,[9]=12.40,[10]=14.50,[11]=16.40,[12]=20.40,[13]=23.4}
         self.__CONST.OBIS           = {['Fire']={name='Rarin Obi',opposing='Water'},['Ice']={name='Hyorin Obi',opposing='Fire'},['Wind']={name='Furin Obi',opposing='Ice'},['Earth']={name='Dorin Obi',opposing='Wind'},['Lightning']={name='Rairin Obi',opposing='Earth'},['Water']={name='Suirin Obi',opposing='Lightning'},['Light']={name='Korin Obi',opposing='Dark'},['Dark']={name='Anrin Obi', opposing='Light'}}
         self.__CONST.NAKED          = {main=empty,sub=empty,range=empty,ammo=empty,head=empty,neck=empty,ear1=empty,ear2=empty,body=empty,hands=empty,ring1=empty,ring2=empty,back=empty,waist=empty,legs=empty,feet=empty}
+        self.__CONST.PROFILELIST    = {'__weapons','__idle','__engaged','__nukes','mode','dummy'}
         self.__CONST.DEFAULT        = "Default"
         self.__CONST.GEO            = "Geocolure"
         self.__CONST.INDI           = "Indicolure"
@@ -569,6 +570,21 @@ function pm:load()
         end
         return {}
 
+    end
+
+    -- Profile Function.
+    self.setProfile = function(commands)
+        local settings = commands
+
+        for i=1, #settings do
+
+            if self.__CONST.PROFILELIST[i] and self[self.__CONST.PROFILELIST[i]] and tonumber(settings[i]) then
+                self[self.__CONST.PROFILELIST[i]] = tonumber(settings[i])
+            end
+
+        end
+        self.updateDisplay()
+    
     end
 
     -- Simple chat log function.
