@@ -844,7 +844,13 @@ function pm:load()
     enable('main','sub','range','ammo','head','neck','ear1','ear2','body','hands','ring1','ring2','back','waist','legs','feet')
 
     -- Build Character Profile.
-    __profile.build(self)
+    if __profile and __profile.build then
+        __profile.build(self)
+
+    else
+        self.toChat("Unable to find Gearswap Profile!", 218)
+
+    end
     
     return self
     
