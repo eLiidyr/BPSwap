@@ -625,7 +625,7 @@ function pm:load()
             if player.tp >= 1000 then
 
                 if self.__CONST.ELEMENTALWS:contains(spell.name) then
-                    local obi = self.__CONST.OBIS[spell.element]
+                    local obi = self.__CONST.OBIS[spell.element] or {name=''}
                     local distance = spell.target.distance
 
                     if spell.element == world.weather_element and world.day_element ~= obi.opposing and world.weather_intensity == 2 then
@@ -746,7 +746,7 @@ function pm:load()
                 end                
 
             else
-                local obi = self.__CONST.OBIS[spell.element]
+                local obi = self.__CONST.OBIS[spell.element] or {name=''}
                 local distance = spell.target.distance
 
                 if spell.element == world.weather_element and world.day_element ~= obi.opposing and world.weather_intensity == 2 then
