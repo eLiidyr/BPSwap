@@ -682,6 +682,10 @@ function pm:load()
 
     self.midcast = function(spell)
 
+        if (self.__CONST.ABILITIES:contains(spell.type) or spell.type) then
+            return
+        end
+
         if spell.name == 'Ranged' then
             local ranged = player.equipment and player.equipment.range and player.equipment.range ~= 'empty' and player.equipment.range or false
 
@@ -694,7 +698,6 @@ function pm:load()
             end
 
         elseif self.__CONST[spell.type] then
-            print('Pacts')
 
             if self.__CONST[spell.type][1]:contains(spell.name) then
                 equip(set_combine(__statics.sets.midcast[self.__CONST.PHYSICAL], self.getMidcastSet(spell.name)))
@@ -742,7 +745,7 @@ function pm:load()
 
                 end                
 
-            elseif not self.__CONST.ABILITIES:contains(spell.type) then
+            else
                 local obi = self.__CONST.OBIS[spell.element]
                 local distance = spell.target.distance
 
