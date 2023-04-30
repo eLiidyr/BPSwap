@@ -1,125 +1,95 @@
 -- Written by: Eliidyr.
------------------------
--- Version: 1.20220812
 require("strings")
-require("lists")
 require("tables")
+require("logger")
+require("lists")
 require("sets")
 require("chat")
-require("logger")
 require("pack")
 
-bp = {}
-bp.ranges      = {[0]=255,[2]=3.40,[3]=4.47,[4]=5.76,[5]=6.89,[6]=7.80,[7]=8.40,[8]=10.40,[9]=12.40,[10]=14.50,[11]=16.40,[12]=20.40,[13]=23.4}
-bp.res         = require("resources")
-bp.packets     = require("packets")
-bp.queues      = require("queues")
-bp.files       = require("files")
-bp.core        = require("includes/core")
-bp.keybinds    = require("includes/keybinds")
-bp.loader      = require("includes/loader")
-bp.color       = 258
-
+-- Load profile manager.
+local manager = require("manager")
 function get_sets()
-    bp.player    = player
-    bp.library   = bp.loader.getLibrary(bp.player)
+    manager:load()
 
-    if bp.library then
-        bp.settings = bp.library.loadSettings(bp)
-        bp.sets, bp.user = bp.loader.getProfile(bp.player)
+    function file_unload()
+        manager.__CONST.UNLOADKEYBINDS()
 
-        if bp.sets and bp.user then
-            sets = bp.sets
+    end
+    manager.__CONST.LOADKEYBINDS()
+    manager.__display:pos(manager.x, manager.y)
+    manager.updateDisplay()
 
-            function file_unload()
-                bp.keybinds.unbind()
+end
 
-                if bp.library.events then
-                    for _,event in pairs(bp.library.events) do
-                        windower.unregister_event(event)
-                    end
+-- Setup Gearswap functions.
+function precast(spell) manager.precast(spell) end
+function midcast(spell) manager.midcast(spell) end
+function aftercast(spell) manager.aftercast(spell) end
+function status_change(new, old) manager.statusChange(new, old) end
+function buff_change(name, gain, details) manager.buffChange(name, gain, details) end
+function pet_change(pet, gain) manager.petChange(pet, gain) end
+function pet_midcast(spell) manager.petMidcast(spell) end
+function pet_aftercast(spell) manager.petAftercast(spell) end
+function pet_status_change(new, old) manager.petStatus(spell) end
+
+-- Handle commands
+function self_command(command)
+    local commands = T(command:split(' '))
+    local command = commands[1] and table.remove(commands, 1):lower() or false
+
+    if command then
+
+        if command == '__weapons' then
+            manager.toggleWeapons()
+            local weapons = manager.getWeaponSet()
+
+            if weapons and weapons.equip then
+                equip(weapons.set)
+                manager.toChat("Weapon Set: [ ", 258, weapons.name, 250, " ]", 258)
+
+            end
+
+        elseif command == '__idlemode' then
+            manager.toggleIdle()
+            local change = manager.getIdleSet()
+
+            if change then
+                equip(change)
+
+                if manager.sets.idle[manager.__idle] and manager.sets.idle[manager.__idle].name then
+                    manager.toChat("Idle Mode:", 258, manager.sets.idle[manager.__idle].name, 250)
                 end
 
             end
-            bp.keybinds.bind()
-            bp.core.buildHUD(bp)
 
-            if bp.user.settings then
-                bp.user.settings(bp)
+        elseif command == '__engagemode' then
+            manager.toggleEngaged()
+            local change = manager.getEngagedSet()
+
+            if change then
+                equip(change)
+
+                if manager.sets.engaged[manager.mode][manager.__engaged] and manager.sets.engaged[manager.mode][manager.__engaged].name then
+                    manager.toChat("Engage Mode:", 258, manager.sets.engaged[manager.mode][manager.__engaged].name, 250)
+                end
+
             end
 
-        else
+        elseif command == '__nukemode' then
+            manager.toggleMidnuke()
 
-            coroutine.schedule(function()
+            if manager.sets.midnuke[manager.mode][manager.__nukes] and manager.sets.midnuke[manager.mode][manager.__nukes].name then
+                manager.toChat("Nuke Mode:", 258, manager.sets.midnuke[manager.mode][manager.__nukes].name, 250)
+            end
 
-                if bp.library.events then
-                    for _,event in pairs(bp.library.events) do
-                        windower.unregister_event(event)
-                    end
-                end
-                windower.add_to_chat(1, string.format('FAILED TO LOAD GEARSWAP PROFILE: /profiles/%s_%s.lua!':color(bp.color), player.name, player.main_job))
-            
-            end, 0.25)
-            return
+        elseif command == '__combatmode' then
+            manager.toggleMode()
+            manager.toChat("Combat Mode: [ ", 258, (manager.mode == 1) and "Attack" or "Accuracy", 250, " ]", 258)
 
         end
+        manager.updateDisplay()
 
-    else
-
-        coroutine.schedule(function()
-
-            if bp.library.events then
-                for _,event in pairs(bp.library.events) do
-                    windower.unregister_event(event)
-                end
-            end
-            windower.add_to_chat(1, string.format('FAILED TO LOAD GEARSWAP LIBRARY: /library/%sLibrary.lua!':color(bp.color), player.main_job))
-        
-        end, 0.25)
-        return
-
-    end    
-    
-end
-
-function precast(spell, act)
-    bp.library.precast(spell, midaction())
-end
-
-function midcast(spell, act)
-    bp.library.midcast(spell, midaction())
-end
-
-function aftercast(spell, act)
-    bp.library.aftercast(spell, midaction())
-end
-
-function status_change(new, old)
-    bp.library.statusChange(new, old, midaction())
-end
-
-function buff_change(name, gain, details)
-    bp.library.buffChange(name, gain, details, midaction())
-end
-
-function pet_change(pet, gain)
-    bp.library.petChange(pet, gain, midaction())
-end
-
-function pet_midcast(spell)
-    bp.library.petMidcast(spell, midaction())
-end
-
-function pet_aftercast(spell)
-    bp.library.petAftercast(spell, midaction())
-end
-
-function pet_status_change(new, old)
-    bp.library.petStatus(new, old, midaction())
-end
-
-function self_command(command)
-    bp.library.commands(command)
-    bp.core.commands(command)
+    end
     
 end
