@@ -23,10 +23,22 @@ local profile = {build = function(manager)
 
         },
     })
-    manager:addEngaged("Tizona - Hybrid",   1, {})
+    manager:addEngaged("Tizona - Hybrid",   1, {},
+    {
+        ["Aftermath: Lv.1"] = {
+
+        },
+        ["Aftermath: Lv.2"] = {
+
+        },
+        ["Aftermath: Lv.3"] = {
+
+        },
+    })
 
     -- Precast: (name, set, buffed)
-    manager:addPrecast("Fast Cast", {})
+    manager:addPrecast("Ranged",            {})
+    manager:addPrecast("Fast Cast",         {})
     manager:addPrecast("Elemental Magic",   manager.sets.precast['Fast Cast'])
     manager:addPrecast("Enfeebling Magic",  manager.sets.precast['Fast Cast'])
     manager:addPrecast("Enhancing Magic",   manager.sets.precast['Fast Cast'])
@@ -35,7 +47,6 @@ local profile = {build = function(manager)
     manager:addPrecast("Dark Magic",        manager.sets.precast['Fast Cast'])
     manager:addPrecast("Blue Magic",        manager.sets.precast['Fast Cast'])
     manager:addPrecast("Ninjutsu",          manager.sets.precast['Fast Cast'])
-    manager:addPrecast("Ranged",            {})
 
     -- Midcast: (name, mode, set, buffed)
     manager:addMidcast("Azure Lore",            false, {})
