@@ -87,6 +87,19 @@ function self_command(command)
             manager.toggleMode()
             manager.toChat("Combat Mode: [ ", 258, (manager.mode == 1) and "Attack" or "Accuracy", 250, " ]", 258)
 
+        elseif command == 'dummy' then
+            local option = commands[1] and table.remove(commands, 1):lower() or false
+
+            if option and tonumber(option) and manager.__CONST.DUMMIES[tonumber(option)] then
+                manager.dummy = tonumber(option)
+                manager.toChat("Dummy Songs: [ ", 258, table.concat(manager.__CONST.DUMMIES[manager.dummy], ', '), 250, " ]", 258)
+
+            else
+                manager.dummy = (manager.dummy + 1) <= #manager.__CONST.DUMMIES and (manager.dummy + 1) or 1
+                manager.toChat("Dummy Songs: [ ", 258, table.concat(manager.__CONST.DUMMIES[manager.dummy], ', '), 250, " ]", 258)
+
+            end
+
         end
         manager.updateDisplay()
 

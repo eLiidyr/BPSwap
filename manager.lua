@@ -30,10 +30,10 @@ function pm:load()
         self.__CONST.ABILITIES      = S{'JobAbility','CorsairRoll','CorsairShot','Samba','Waltz','Jig','Scholar','Step','Flourish1','Flourish2','Flourish3','Effusion','Rune','Ward'}
         self.__CONST.ELEMENTALWS    = S{'Gust Slash','Cyclone','Energy Steal','Energy Drain','Aeolian Edge','Burning Blade','Red Lotus Blade','Shining Blade','Seraph Blade','Spirits Within','Sanguine Blade','Atonement','Frostbite','Freezebite','Herculean Slash','Cloudsplitter','Primal Rend','Dark Harvest','Shadow of Death','Infernal Scythe','Thunder Thrust','Raiden Thrust','Blade: Teki','Blade: To','Blade: Chi','Blade: Ei','Blade: Yu', 'Tachi: Goten','Tachi: Kagero','Tachi: Jinpu','Tachi: Koki','Shining Strike','Seraph Strike','Flash Nova','Rock Crusher','Earth Crusher','Starburst','Sunburst','Cataclysm','Vidohunir','Garland of Bliss','Omniscience','Flaming Arrow','Hot Shot','Wildfire','Trueflight','Leaden Salute'}
         self.__CONST.SLOTS          = S{'main','sub','range','ammo','head','neck','ear1','ear2','body','hands','ring1','ring2','back','waist','legs','feet','left_ear','right_ear','left_ring','right_ring'}
+        self.__CONST.DUMMIES        = {{"Army's Paeon","Army's Paeon II"},{"Scop's Operetta","Puppet's Operetta"},{"Herb Pastoral","Fowl Aubade"}}
         self.__CONST.RANGES         = T{[0]=0,[2]=3.40,[3]=4.47,[4]=5.76,[5]=6.89,[6]=7.80,[7]=8.40,[8]=10.40,[9]=12.40,[10]=14.50,[11]=16.40,[12]=20.40,[13]=23.4}
         self.__CONST.OBIS           = {['Fire']={name='Rarin Obi',opposing='Water'},['Ice']={name='Hyorin Obi',opposing='Fire'},['Wind']={name='Furin Obi',opposing='Ice'},['Earth']={name='Dorin Obi',opposing='Wind'},['Lightning']={name='Rairin Obi',opposing='Earth'},['Water']={name='Suirin Obi',opposing='Lightning'},['Light']={name='Korin Obi',opposing='Dark'},['Dark']={name='Anrin Obi', opposing='Light'}}
         self.__CONST.NAKED          = {main=empty,sub=empty,range=empty,ammo=empty,head=empty,neck=empty,ear1=empty,ear2=empty,body=empty,hands=empty,ring1=empty,ring2=empty,back=empty,waist=empty,legs=empty,feet=empty}
-        self.__CONST.DUMMIES        = {'Paeon','Operetta','Mambo'}
         self.__CONST.DEFAULT        = "Default"
         self.__CONST.GEO            = "Geocolure"
         self.__CONST.INDI           = "Indicolure"
@@ -623,7 +623,7 @@ function pm:load()
         
         elseif spell.type == 'WeaponSkill' then
 
-            --if player.tp >= 1000 then
+            if player.tp >= 1000 then
 
                 if self.__CONST.ELEMENTALWS:contains(spell.name) then
                     local obi = self.__CONST.OBIS[spell.element] or {name=''}
@@ -651,13 +651,13 @@ function pm:load()
 
                 end
 
-            --end
+            end
 
         else
 
             if player.main_job == 'BRD' and S{'Singing','Stringed Instrument','Wind Instrument'}:contains(spell.skill) then
 
-                if spell.name:match(self.__CONST.DUMMIES[self.dummy]) then
+                if S(self.__CONST.DUMMIES[self.dummy]):contains(spell.name) then
                     equip(set_combine(self.getPrecastSet(spell), {range='Blurred Harp'}, {range='Blurred Harp +1'}, {range='Terpander'}, {range='Daurdabla'}))
 
                 elseif spell.name == "Honor March" then
@@ -721,7 +721,7 @@ function pm:load()
             
             if player.main_job == 'BRD' and S{'Singing','Stringed Instrument','Wind Instrument'}:contains(spell.skill) then
 
-                if spell.name:match(self.__CONST.DUMMIES[self.dummy]) then
+                if S(self.__CONST.DUMMIES[self.dummy]):contains(spell.name) then
                     equip(set_combine(__statics.sets.midcast[self.__CONST.DUMMY], {range='Blurred Harp'}, {range='Blurred Harp +1'}, {range='Terpander'}, {range='Daurdabla'}))
 
                 elseif spell.name == "Honor March" then
