@@ -105,18 +105,18 @@ local profile = {build = function(manager)
     manager:addMidcast("Stoneskin",             false, {})
     manager:addMidcast("Cure",                  false, {},
     {
-        ["Aurorstorm"] = {
+        ["Aurorastorm"] = {
 
         }
     })
     manager:addMidcast("Curaga",                false, {},
     {
-        ["Aurorstorm"] = {
+        ["Aurorastorm"] = {
 
         }
     })
 
-    do -- Enffebling Spells
+    do -- Spell Copies.
 
         -- Curing Spells.
         manager:addMidcast("Cure II",       false, manager.sets.midcast["Cure"])
