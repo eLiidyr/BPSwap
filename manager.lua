@@ -683,7 +683,7 @@ function pm:load()
 
     self.midcast = function(spell)
 
-        if (self.__CONST.ABILITIES:contains(spell.type) or spell.type) then
+        if (self.__CONST.ABILITIES:contains(spell.type) or spell.type == 'WeaponSkill') then
             return
         end
 
