@@ -23,6 +23,13 @@ function pm:load()
     self.x          = 1
     self.y          = 1
 
+    -- Gear Locks.
+    self.GLOCK      = false
+    self.WLOCK      = false
+
+    -- Debug Mode.
+    self.debug      = true
+
     -- Constants.
     self.__CONST    = {}
 
@@ -319,7 +326,13 @@ function pm:load()
             end
 
             if #matches > 0 then
-                return set_combine(idle.set, bsets[T(matches):sort(function(a, b) return #a > #b end)[1]])
+                local match = T(matches):sort(function(a, b) return #a > #b end)[1]
+
+                if self.debug then
+                    self.toChat(string.format("Buffed set used: %s", match), 200)
+                
+                end
+                return set_combine(idle.set, bsets[match])
 
             end
             return idle.set
@@ -358,7 +371,13 @@ function pm:load()
                 end
 
                 if #matches > 0 then
-                    return set_combine(set, bsets[T(matches):sort(function(a, b) return #a > #b end)[1]])
+                    local match = T(matches):sort(function(a, b) return #a > #b end)[1]
+
+                    if self.debug then
+                        self.toChat(string.format("Buffed set used: %s", match), 200)
+                    
+                    end
+                    return set_combine(set, bsets[match])
 
                 end
                 return set_combine(__statics.sets.precast[spell.skill], __statics.sets.precast[spell.name])
@@ -400,7 +419,13 @@ function pm:load()
                 end
 
                 if #matches > 0 then
-                    return set_combine(__statics.sets.midcast[spell.type], __statics.sets.midcast[spell.skill], set, bsets[T(matches):sort(function(a, b) return #a > #b end)[1]])
+                    local match = T(matches):sort(function(a, b) return #a > #b end)[1]
+
+                    if self.debug then
+                        self.toChat(string.format("Buffed set used: %s", match), 200)
+                    
+                    end
+                    return set_combine(__statics.sets.midcast[spell.type], __statics.sets.midcast[spell.skill], set, bsets[match])
 
                 end
                 return set_combine(__statics.sets.midcast[spell.type], __statics.sets.midcast[spell.skill], __statics.sets.midcast[spell.name], __statics.sets.midcast[self.mode][spell.skill], __statics.sets.midcast[self.mode][spell.name])
@@ -440,7 +465,13 @@ function pm:load()
             end
 
             if #matches > 0 then
-                return set_combine(nukes.set, bsets[T(matches):sort(function(a, b) return #a > #b end)[1]])
+                local match = T(matches):sort(function(a, b) return #a > #b end)[1]
+
+                if self.debug then
+                    self.toChat(string.format("Buffed set used: %s", match), 200)
+                
+                end
+                return set_combine(nukes.set, bsets[match])
 
             end
             return nukes.set
@@ -477,7 +508,13 @@ function pm:load()
             end
 
             if #matches > 0 then
-                return set_combine(engaged.set, bsets[T(matches):sort(function(a, b) return #a > #b end)[1]])
+                local match = T(matches):sort(function(a, b) return #a > #b end)[1]
+
+                if self.debug then
+                    self.toChat(string.format("Buffed set used: %s", match), 200)
+                
+                end
+                return set_combine(engaged.set, bsets[match])
 
             end
             return engaged.set
@@ -514,7 +551,13 @@ function pm:load()
             end
 
             if #matches > 0 then
-                return set_combine(ranged, bsets[T(matches):sort(function(a, b) return #a > #b end)[1]])
+                local match = T(matches):sort(function(a, b) return #a > #b end)[1]
+
+                if self.debug then
+                    self.toChat(string.format("Buffed set used: %s", match), 200)
+                
+                end
+                return set_combine(ranged, bsets[match])
 
             end
             return ranged
@@ -560,7 +603,13 @@ function pm:load()
                 end
 
                 if #matches > 0 then
-                    return set_combine(skills[1], bsets[T(matches):sort(function(a, b) return #a > #b end)[1]])
+                    local match = T(matches):sort(function(a, b) return #a > #b end)[1]
+
+                    if self.debug then
+                        self.toChat(string.format("Buffed set used: %s", match), 200)
+                    
+                    end
+                    return set_combine(skills[1], bsets[match])
 
                 end
                 return skills[1]

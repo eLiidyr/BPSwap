@@ -83,34 +83,62 @@ local profile = {build = function(manager)
 
     -- Midcast: (name, mode, set, buffed)
     manager:addMidcast("Chainspell",            false, {})
-    manager:addMidcast("Convert",               false, {})
+    manager:addMidcast("Convert",               false, {main="Murgleis"})
     manager:addMidcast("Composure",             false, {})
-    manager:addMidcast("Saboteur",              false, {})
-    manager:addMidcast("Spontaneity",           false, {})
     manager:addMidcast("Elemental Magic",       false, {})
     manager:addMidcast("Enfeebling Magic",      false, {})
     manager:addMidcast("Enhancing Magic",       false, {})
     manager:addMidcast("Healing Magic",         false, {})
     manager:addMidcast("Divine Magic",          false, {})
     manager:addMidcast("Dark Magic",            false, {})
-    manager:addMidcast("Enfeeble - Skill",      false, {})
-    manager:addMidcast("Enfeeble - Duration",   false, {})
-    manager:addMidcast("Enfeeble - Potency",    false, {})
-    manager:addMidcast("Enfeeble - MND",        false, {})
-    manager:addMidcast("Enfeeble - INT",        false, {})
-    manager:addMidcast("Enfeeble - Accuracy",   false, {})
     manager:addMidcast("Inundation",            false, {})
     manager:addMidcast("Aquaveil",              false, {})
     manager:addMidcast("Stoneskin",             false, {})
-    manager:addMidcast("Cure",                  false, {},
+    manager:addMidcast("Cure", false, {},
     {
         ["Aurorastorm"] = {
 
         }
     })
-    manager:addMidcast("Curaga",                false, {},
+    manager:addMidcast("Curaga", false, {},
     {
         ["Aurorastorm"] = {
+
+        }
+    })
+    manager:addMidcast("Enfeeble - Skill", false, {},
+    {
+        ["Saboteur"] = {
+
+        }
+    })
+    manager:addMidcast("Enfeeble - Duration", false, {},
+    {
+        ["Saboteur"] = {
+
+        }
+    })
+    manager:addMidcast("Enfeeble - Potency", false, {},
+    {
+        ["Saboteur"] = {
+
+        }
+    })
+    manager:addMidcast("Enfeeble - MND", false, {},
+    {
+        ["Saboteur"] = {
+
+        }
+    })
+    manager:addMidcast("Enfeeble - INT", false, {},
+    {
+        ["Saboteur"] = {
+
+        }
+    })
+    manager:addMidcast("Enfeeble - Accuracy", false, {},
+    {
+        ["Saboteur"] = {
 
         }
     })

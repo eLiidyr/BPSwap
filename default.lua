@@ -100,6 +100,32 @@ function self_command(command)
 
             end
 
+        elseif command == '__wlock' then
+            
+            if manager.WLOCK then
+                windower.send_command('gs enable main;gs enable sub;gs enable ranged')
+                manager.toChat("Weapon slots have been unlocked.", 258)
+                
+            else
+                windower.send_command('gs disable main;gs disable sub;gs disable ranged')
+                manager.toChat("Weapon slots have been locked.", 258)
+
+            end
+            manager.WLOCK = manager.WLOCK ~= true and true or false
+
+        elseif command == '__glock' then
+
+            if manager.GLOCK then
+                windower.send_command('gs enable all')
+                manager.toChat("All gear has been unlocked.", 258)
+                
+            else
+                windower.send_command('gs disable all')
+                manager.toChat("All gear has been locked.", 258)
+
+            end
+            manager.GLOCK = manager.GLOCK ~= true and true or false
+
         elseif command == '__profile' then
             manager.setProfile(commands)
 
