@@ -46,7 +46,7 @@ function self_command(command)
 
             if weapons and weapons.equip then
                 equip(weapons.set)
-                manager.toChat("Weapon Set: [ ", 258, weapons.name, 250, " ]", 258)
+                manager.toChat("Weapon Set: ", 258, weapons.name, 250)
 
             end
 
@@ -58,7 +58,7 @@ function self_command(command)
                 equip(change)
 
                 if manager.sets.idle[manager.__idle] and manager.sets.idle[manager.__idle].name then
-                    manager.toChat("Idle Mode:", 258, manager.sets.idle[manager.__idle].name, 250)
+                    manager.toChat("Idle Mode: ", 258, manager.sets.idle[manager.__idle].name, 250)
                 end
 
             end
@@ -71,7 +71,7 @@ function self_command(command)
                 equip(change)
 
                 if manager.sets.engaged[manager.mode][manager.__engaged] and manager.sets.engaged[manager.mode][manager.__engaged].name then
-                    manager.toChat("Engage Mode:", 258, manager.sets.engaged[manager.mode][manager.__engaged].name, 250)
+                    manager.toChat("Engage Mode: ", 258, manager.sets.engaged[manager.mode][manager.__engaged].name, 250)
                 end
 
             end
@@ -80,23 +80,23 @@ function self_command(command)
             manager.toggleMidnuke()
 
             if manager.sets.midnuke[manager.mode][manager.__nukes] and manager.sets.midnuke[manager.mode][manager.__nukes].name then
-                manager.toChat("Nuke Mode:", 258, manager.sets.midnuke[manager.mode][manager.__nukes].name, 250)
+                manager.toChat("Nuke Mode: ", 258, manager.sets.midnuke[manager.mode][manager.__nukes].name, 250)
             end
 
         elseif command == '__combatmode' then
             manager.toggleMode()
-            manager.toChat("Combat Mode: [ ", 258, (manager.mode == 1) and "Attack" or "Accuracy", 250, " ]", 258)
+            manager.toChat("Combat Mode: ", 258, (manager.mode == 1) and "Attack" or "Accuracy", 250)
 
         elseif command == 'dummy' then
             local option = commands[1] and table.remove(commands, 1):lower() or false
 
             if option and tonumber(option) and manager.__CONST.DUMMIES[tonumber(option)] then
                 manager.dummy = tonumber(option)
-                manager.toChat("Dummy Songs: [ ", 258, table.concat(manager.__CONST.DUMMIES[manager.dummy], ', '), 250, " ]", 258)
+                manager.toChat("Dummy Songs: ", 258, table.concat(manager.__CONST.DUMMIES[manager.dummy], ', '), 250)
 
             else
                 manager.dummy = (manager.dummy + 1) <= #manager.__CONST.DUMMIES and (manager.dummy + 1) or 1
-                manager.toChat("Dummy Songs: [ ", 258, table.concat(manager.__CONST.DUMMIES[manager.dummy], ', '), 250, " ]", 258)
+                manager.toChat("Dummy Songs: ", 258, table.concat(manager.__CONST.DUMMIES[manager.dummy], ', '), 250)
 
             end
 
