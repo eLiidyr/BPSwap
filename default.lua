@@ -12,13 +12,17 @@ local manager = require("manager")
 function get_sets()
     manager:load()
 
-    function file_unload()
-        manager.__CONST.UNLOADKEYBINDS()
+    if manager.success() then
+
+        function file_unload()
+            manager.__CONST.UNLOADKEYBINDS()
+
+        end
+        manager.__CONST.LOADKEYBINDS()
+        manager.__display:pos(manager.x, manager.y)
+        manager.updateDisplay()
 
     end
-    manager.__CONST.LOADKEYBINDS()
-    manager.__display:pos(manager.x, manager.y)
-    manager.updateDisplay()
 
 end
 

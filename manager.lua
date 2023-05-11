@@ -11,6 +11,7 @@ function pm:load()
     local __profile = files.new(string.format('data/profiles/%s_%s.lua', player.name, player.main_job)):exists() and dofile(string.format('%sdata/profiles/%s_%s.lua', windower.addon_path, player.name, player.main_job)) or false
     local __statics = {capes={}, weapons={}, sets={idle={}, engaged={}, midnuke={}, ranged={}, precast={}, midcast={}, weaponskills={}}}
     local __modes   = {'Attack','Accuracy'}
+    local __success = false
     
     -- Default Variables.
     self.__display  = texts.new({pos={x=1, y=1}, bg={alpha=75, red=0, green=0, blue=0, visible=false}, flags={draggable=true, bold=true}, text={size=10, font='Segoe UI', alpha=255, red=245, green=200, blue=20, stroke={width=2, alpha=255, red=0, green=0, blue=0}}, padding=5})
@@ -107,6 +108,9 @@ function pm:load()
 
     -- Set Metatable.
     setmetatable(self, MT)
+
+    -- Check if profile loaded.
+    self.success = function() return __success end
 
     -- Toggles
     self.toggleMode = function() self.mode = self.mode == 1 and 2 or 1 end
@@ -392,7 +396,7 @@ function pm:load()
 
     self.getMidcastSet = function(spell)
 
-        if spell then
+        if spell and spell.name then
             local set = __statics.sets.midcast[self.mode][spell.name] or __statics.sets.midcast[spell.name]
 
             if set then
@@ -766,19 +770,19 @@ function pm:load()
         elseif self.__CONST[spell.type] then
 
             if self.__CONST[spell.type][1]:contains(spell.name) then
-                equip(set_combine(__statics.sets.midcast[self.__CONST.PHYSICAL], self.getMidcastSet(spell.name)))
+                equip(set_combine(__statics.sets.midcast[self.__CONST.PHYSICAL], self.getMidcastSet(spell)))
 
             elseif self.__CONST[spell.type][2]:contains(spell.name) then
-                equip(set_combine(__statics.sets.midcast[self.__CONST.MAGICAL], self.getMidcastSet(spell.name)))
+                equip(set_combine(__statics.sets.midcast[self.__CONST.MAGICAL], self.getMidcastSet(spell)))
 
             elseif self.__CONST[spell.type][3]:contains(spell.name) then
-                equip(set_combine(__statics.sets.midcast[self.__CONST.HYBRID], self.getMidcastSet(spell.name)))
+                equip(set_combine(__statics.sets.midcast[self.__CONST.HYBRID], self.getMidcastSet(spell)))
 
             elseif self.__CONST[spell.type][4]:contains(spell.name) then
-                equip(set_combine(__statics.sets.midcast[self.__CONST.WARDS], self.getMidcastSet(spell.name)))
+                equip(set_combine(__statics.sets.midcast[self.__CONST.WARDS], self.getMidcastSet(spell)))
 
             elseif self.__CONST[spell.type][5]:contains(spell.name) then
-                equip(set_combine(__statics.sets.midcast[self.__CONST.DEBUFFS], self.getMidcastSet(spell.name)))
+                equip(set_combine(__statics.sets.midcast[self.__CONST.DEBUFFS], self.getMidcastSet(spell)))
 
             end
 
@@ -804,10 +808,10 @@ function pm:load()
             elseif spell.skill == 'Geomancy' then
 
                 if (spell.name):startswith('Indi') then
-                    equip(set_combine(__statics.sets.midcast[self.__CONST.INDI], self.getMidcastSet(spell.name)))
+                    equip(set_combine(__statics.sets.midcast[self.__CONST.INDI], self.getMidcastSet(spell)))
 
                 elseif (spell.name):startswith('Indi') then
-                    equip(set_combine(__statics.sets.midcast[self.__CONST.GEO], self.getMidcastSet(spell.name)))
+                    equip(set_combine(__statics.sets.midcast[self.__CONST.GEO], self.getMidcastSet(spell)))
 
                 end                
 
@@ -911,9 +915,11 @@ function pm:load()
     -- Build Character Profile.
     if __profile and __profile.build then
         __profile.build(self)
+        __success = true
 
     else
         self.toChat("Unable to find Gearswap Profile!", 218)
+        __success = false
 
     end
     
