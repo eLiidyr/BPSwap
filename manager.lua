@@ -679,7 +679,7 @@ function pm:load()
         if spell.action_type == "Item" then
             return
 
-        elseif __recast and __recast > 0 or not __inRange then
+        elseif spell.type ~= 'Misc' and __recast and (__recast > 0 or not __inRange) then
             return cancel_spell()
 
         end
