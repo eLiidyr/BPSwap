@@ -8,7 +8,8 @@ function pm:load()
     local texts = require('texts')
 
     -- Private Variables.
-    local __profile = files.new(string.format('data/profiles/%s_%s.lua', player.name, player.main_job)):exists() and dofile(string.format('%sdata/profiles/%s_%s.lua', windower.addon_path, player.name, player.main_job)) or false
+    local __server  = res.servers[windower.ffxi.get_info().server] or "Private Server"
+    local __profile = files.new(string.format('data/profiles/%s/%s_%s.lua', __server, player.name, player.main_job)):exists() and dofile(string.format('%sdata/profiles/%s/%s_%s.lua', windower.addon_path, __server, player.name, player.main_job)) or false
     local __statics = {capes={}, weapons={}, sets={idle={}, engaged={}, midnuke={}, ranged={}, precast={}, midcast={}, weaponskills={}}}
     local __modes   = {'Attack','Accuracy'}
     local __success = false
