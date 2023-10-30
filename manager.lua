@@ -8,7 +8,7 @@ function pm:load()
     local texts = require('texts')
 
     -- Private Variables.
-    local __server  = res.servers[windower.ffxi.get_info().server] or "Private Server"
+    local __server  = res.servers[windower.ffxi.get_info().server] and res.servers[windower.ffxi.get_info().server].en or "Private Server"
     local __profile = files.new(string.format('data/profiles/%s/%s_%s.lua', __server, player.name, player.main_job)):exists() and dofile(string.format('%sdata/profiles/%s/%s_%s.lua', windower.addon_path, __server, player.name, player.main_job)) or false
     local __statics = {capes={}, weapons={}, sets={idle={}, engaged={}, midnuke={}, ranged={}, precast={}, midcast={}, weaponskills={}}}
     local __modes   = {'Attack','Accuracy'}
@@ -45,6 +45,7 @@ function pm:load()
         self.__CONST.NAKED          = {main=empty,sub=empty,range=empty,ammo=empty,head=empty,neck=empty,ear1=empty,ear2=empty,body=empty,hands=empty,ring1=empty,ring2=empty,back=empty,waist=empty,legs=empty,feet=empty}
         self.__CONST.PROFILELIST    = {'__weapons','__idle','__engaged','__nukes','mode','dummy'}
         self.__CONST.DEFAULT        = "Default"
+        self.__CONST.RESTING        = "Resting"
         self.__CONST.GEO            = "Geocolure"
         self.__CONST.INDI           = "Indicolure"
         self.__CONST.PHYSICAL       = "Physical Pacts"
@@ -863,6 +864,9 @@ function pm:load()
 
         if player.status == 'Engaged' then
             equip(self.getEngagedSet())
+
+        elseif player.status == 'Resting' then
+            print('resting')
 
         else
             equip(self.getIdleSet())
