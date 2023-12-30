@@ -54,6 +54,8 @@ function pm:load()
         self.__CONST.WARDS          = "Ward Pacts"
         self.__CONST.DEBUFFS        = "Debuff Pacts"
         self.__CONST.DUMMY          = "Dummy Songs"
+        self.__CONST.ATT_MODE       = 1
+        self.__CONST.ACC_MODE       = 2
         self.__CONST.LOADKEYBINDS   = function()
             send_command('bind @f1  gs c __idlemode')
             send_command('bind @f2  gs c __engagemode')
@@ -675,13 +677,12 @@ function pm:load()
 
     -- Gearswap Events.
     self.precast = function(spell, midaction)
-        local __inRange = spell.target and self.__CONST.RANGES[spell.range] and spell.target.distance <= (self.__CONST.RANGES[spell.range] + (spell.target.model_size + player.model_size))
         local __recast = windower.ffxi.get_spell_recasts()[spell.recast_id]
 
         if spell.action_type == "Item" then
             return
 
-        elseif spell.type ~= 'Misc' and __recast and (__recast > 0 or not __inRange) then
+        elseif spell.type ~= 'Misc' and __recast and __recast > 0 then
             return cancel_spell()
 
         end
@@ -821,20 +822,27 @@ function pm:load()
                 local obi = self.__CONST.OBIS[spell.element] or {name=''}
                 local distance = spell.target.distance
 
-                if spell.element == world.weather_element and world.day_element ~= obi.opposing and world.weather_intensity == 2 then
-                    equip(set_combine(self.getMidnukeSet(), {waist=obi and obi.name or ''}, {waist="Hachirin-no-Obi"}, self.getMidcastSet(spell)))
-
-                elseif spell.element == world.day_element and spell.element == world.weather_element then
-                    equip(set_combine(self.getMidnukeSet(), {waist=obi and obi.name or ''}, {waist="Hachirin-no-Obi"}, self.getMidcastSet(spell)))
-
-                elseif spell.target.distance < (8 + spell.target.model_size) then
-                    equip(set_combine(self.getMidnukeSet(), {waist=obi and obi.name or ''}, {waist="Hachirin-no-Obi"}, {waist="Orpheus's Sash"}, self.getMidcastSet(spell)))
-
-                elseif spell.element == world.day_element or spell.element == world.weather_element then
-                    equip(set_combine(self.getMidnukeSet(), {waist=obi and obi.name or ''}, {waist="Hachirin-no-Obi"}, self.getMidcastSet(spell)))
-
-                else
+                if player.id == spell.target.id then
                     equip(set_combine(self.getMidnukeSet(), self.getMidcastSet(spell)))
+                    
+                else
+
+                    if spell.element == world.weather_element and world.day_element ~= obi.opposing and world.weather_intensity == 2 then
+                        equip(set_combine(self.getMidnukeSet(), {waist=obi and obi.name or ''}, {waist="Hachirin-no-Obi"}, self.getMidcastSet(spell)))
+
+                    elseif spell.element == world.day_element and spell.element == world.weather_element then
+                        equip(set_combine(self.getMidnukeSet(), {waist=obi and obi.name or ''}, {waist="Hachirin-no-Obi"}, self.getMidcastSet(spell)))
+
+                    elseif spell.target.distance < (8 + spell.target.model_size) then
+                        equip(set_combine(self.getMidnukeSet(), {waist=obi and obi.name or ''}, {waist="Hachirin-no-Obi"}, {waist="Orpheus's Sash"}, self.getMidcastSet(spell)))
+
+                    elseif spell.element == world.day_element or spell.element == world.weather_element then
+                        equip(set_combine(self.getMidnukeSet(), {waist=obi and obi.name or ''}, {waist="Hachirin-no-Obi"}, self.getMidcastSet(spell)))
+
+                    else
+                        equip(set_combine(self.getMidnukeSet(), self.getMidcastSet(spell)))
+
+                    end
 
                 end
 
