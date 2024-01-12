@@ -533,7 +533,7 @@ function pm:load()
     end
 
     self.getRangedSet = function(weapon)
-        local ranged = __statics.sets.ranged[self.mode][weapon or 'Default'] or false
+        local ranged = __statics.sets.ranged[self.mode][weapon] or __statics.sets.ranged[self.mode]['Default'] or false
 
         if ranged then
             local bsets = T(ranged):key_filter(function(slot) return not self.__CONST.SLOTS:contains(slot:lower()) end):sort()
