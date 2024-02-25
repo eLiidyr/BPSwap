@@ -36,7 +36,7 @@ function pm:load()
     self.__CONST    = {}
 
     do -- Add any constant values that can be re-used.
-        self.__CONST.ABILITIES      = S{'JobAbility','CorsairRoll','CorsairShot','Samba','Waltz','Jig','Scholar','Step','Flourish1','Flourish2','Flourish3','Effusion','Rune','Ward'}
+        self.__CONST.ABILITIES      = S{'JobAbility','CorsairRoll','CorsairShot','Samba','Waltz','Jig','Scholar','Step','Flourish1','Flourish2','Flourish3','Effusion','Rune','Ward','BloodPactRage','BloodPactWard'}
         self.__CONST.ELEMENTALWS    = S{'Gust Slash','Cyclone','Energy Steal','Energy Drain','Aeolian Edge','Burning Blade','Red Lotus Blade','Shining Blade','Seraph Blade','Spirits Within','Sanguine Blade','Atonement','Frostbite','Freezebite','Herculean Slash','Cloudsplitter','Primal Rend','Dark Harvest','Shadow of Death','Infernal Scythe','Thunder Thrust','Raiden Thrust','Blade: Teki','Blade: To','Blade: Chi','Blade: Ei','Blade: Yu', 'Tachi: Goten','Tachi: Kagero','Tachi: Jinpu','Tachi: Koki','Shining Strike','Seraph Strike','Flash Nova','Rock Crusher','Earth Crusher','Starburst','Sunburst','Cataclysm','Vidohunir','Garland of Bliss','Omniscience','Flaming Arrow','Hot Shot','Wildfire','Trueflight','Leaden Salute'}
         self.__CONST.SLOTS          = S{'main','sub','range','ammo','head','neck','ear1','ear2','body','hands','ring1','ring2','back','waist','legs','feet','left_ear','right_ear','left_ring','right_ring'}
         self.__CONST.DUMMIES        = {{"Army's Paeon","Army's Paeon II"},{"Scop's Operetta","Puppet's Operetta"},{"Herb Pastoral","Fowl Aubade"}}
@@ -756,7 +756,7 @@ function pm:load()
     self.midcast = function(spell)
 
         if (self.__CONST.ABILITIES:contains(spell.type) or spell.type == 'WeaponSkill') then
-            return
+            return            
         end
 
         if spell.name == 'Ranged' then
@@ -771,23 +771,7 @@ function pm:load()
             end
 
         elseif self.__CONST[spell.type] then
-
-            if self.__CONST[spell.type][1]:contains(spell.name) then
-                equip(set_combine(__statics.sets.midcast[self.__CONST.PHYSICAL], self.getMidcastSet(spell)))
-
-            elseif self.__CONST[spell.type][2]:contains(spell.name) then
-                equip(set_combine(__statics.sets.midcast[self.__CONST.MAGICAL], self.getMidcastSet(spell)))
-
-            elseif self.__CONST[spell.type][3]:contains(spell.name) then
-                equip(set_combine(__statics.sets.midcast[self.__CONST.HYBRID], self.getMidcastSet(spell)))
-
-            elseif self.__CONST[spell.type][4]:contains(spell.name) then
-                equip(set_combine(__statics.sets.midcast[self.__CONST.WARDS], self.getMidcastSet(spell)))
-
-            elseif self.__CONST[spell.type][5]:contains(spell.name) then
-                equip(set_combine(__statics.sets.midcast[self.__CONST.DEBUFFS], self.getMidcastSet(spell)))
-
-            end
+            return
 
         else
             
@@ -813,7 +797,7 @@ function pm:load()
                 if (spell.name):startswith('Indi') then
                     equip(set_combine(__statics.sets.midcast[self.__CONST.INDI], self.getMidcastSet(spell)))
 
-                elseif (spell.name):startswith('Indi') then
+                elseif (spell.name):startswith('Geo') then
                     equip(set_combine(__statics.sets.midcast[self.__CONST.GEO], self.getMidcastSet(spell)))
 
                 end                
@@ -874,7 +858,7 @@ function pm:load()
             equip(self.getEngagedSet())
 
         elseif player.status == 'Resting' then
-            print('resting')
+            equip(__statics.sets.midcast[self.__CONST.RESTING])
 
         else
             equip(self.getIdleSet())
@@ -896,6 +880,27 @@ function pm:load()
     end
 
     self.petMidcast = function(spell)
+        
+        if self.__CONST[spell.type] then
+
+            if self.__CONST[spell.type][1]:contains(spell.name) then
+                equip(set_combine(__statics.sets.midcast[self.__CONST.PHYSICAL], self.getMidcastSet(spell)))
+
+            elseif self.__CONST[spell.type][2]:contains(spell.name) then
+                equip(set_combine(__statics.sets.midcast[self.__CONST.MAGICAL], self.getMidcastSet(spell)))
+
+            elseif self.__CONST[spell.type][3]:contains(spell.name) then
+                equip(set_combine(__statics.sets.midcast[self.__CONST.HYBRID], self.getMidcastSet(spell)))
+
+            elseif self.__CONST[spell.type][4]:contains(spell.name) then
+                equip(set_combine(__statics.sets.midcast[self.__CONST.WARDS], self.getMidcastSet(spell)))
+
+            elseif self.__CONST[spell.type][5]:contains(spell.name) then
+                equip(set_combine(__statics.sets.midcast[self.__CONST.DEBUFFS], self.getMidcastSet(spell)))
+
+            end
+
+        end
 
     end
 
